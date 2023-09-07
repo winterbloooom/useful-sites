@@ -1,0 +1,496 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <title>Tools & Sites</title>
+
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    
+        <style>
+            @font-face {
+                font-family: 'S-CoreDream-3Light';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: 'S-CoreDream-3Light';
+                /* font-weight: 200; */
+            }
+
+            :root {
+                --teal: #54BAB9; /*rgb(84, 186, 185)*/
+                --dark-beige: #E9DAC1; /* rgb(233, 218, 193) */
+                --mid-beige: #F7ECDE; /* rgb(247, 236, 222) */
+                --light-beige: #FBF8F1; /* rgb(251, 248, 241) */
+                --dark-grey: #3f3f3f;
+                --grey: #CCCCCC;
+                --light-grey: #fafafa;
+                --black: #303030;
+                --white: #ffffff;
+            }
+
+            body {
+                padding: 10%;
+            }
+
+            a {
+                text-decoration: none;
+                cursor: pointer;
+                color: black;
+            }
+
+            a:hover {
+                color: var(--teal);
+                font-weight: 600;
+                text-decoration: underline 2px var(--teal);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border-radius: 0.5rem;
+                border-style: hidden;
+            }
+
+            #date, #check {
+                color: var(--dark-grey);
+                text-align: end;
+                margin-bottom: 0.7rem;
+            }
+
+            .line:hover {
+                background-color: var(--light-grey);
+            }
+
+            .line:hover * {
+                color: var(--teal);
+                font-weight: 600;
+            }
+
+            .head {
+                background-color: var(--teal) !important;
+                padding: 0.5rem;
+                font-weight: 600;
+                color: var(--white);
+                text-align: center;
+            }
+
+            .head > td {
+                font-size: 1rem !important;
+            }
+
+            td {
+                padding: 0.8rem 0.8rem;
+                border-bottom: 0.1px solid var(--grey);
+            }
+
+            .category-wrapper {
+                margin-bottom: 1.5rem;
+            }
+
+            .category-level-1 {
+                font-size: 1.6rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+
+            .category-level-2 {
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+
+            .list {
+                margin-bottom: 1rem;
+                border-radius: 1rem;
+            }
+
+            .icon {
+                width: 10%;
+                text-align: center;
+            }
+
+            .name {
+                width: 30%;
+                
+            }
+
+            .description {
+                width: 60%;
+                font-size: 0.8rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="date">
+            📅 Last Update: 2023.09.07.
+        </div>
+
+        <div id="check">
+            ⭐ 자주 사용 😃 매우 좋음 🌏 웹 개발 
+        </div>
+
+        <div class="category-wrapper">
+            <div class="category-level-1">Web Applications</div>
+
+            <div class="list">
+                <table>
+                    <tr class="head">
+                        <td class="icon">Check</td>
+                        <td class="name">Site</td>
+                        <td class="description">Description</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://www.saramin.co.kr/zf_user/tools/character-counter">
+                                사람인 맞춤법 검사기
+                            </a>
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://bbom.org/tools/">
+                                이미지 병합하기
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+                    
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://app.diagrams.net/">
+                                Diagrams
+                            </a>    
+                        </td>
+                        <td class="description">순서도 그리기</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://www.desmos.com/?lang=ko">
+                                Desmos
+                            </a>    
+                        </td>
+                        <td class="description">그래프, 공학용 계산기, 행렬 계산기, 기하학 도구</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://latexeditor.lagrida.com/">
+                                Latex Editor
+                            </a>    
+                        </td>
+                        <td class="description">latex에서 이미지 변환</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://carbon.now.sh/">
+                                carbon
+                            </a>    
+                        </td>
+                        <td class="description">소스코드 이미지/내보내기</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://www.photopea.com/">
+                                Photopea
+                            </a>    
+                        </td>
+                        <td class="description">웹 포토샵</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="https://ezgif.com/">
+                                ezgif
+                            </a>    
+                        </td>
+                        <td class="description">GIF 만들기</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="">
+                                
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="">
+                                
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="">
+                                
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="">
+                                
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="">
+                                
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="">
+                                
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name">
+                            <a href="">
+                                
+                            </a>    
+                        </td>
+                        <td class="description"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="category-wrapper">
+            <div class="category-level-1">Design</div>
+            <div class="category-level-2">Colors</div>
+            <div class="list">
+                <table>
+                    <tr class="head">
+                        <td class="icon">Check</td>
+                        <td class="name">Site</td>
+                        <td class="description">Description</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://coolors.co/palettes/palettes">Coolors</a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://colorhunt.co/">Color Hunt</a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="category-level-2">Icons</div>
+            <div class="list">
+                <table>
+                    <tr class="head">
+                        <td class="icon">Check</td>
+                        <td class="name">Site</td>
+                        <td class="description">Description</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://thenounproject.com/">Noun Project</a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="">Font Awesome</a></td>
+                        <td class="description">Web icons. 회원가입 필요. 무료 리소스 적음</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://fonts.google.com/icons">구글 폰트 아이콘</a></td>
+                        <td class="description">커스터마이징 가능</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://www.flaticon.com/">Flaticon</a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="category-level-2">Images & Illustrations</div>
+            <div class="list">
+                <table>
+                    <tr class="head">
+                        <td class="icon">Check</td>
+                        <td class="name">Site</td>
+                        <td class="description">Description</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://unsplash.com/">Unsplash</a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://pixabay.com/ko/">Pixabay</a></td>
+                        <td class="description">사진, 영상</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://www.pexels.com/ko-kr/">Pexels</a></td>
+                        <td class="description">사진, 영상</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://undraw.co/illustrations">unDraw</a></td>
+                        <td class="description">메인 컬러 지정한 일러스트</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://www.mockmagic.com/">Mock Magic</a></td>
+                        <td class="description">Mockup</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://www.emojiengine.com/ko/keyboard/">Emoji Engine</a></td>
+                        <td class="description">이모지</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://bgjar.com/">BGJar</a></td>
+                        <td class="description">패턴 배경. SVG로 다운 받아 PPT에 넣으면 깨짐</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="category-level-2">Fonts</div>
+            <div class="list">
+                <table>
+                    <tr class="head">
+                        <td class="icon">Check</td>
+                        <td class="name">Site</td>
+                        <td class="description">Description</td>
+                    </tr>
+
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://noonnu.cc/">눈누</a></td>
+                        <td class="description"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href="https://www.dafont.com/">DaFont</a></td>
+                        <td class="description">영문</td>
+                    </tr>
+                    <tr class="line">
+                        <td class="icon"></td>
+                        <td class="name"><a href=""></a></td>
+                        <td class="description"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
