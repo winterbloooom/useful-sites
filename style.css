@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'S-CoreDream-3Light';
+    /* font-weight: 200; */
+}
+
+:root {
+    --teal: #54BAB9; /*rgb(84, 186, 185)*/
+    --dark-beige: #E9DAC1; /* rgb(233, 218, 193) */
+    --mid-beige: #F7ECDE; /* rgb(247, 236, 222) */
+    --light-beige: #FBF8F1; /* rgb(251, 248, 241) */
+    --dark-grey: #3f3f3f;
+    --grey: #CCCCCC;
+    --light-grey: #fafafa;
+    --black: #303030;
+    --white: #ffffff;
+}
+
+body {
+    padding: 5% 10%;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+a:hover {
+    color: var(--teal);
+    font-weight: 600;
+    text-decoration: underline 2px var(--teal);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0.5rem;
+    border-style: hidden;
+    border-bottom: 0.1px solid var(--grey);
+}
+
+#notice {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 1rem;
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.check-wrapper {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem; */
+    flex: 1;
+    margin-right: 10%;
+}
+
+#date, .check {
+    color: var(--dark-grey);
+}
+
+.check {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.line:hover {
+    background-color: var(--light-grey);
+}
+
+.line:hover * {
+    color: var(--teal);
+    font-weight: 600;
+}
+
+.head {
+    background-color: var(--teal) !important;
+    padding: 0.5rem;
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+}
+
+.head > td {
+    font-size: 1rem !important;
+}
+
+td {
+    padding: 0.8rem 0.8rem;
+    border-bottom: 0.1px solid var(--grey);
+}
+
+.page-divide {
+    display: grid;
+    grid-template-columns: 60% 30%;
+    column-gap: 10%;
+}
+
+.category-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.category-level-1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.category-level-2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.list {
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+.icon {
+    width: 10%;
+    text-align: center;
+}
+
+.name {
+    width: 30%;
+    
+}
+
+.description {
+    width: 60%;
+    font-size: 0.8rem;
+}
+
+.palette-single {
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.color {
+    flex: 1;
+    text-align: center;
+    line-height: 3rem; /*palette-single의 height와 동일하게*/
+    font-size: 0.5rem;
+}
+
+.color:hover {
+    cursor: pointer;
+}

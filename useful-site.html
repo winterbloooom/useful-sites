@@ -1,3 +1,12 @@
+<!-- TODO
+HTML + JSON 연결하기
+    https://www.google.com/search?q=html+json+%EC%97%B0%EA%B2%B0&sca_esv=566955665&ei=Xg4LZZqANNeU2roPlcGl2Aw&ved=0ahUKEwiap5ugv7mBAxVXilYBHZVgCcsQ4dUDCBA&uact=5&oq=html+json+%EC%97%B0%EA%B2%B0&gs_lp=Egxnd3Mtd2l6LXNlcnAiEGh0bWwganNvbiDsl7DqsrAyBRAAGIAESKAVUPsIWKcUcAN4AJABAJgBlwGgAfUGqgEDMC43uAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICBhAAGAcYHsICCBAAGAgYBxgewgIIEAAYBRgHGB7CAgwQIRigARjDBBgKGCrCAgoQIRigARjDBBgKwgIHEAAYDRiABMICCBAhGKABGMME4gMEGAAgQYgGAZAGCg&sclient=gws-wiz-serp
+탭 기능\
+color copy backgroundColor RGB -> HEX
+색상표에서 글자 없애고 보이기 토글 기능
+-->
+
+
 <!doctype html>
 <html>
     <head>
@@ -6,491 +15,522 @@
 
         <title>Tools & Sites</title>
 
-        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    
-        <style>
-            @font-face {
-                font-family: 'S-CoreDream-3Light';
-                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
-            }
+        <link rel="stylesheet" href="style.css">
+        <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 
-            * {
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-                font-family: 'S-CoreDream-3Light';
-                /* font-weight: 200; */
+        <script>
+            function copy_code(x) {
+                // console.log(x.style.backgroundColor)
+                navigator.clipboard.writeText(x.innerText)
+                .then(() => {
+                    alert('Color Copied!');
+                })
+                .catch(err => {
+                    console.error('Error in copying text: ', err);
+                });
             }
-
-            :root {
-                --teal: #54BAB9; /*rgb(84, 186, 185)*/
-                --dark-beige: #E9DAC1; /* rgb(233, 218, 193) */
-                --mid-beige: #F7ECDE; /* rgb(247, 236, 222) */
-                --light-beige: #FBF8F1; /* rgb(251, 248, 241) */
-                --dark-grey: #3f3f3f;
-                --grey: #CCCCCC;
-                --light-grey: #fafafa;
-                --black: #303030;
-                --white: #ffffff;
-            }
-
-            body {
-                padding: 10%;
-            }
-
-            a {
-                text-decoration: none;
-                cursor: pointer;
-                color: black;
-            }
-
-            a:hover {
-                color: var(--teal);
-                font-weight: 600;
-                text-decoration: underline 2px var(--teal);
-            }
-
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                border-radius: 0.5rem;
-                border-style: hidden;
-            }
-
-            #date, #check {
-                color: var(--dark-grey);
-                text-align: end;
-                margin-bottom: 0.7rem;
-            }
-
-            .line:hover {
-                background-color: var(--light-grey);
-            }
-
-            .line:hover * {
-                color: var(--teal);
-                font-weight: 600;
-            }
-
-            .head {
-                background-color: var(--teal) !important;
-                padding: 0.5rem;
-                font-weight: 600;
-                color: var(--white);
-                text-align: center;
-            }
-
-            .head > td {
-                font-size: 1rem !important;
-            }
-
-            td {
-                padding: 0.8rem 0.8rem;
-                border-bottom: 0.1px solid var(--grey);
-            }
-
-            .category-wrapper {
-                margin-bottom: 1.5rem;
-            }
-
-            .category-level-1 {
-                font-size: 1.6rem;
-                font-weight: 700;
-                margin-bottom: 0.5rem;
-            }
-
-            .category-level-2 {
-                font-size: 1.2rem;
-                font-weight: 700;
-                margin-bottom: 0.5rem;
-            }
-
-            .list {
-                margin-bottom: 1rem;
-                border-radius: 1rem;
-            }
-
-            .icon {
-                width: 10%;
-                text-align: center;
-            }
-
-            .name {
-                width: 30%;
-                
-            }
-
-            .description {
-                width: 60%;
-                font-size: 0.8rem;
-            }
-        </style>
+        </script>
     </head>
 
     <body>
-        <div id="date">
-            📅 Last Update: 2023.09.07.
-        </div>
+        <div id="notice">
+            <div class="check-wrapper">
+                <div class="check">⭐ 자주 사용</div>
+                <div class="check">😃 매우 좋음</div>
+                <div class="check">🌏 웹 개발 </div>
+            </div>
 
-        <div id="check">
-            ⭐ 자주 사용 😃 매우 좋음 🌏 웹 개발 
-        </div>
-
-        <div class="category-wrapper">
-            <div class="category-level-1">Web Applications</div>
-
-            <div class="list">
-                <table>
-                    <tr class="head">
-                        <td class="icon">Check</td>
-                        <td class="name">Site</td>
-                        <td class="description">Description</td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://www.saramin.co.kr/zf_user/tools/character-counter">
-                                사람인 맞춤법 검사기
-                            </a>
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://bbom.org/tools/">
-                                이미지 병합하기
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-                    
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://app.diagrams.net/">
-                                Diagrams
-                            </a>    
-                        </td>
-                        <td class="description">순서도 그리기</td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://www.desmos.com/?lang=ko">
-                                Desmos
-                            </a>    
-                        </td>
-                        <td class="description">그래프, 공학용 계산기, 행렬 계산기, 기하학 도구</td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://latexeditor.lagrida.com/">
-                                Latex Editor
-                            </a>    
-                        </td>
-                        <td class="description">latex에서 이미지 변환</td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://carbon.now.sh/">
-                                carbon
-                            </a>    
-                        </td>
-                        <td class="description">소스코드 이미지/내보내기</td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://www.photopea.com/">
-                                Photopea
-                            </a>    
-                        </td>
-                        <td class="description">웹 포토샵</td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="https://ezgif.com/">
-                                ezgif
-                            </a>    
-                        </td>
-                        <td class="description">GIF 만들기</td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="">
-                                
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="">
-                                
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="">
-                                
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="">
-                                
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="">
-                                
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="">
-                                
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name">
-                            <a href="">
-                                
-                            </a>    
-                        </td>
-                        <td class="description"></td>
-                    </tr>
-                </table>
+            <div id="date">
+                📅 Last Update: 2023.09.07.
             </div>
         </div>
 
-        <div class="category-wrapper">
-            <div class="category-level-1">Design</div>
-            <div class="category-level-2">Colors</div>
-            <div class="list">
-                <table>
-                    <tr class="head">
-                        <td class="icon">Check</td>
-                        <td class="name">Site</td>
-                        <td class="description">Description</td>
-                    </tr>
+        <div class="page-divide">
+            <dic id="sites-wrapper">
+                <div class="category-wrapper">
+                    <div class="category-level-1">Web Applications</div>
+        
+                    <div class="list">
+                        <table>
+                            <tr class="head">
+                                <td class="icon">Check</td>
+                                <td class="name">Site</td>
+                                <td class="description">Description</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://www.saramin.co.kr/zf_user/tools/character-counter">사람인 맞춤법 검사기</a>
+                                </td>
+                                <td class="description"></td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://bbom.org/tools/">이미지 병합하기</a>    
+                                </td>
+                                <td class="description"></td>
+                            </tr>
 
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://coolors.co/palettes/palettes">Coolors</a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://colorhunt.co/">Color Hunt</a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                </table>
-            </div>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.lipsum.com/">Lorem Ipsum 생성기</a></td>
+                                <td class="description"></td>
+                            </tr>
+                            
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://app.diagrams.net/">Diagrams</a>    
+                                </td>
+                                <td class="description">순서도 그리기</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://www.desmos.com/?lang=ko">Desmos</a>    
+                                </td>
+                                <td class="description">그래프, 공학용 계산기, 행렬 계산기, 기하학 도구</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://latexeditor.lagrida.com/">Latex Editor</a>    
+                                </td>
+                                <td class="description">latex에서 이미지 변환</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://carbon.now.sh/">carbon</a>    
+                                </td>
+                                <td class="description">소스코드 이미지/내보내기</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://www.photopea.com/">Photopea</a>    
+                                </td>
+                                <td class="description">웹 포토샵</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://ezgif.com/">ezgif</a>    
+                                </td>
+                                <td class="description">GIF 만들기</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://www.brandcrowd.com/logo-maker">Logo Maker</a>    
+                                </td>
+                                <td class="description"></td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name">
+                                    <a target="_blank" href="https://mybrandnewlogo.com/ko">mybrandnewlogo</a>    
+                                </td>
+                                <td class="description"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        
+                <div class="category-wrapper">
+                    <div class="category-level-1">Design</div>
+                    <div class="category-level-2">Colors</div>
+                    <div class="list">
+                        <table>
+                            <tr class="head">
+                                <td class="icon">Check</td>
+                                <td class="name">Site</td>
+                                <td class="description">Description</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://coolors.co/palettes/palettes">Coolors</a></td>
+                                <td class="description">색조합, 그라디언트, 색 정보</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://colorhunt.co/">Color Hunt</a></td>
+                                <td class="description"></td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="http://khroma.co/train/">크로마</a></td>
+                                <td class="description">사용자가 선택한 색상 기준으로 컬러조합 & 팔레트 생성</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://2colors.colorion.co/">투 컬러 콤비네이션</a></td>
+                                <td class="description"></td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://uigradients.com/#Influenza">uiGradients</a></td>
+                                <td class="description"></td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://webgradients.com/">WebGradients</a></td>
+                                <td class="description">2색 그라디언트 조합</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.webdesignrankings.com/resources/lolcolors/">lol colors</a></td>
+                                <td class="description"></td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://flatuicolors.com/">Flat UI colors</a></td>
+                                <td class="description">UI에 사용할 수 있도록 밝기 조절된 다색 조합 제공</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.design-seeds.com/">디자인 씨드</a></td>
+                                <td class="description">사진에서 추출한 색상</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.colorhexa.com/">컬러헥사</a></td>
+                                <td class="description">특정 색 입력 시 분석 제공</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">🌏</td>
+                                <td class="name"><a target="_blank" href="https://cssgradient.io/gradient-backgrounds/">Grabient</a></td>
+                                <td class="description">그래디언트</td>
+                            </tr>
+                        </table>
+                    </div>
+        
+                    <div class="category-level-2">Icons</div>
+                    <div class="list">
+                        <table>
+                            <tr class="head">
+                                <td class="icon">Check</td>
+                                <td class="name">Site</td>
+                                <td class="description">Description</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://thenounproject.com/">Noun Project</a></td>
+                                <td class="description">모노톤</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">⭐🌏</td>
+                                <td class="name"><target="_blank" a href="">Font Awesome</a></td>
+                                <td class="description">회원가입&링크 발급 필요. 무료 리소스 적음. 모노톤</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">🌏</td>
+                                <td class="name"><a target="_blank" href="https://fonts.google.com/icons">구글 폰트 아이콘</a></td>
+                                <td class="description">커스터마이징 가능. 리소스 적음. 모노톤</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.flaticon.com/">Flaticon</a></td>
+                                <td class="description">SVG 불가</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">🌏</td>
+                                <td class="name"><a target="_blank" href="https://googlefonts.github.io/noto-emoji-animation/">Animated Emoji</a></td>
+                                <td class="description">움직이는 이모지. GIF 다운도 가능</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.manypixels.co/free-icons">manypixels - icon</a></td>
+                                <td class="description">색상 지정 가능</td>
+                            </tr>
+                        </table>
+                    </div>
+        
+                    <div class="category-level-2">Images & Illustrations</div>
+                    <div class="list">
+                        <table>
+                            <tr class="head">
+                                <td class="icon">Check</td>
+                                <td class="name">Site</td>
+                                <td class="description">Description</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://unsplash.com/">Unsplash</a></td>
+                                <td class="description"></td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://pixabay.com/ko/">Pixabay</a></td>
+                                <td class="description">사진, 영상</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.pexels.com/ko-kr/">Pexels</a></td>
+                                <td class="description">사진, 영상</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://undraw.co/illustrations">unDraw</a></td>
+                                <td class="description">메인 컬러 지정한 일러스트</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://www.mockmagic.com/">Mock Magic</a></td>
+                                <td class="description">Mockup</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.emojiengine.com/ko/keyboard/">Emoji Engine</a></td>
+                                <td class="description">이모지</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://bgjar.com/">BGJar</a></td>
+                                <td class="description">패턴 배경. SVG로 다운 받아 PPT에 넣으면 깨짐</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon">⭐</td>
+                                <td class="name"><a target="_blank" href="https://www.manypixels.co/gallery">manypixels - 일러스트</a></td>
+                                <td class="description">색상 지정 가능</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.humaaans.com/">휴먼즈</a></td>
+                                <td class="description">사람 일러스트, 해상도 낮은 PNG</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.magicpattern.design/tools">MagicPattern</a></td>
+                                <td class="description">배경용 패턴 생성</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://iradesign.io/">Ira Design</a></td>
+                                <td class="description">사람 일러스트. 색상 지정 가능</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://notioncovergenerator.com/">Notion Cover Generator</a></td>
+                                <td class="description">노션 커버 이미지 제작</td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://covercons.vercel.app/">Covercons</a></td>
+                                <td class="description">아이콘을 메인으로 한 커버 이미지 제작</td>
+                            </tr>
+                        </table>
+                    </div>
+        
+                    <div class="category-level-2">Fonts</div>
+                    <div class="list">
+                        <table>
+                            <tr class="head">
+                                <td class="icon">Check</td>
+                                <td class="name">Site</td>
+                                <td class="description">Description</td>
+                            </tr>
+        
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://noonnu.cc/">눈누</a></td>
+                                <td class="description"></td>
+                            </tr>
+                            <tr class="line">
+                                <td class="icon"></td>
+                                <td class="name"><a target="_blank" href="https://www.dafont.com/">DaFont</a></td>
+                                <td class="description">영문</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </dic>
 
-            <div class="category-level-2">Icons</div>
-            <div class="list">
-                <table>
-                    <tr class="head">
-                        <td class="icon">Check</td>
-                        <td class="name">Site</td>
-                        <td class="description">Description</td>
-                    </tr>
+            <dic id="colors-wrapper">
+                <div class="category-level-1">Color Palettes</div>
 
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://thenounproject.com/">Noun Project</a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="">Font Awesome</a></td>
-                        <td class="description">Web icons. 회원가입 필요. 무료 리소스 적음</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://fonts.google.com/icons">구글 폰트 아이콘</a></td>
-                        <td class="description">커스터마이징 가능</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://www.flaticon.com/">Flaticon</a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                </table>
-            </div>
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #3F98AA;">3F98AA</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #2B3F58;">2B3F58</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FB977F;">FB977F</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FDECDA;">FDECDA</div>
+                </div>
 
-            <div class="category-level-2">Images & Illustrations</div>
-            <div class="list">
-                <table>
-                    <tr class="head">
-                        <td class="icon">Check</td>
-                        <td class="name">Site</td>
-                        <td class="description">Description</td>
-                    </tr>
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FF9F98;">FF9F98</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FFCFCB;">FFCFCB</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FBF2ED;">FBF2ED</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #98B6EC;">98B6EC</div>
+                </div>
 
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://unsplash.com/">Unsplash</a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://pixabay.com/ko/">Pixabay</a></td>
-                        <td class="description">사진, 영상</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://www.pexels.com/ko-kr/">Pexels</a></td>
-                        <td class="description">사진, 영상</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://undraw.co/illustrations">unDraw</a></td>
-                        <td class="description">메인 컬러 지정한 일러스트</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://www.mockmagic.com/">Mock Magic</a></td>
-                        <td class="description">Mockup</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://www.emojiengine.com/ko/keyboard/">Emoji Engine</a></td>
-                        <td class="description">이모지</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://bgjar.com/">BGJar</a></td>
-                        <td class="description">패턴 배경. SVG로 다운 받아 PPT에 넣으면 깨짐</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                </table>
-            </div>
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #283557;">283557</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #2D4583;">2D4583</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #3E60C1;">3E60C1</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #5A82FC;">5A82FC</div>
+                </div>
 
-            <div class="category-level-2">Fonts</div>
-            <div class="list">
-                <table>
-                    <tr class="head">
-                        <td class="icon">Check</td>
-                        <td class="name">Site</td>
-                        <td class="description">Description</td>
-                    </tr>
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #35312E;">35312E</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FACB5F;">FACB5F</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F8F3ED;">F8F3ED</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #B18264;">B18264</div>
+                </div>
 
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://noonnu.cc/">눈누</a></td>
-                        <td class="description"></td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href="https://www.dafont.com/">DaFont</a></td>
-                        <td class="description">영문</td>
-                    </tr>
-                    <tr class="line">
-                        <td class="icon"></td>
-                        <td class="name"><a href=""></a></td>
-                        <td class="description"></td>
-                    </tr>
-                </table>
-            </div>
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F4B3CB;">F4B3CB</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F3DCB0;">F3DCB0</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #B4F2DD;">B4F2DD</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #B2CAF0;">B2CAF0</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #45BAEF;">45BAEF</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #5FBFBB;">5FBFBB</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #B5DAD2;">B5DAD2</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FEB6B7;">FEB6B7</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FAE4D9;">FAE4D9</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #014656;">014656</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #00A2AD;">00A2AD</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F8F7F5;">F8F7F5</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FDD65D;">FDD65D</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F6A800;">F6A800</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #768463;">768463</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #A7AA63;">A7AA63</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FCCE6E;">FCCE6E</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FFBE6E;">FFBE6E</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #EC7463;">EC7463</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FFC855;">FFC855</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #EE8559;">EE8559</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #80D1E4;">80D1E4</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #8BC65A;">8BC65A</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #736759;">736759</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FF9F1C;">FF9F1C</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FFBF68;">FFBF68</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FFFFFF;">FFFFFF</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #CBF4F0;">CBF4F0</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #2EC5B6;">2EC5B6</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #806f43;">806f43</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #b02b11;">b02b11</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #f86e44;">f86e44</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #fdf5f2;">fdf5f2</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #fdfbf5;">fdfbf5</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #014F99;">014F99</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #386FA7;">386FA7</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #BEBFC1;">BEBFC1</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #E9EAEC;">E9EAEC</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F16824;">F16824</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #43327A;">43327A</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #6338E0;">6338E0</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #895EF6;">895EF6</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #AB8DFD;">AB8DFD</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #D6CAFC;">D6CAFC</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #2BBBD3;">2BBBD3</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #B90003;">B90003</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #EE6A53;">EE6A53</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FF9C85;">FF9C85</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F6F5F3;">F6F5F3</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FBCB0F;">FBCB0F</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #18451A;">18451A</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #246430;">246430</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #E8E7CB;">E8E7CB</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #024089;">024089</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #004DA9;">004DA9</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F9841A;">F9841A</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FFA300;">FFA300</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FEC619;">FEC619</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #E0E3E8;">E0E3E8</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FC9F66;">FC9F66</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #F9C356;">F9C356</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FAE39D;">FAE39D</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #B8E0E2;">B8E0E2</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #96C5D7;">96C5D7</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #85A9CD;">85A9CD</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #A8B53F;">A8B53F</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #CBCF7A;">CBCF7A</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FFD778;">FFD778</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FCA788;">FCA788</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #FD8052;">FD8052</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #99302C;">99302C</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #031b28;">031B28</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #0C2939;">0C2939</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #083248;">083248</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #DCA958;">DCA958</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #E69C31;">E69C31</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #8C0E0F;">8C0E0F</div>
+                </div>
+
+                <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #0C4B43;">0C4B43</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #45A215;">45A215</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #EFE8E2;">EFE8E2</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #D6C6B9;">D6C6B9</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #BEB4B3;">BEB4B3</div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #565755;">565755</div>
+                </div>
+
+                <!-- <div class="palette-single">
+                    <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                    <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                </div> -->
+            </dic>
         </div>
+        
     </body>
 </html>
