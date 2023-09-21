@@ -73,6 +73,7 @@ table {
 .check {
     display: inline-block;
     margin-right: 1rem;
+    /* color: red; */
 }
 
 .line:hover {
@@ -159,4 +160,35 @@ td {
 
 .color:hover {
     cursor: pointer;
+}
+
+
+@media (max-width: 575px) {
+    .check-wrapper {
+        display: none;
+    }
+
+    .page-divide {
+        display: block;
+    }
+
+    .category-level-1 {
+        font-size: 1.4rem;
+    }
+
+    .icon {
+        width: 5%;
+    }
+
+    td {
+        padding: 0.5rem;
+    }
+    
+    .description {
+        display: none;
+    }
+
+    .list {
+        margin-bottom: 3rem;
+    }
 }
