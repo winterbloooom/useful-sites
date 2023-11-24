@@ -29,7 +29,7 @@ function showPalettes(palettes) {
                 { className: "color" },
                 { textContent: color }
             )
-            color_div.style.backgroundColor = "#" + color;
+            color_div.style.backgroundColor = "#" + color.toUpperCase();
             color_div.onclick = copy_code;
             colors.push(color_div);
         });
