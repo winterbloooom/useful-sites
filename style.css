@@ -103,9 +103,6 @@ td {
 }
 
 .page-divide {
-    display: grid;
-    grid-template-columns: 60% 30%;
-    column-gap: 10%;
 }
 
 .category-wrapper {

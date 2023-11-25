@@ -1,0 +1,109 @@
+{
+    "utils": [
+        {
+            "name": "사람인 맞춤법 검사기",
+            "url": "https://www.saramin.co.kr/zf_user/tools/character-counter",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "이미지 병합하기",
+            "url": "https://bbom.org/tools/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Diagrams",
+            "url": "https://app.diagrams.net/",
+            "desc": "순서도 그리기",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Lorem Ipsum 생성기",
+            "url": "https://www.lipsum.com/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Desmos",
+            "url": "https://www.desmos.com/?lang=ko",
+            "desc": "그래프, 공학용 계산기, 행렬 계산기, 기하학 도구",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Latex Editor",
+            "url": "https://latexeditor.lagrida.com/",
+            "desc": "latex에서 이미지 변환",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "carbon",
+            "url": "https://carbon.now.sh/",
+            "desc": "소스코드 이미지/내보내기",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Photopea",
+            "url": "https://www.photopea.com/",
+            "desc": "웹 포토샵",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "ezgif",
+            "url": "https://ezgif.com/",
+            "desc": "GIF 만들기",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Logo Maker",
+            "url": "https://www.brandcrowd.com/logo-maker",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "mybrandnewlogo",
+            "url": "https://mybrandnewlogo.com/ko",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        }
+    ],
+
+    "icons": [
+        {
+            "name": "Noun Project",
+            "url": "https://thenounproject.com/",
+            "desc": "모노톤 아이콘. SVG 다운로드 가능",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "Font Awesome",
+            "url": "https://fontawesome.com/",
+            "desc": "회원가입&링크 발급 필요. 무료 리소스 적음. 모노톤",
+            "pick": {"frequently": true, "good": false, "web": true}
+        },
+        {
+            "name": "구글 폰트 아이콘",
+            "url": "https://fonts.google.com/icons",
+            "desc": "커스터마이징 가능. 리소스 적음. 모노톤",
+            "pick": {"frequently": false, "good": false, "web": true}
+        },
+        {
+            "name": "Flaticon",
+            "url": "https://www.flaticon.com/",
+            "desc": "커스터마이징 가능. SVG 유료.",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "manypixels - icon",
+            "url": "https://www.manypixels.co/free-icons",
+            "desc": "색상 지정 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Animated Emoji",
+            "url": "https://googlefonts.github.io/noto-emoji-animation/",
+            "desc": "움직이는 이모지. GIF 다운도 가능",
+            "pick": {"frequently": false, "good": true, "web": true}
+        }
+    ]
+}
