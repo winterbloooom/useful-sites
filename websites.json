@@ -68,6 +68,75 @@
         }
     ],
 
+    "colors": [
+        {
+            "name": "Coolors",
+            "url": "https://coolors.co/palettes/palettes",
+            "desc": "색조합, 그라디언트, 색 정보 등",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "Color Hunt",
+            "url": "https://colorhunt.co/",
+            "desc": "",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "크로마",
+            "url": "http://khroma.co/train/",
+            "desc": "사용자가 선택한 색상 기준으로 컬러조합 & 팔레트 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "투 컬러 콤비네이션",
+            "url": "https://2colors.colorion.co/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "uiGradients",
+            "url": "https://uigradients.com/#Influenza",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "WebGradients",
+            "url": "https://webgradients.com/",
+            "desc": "2색 그라디언트 조합",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "lol colors",
+            "url": "https://www.webdesignrankings.com/resources/lolcolors/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Flat UI colors",
+            "url": "https://flatuicolors.com/",
+            "desc": "UI에 사용할 수 있도록 밝기 조절된 다색 조합 제공",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "컬러헥사",
+            "url": "https://www.colorhexa.com/",
+            "desc": "특정 색 입력 시 색상 분석",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "디자인 씨드",
+            "url": "https://www.design-seeds.com/",
+            "desc": "사진에서 추출한 색상 조합 제공",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Grabient",
+            "url": "https://cssgradient.io/gradient-backgrounds/",
+            "desc": "2-3가지 색상의 그래디언트 및 해당 CSS 코드",
+            "pick": {"frequently": false, "good": false, "web": true}
+        }
+    ],
+
     "icons": [
         {
             "name": "Noun Project",
@@ -94,6 +163,12 @@
             "pick": {"frequently": true, "good": true, "web": false}
         },
         {
+            "name": "Emoji Engine",
+            "url": "https://www.emojiengine.com/ko/keyboard/",
+            "desc": "Emoji",
+            "pick": {"frequently": true, "good": false, "web": false}
+        },
+        {
             "name": "manypixels - icon",
             "url": "https://www.manypixels.co/free-icons",
             "desc": "색상 지정 가능",
@@ -104,6 +179,103 @@
             "url": "https://googlefonts.github.io/noto-emoji-animation/",
             "desc": "움직이는 이모지. GIF 다운도 가능",
             "pick": {"frequently": false, "good": true, "web": true}
+        }
+    ],
+
+    "assets": [
+        {
+            "name": "Unsplash",
+            "url": "https://unsplash.com/",
+            "desc": "감성 사진 위주",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "Pixabay",
+            "url": "https://pixabay.com/",
+            "desc": "사진 & 영상",
+            "pick": {"frequently": true, "good": false, "web": false}
+        },
+        {
+            "name": "Pexels",
+            "url": "https://www.pexels.com/ko-kr/",
+            "desc": "사진 & 영상",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "unDraw",
+            "url": "https://undraw.co/illustrations",
+            "desc": "일러스트. 메인 컬러 지정 가능. 수 적음.",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "BGJar",
+            "url": "https://bgjar.com/",
+            "desc": "패턴 배경. SVG로 다운 받아 PPT에 넣으면 깨짐",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "manypixels - 일러스트",
+            "url": "https://www.manypixels.co/gallery",
+            "desc": "일러스트. 메인 컬러 지정 가능",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        
+        {
+            "name": "MagicPattern",
+            "url": "https://www.magicpattern.design/tools",
+            "desc": "배경용 패턴 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Ira Design",
+            "url": "https://iradesign.io/",
+            "desc": "사람 일러스트. 색상 지정 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Notion Cover Generator",
+            "url": "https://notioncovergenerator.com/",
+            "desc": "노션 커버 이미지 제작",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "Covercons",
+            "url": "https://covercons.vercel.app/",
+            "desc": "아이콘을 메인으로 한 커버 이미지 제작",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "휴먼즈",
+            "url": "https://www.humaaans.com/",
+            "desc": "사람 일러스트, 해상도 낮은 PNG",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Mock Magic",
+            "url": "https://www.mockmagic.com/",
+            "desc": "Mockup",
+            "pick": {"frequently": false, "good": true, "web": false}
+        }
+    ],
+
+    "fonts": [
+        {
+            "name": "눈누",
+            "url": "https://noonnu.cc/",
+            "desc": "무료 폰트 모음",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "DaFont",
+            "url": "https://www.dafont.com/",
+            "desc": "English",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Google Fonts",
+            "url": "https://fonts.google.com/",
+            "desc": "all languages",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
     ]
 }

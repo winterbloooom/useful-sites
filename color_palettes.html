@@ -4,19 +4,97 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <title>Tools & Sites</title>
+        <title>Save Your Time!</title>
 
         <link rel="stylesheet" href="style.css">
-        <script src="./script.js"></script>
     </head>
 
     <body>
-        <div id="colors-wrapper">
-            <div class="category-level-1">Color Palettes</div>
-            <!-- <div class="palette-single">
-                <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
-                <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
-            </div> -->
+        <div id="header" class="container">
+            <div id="header-logo">
+                <img src="./eagle.gif">
+                <span>Save Your Time!</span>
+            </div>
+            <div id="header-menu">
+                <a class="menu-page" href="./useful-site.html"><div>Utils</div></a>
+                <a class="menu-page" href="./color_palettes.html"><div>Color Palettes</div></a>
+                <a class="menu-page" href="./font_collection.html"><div>Fonts</div></a>
+            </div>
         </div>
+
+        <div id="main" class="container">
+            <div id="colors-wrapper">
+                <div id="colors-2">
+                    <!-- <div class="palette-single">
+                        <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                        <div class="color" onclick='copy_code(this)' style="background-color: #;"></div>
+                    </div> -->
+                </div>
+                <div id="colors-4"></div>
+                <div id="colors-5"></div>
+            </div>
+        </div>
+        
     </body>
+
+    <script>
+        function copy_code(event) {
+            color = event.target.innerText;
+            navigator.clipboard.writeText(event.target.innerText)
+            .then(() => {
+                alert('Color Copied: #' + color);
+            })
+            .catch(err => {
+                console.error('Error in copying text: ', err);
+            });
+        }
+
+        function loadPalettes() {
+            return fetch("./palettes.json")
+                .then((res) => res.json())
+                .then((json) => json.palettes);
+        }
+
+
+        function showPalettes(palettes) {
+            const container = document.querySelector("#colors-wrapper");
+            const colors_2 = document.querySelector("#colors-wrapper > #colors-2");
+            const colors_3 = document.querySelector("#colors-wrapper > #colors-3");
+            const colors_4 = document.querySelector("#colors-wrapper > #colors-4");
+            const colors_5 = document.querySelector("#colors-wrapper > #colors-5");
+
+            palettes.forEach(pal => {
+                single_pal = Object.assign(
+                    document.createElement('div'),
+                    { className: "palette-single" }
+                )
+                var colors = []
+                pal.forEach(color => {
+                    color_div = Object.assign(
+                        document.createElement('div'),
+                        { className: "color" },
+                        { textContent: color }
+                    )
+                    color_div.style.backgroundColor = "#" + color.toUpperCase();
+                    color_div.onclick = copy_code;
+                    colors.push(color_div);
+                });
+                colors.forEach(color => {
+                    single_pal.appendChild(color);
+                })
+                // container.appendChild(single_pal)
+                if (pal.length <= 2) {
+                    colors_2.appendChild(single_pal);
+                } else if (pal.length <= 4) {
+                    colors_4.appendChild(single_pal);
+                } else {
+                    colors_5.appendChild(single_pal);
+                }
+            });
+        }
+
+        loadPalettes().then((palettes) => {
+            showPalettes(palettes);
+        });
+    </script>
 </html>

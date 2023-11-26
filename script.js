@@ -1,60 +1,22 @@
-function copy_code(event) {
-    color = event.target.innerText;
-    navigator.clipboard.writeText(event.target.innerText)
-    .then(() => {
-        alert('Color Copied: #' + color);
-    })
-    .catch(err => {
-        console.error('Error in copying text: ', err);
-    });
-}
-
-function loadPalettes() {
-    return fetch("./palettes.json")
-        .then((res) => res.json())
-        .then((json) => json.palettes);
-}
-
-function loadUtils() {
+/**
+ * Load array of websites from json file.
+ * @param {string} category - Which category to load objects. Be sure that it should be exactly same with name of array object in json file.
+ * @returns list of websites in `category` object
+ */
+function loadWebsites(category) {
     return fetch("./websites.json")
         .then((res) => res.json())
-        .then((json) => json.utils);
+        .then((json) => json[category]);
 }
 
-function loadIcons() {
-    return fetch("./websites.json")
-        .then((res) => res.json())
-        .then((json) => json.icons);
-}
 
-function showPalettes(palettes) {
-    const container = document.querySelector("#colors-wrapper");
-    palettes.forEach(pal => {
-        single_pal = Object.assign(
-            document.createElement('div'),
-            { className: "palette-single" }
-        )
-        var colors = []
-        pal.forEach(color => {
-            color_div = Object.assign(
-                document.createElement('div'),
-                { className: "color" },
-                { textContent: color }
-            )
-            color_div.style.backgroundColor = "#" + color.toUpperCase();
-            color_div.onclick = copy_code;
-            colors.push(color_div);
-        });
-        colors.forEach(color => {
-            single_pal.appendChild(color)
-        })
-        container.appendChild(single_pal)
-    });
-}
-
-function showWebsites(utils, container_id) {
-    const container = document.querySelector(container_id);
-    utils.forEach(util => {
+/**
+ * Insert rows in table
+ * @param {Array} websites - array of website objects from json file
+ * @param {Promise} container - table to insert rows
+ */
+function showWebsites(websites, container) {
+    websites.forEach(website => {
         line_tr = Object.assign(
             document.createElement('tr'),
             { className: "line" }
@@ -63,23 +25,23 @@ function showWebsites(utils, container_id) {
             document.createElement('td'),
             { className: "pick" }
         );
-        pick_td.innerText += util.pick.frequently ? "⭐" : "";
-        pick_td.innerText += util.pick.good ? "👍" : "";
-        pick_td.innerText += util.pick.web ? "🌏" : "";
+        pick_td.innerText += website.pick.frequently ? "⭐" : "";
+        pick_td.innerText += website.pick.good ? "👍" : "";
+        pick_td.innerText += website.pick.web ? "🌏" : "";
         name_td = Object.assign(
             document.createElement('td'),
             { className: "name" }
         );
         link_td = Object.assign(
             document.createElement('a'),
-            { href: util.url },
-            { innerText: util.name },
+            { href: website.url },
+            { innerText: website.name },
             { target: "_blank"}
         );
         desc_td = Object.assign(
             document.createElement('td'),
             { className: "description" },
-            { innerText: util.desc }
+            { innerText: website.desc }
         );
         name_td.appendChild(link_td);
         line_tr.appendChild(pick_td);
@@ -89,17 +51,46 @@ function showWebsites(utils, container_id) {
     });
 }
 
-loadIcons().then((utils) => {
-    showWebsites(utils, "#icons-table");
-});
 
-loadUtils().then((utils) => {
-    showWebsites(utils, "#websites-table");
-});
+function callLoader(name, activeContent) {
+    var pos = name.indexOf("_") + 1;
+    name = name.substring(pos);
+
+    loadWebsites(name).then((websites) => {
+        showWebsites(websites, activeContent);
+    })
+}
 
 
+function showActivateTab() {
+    const tabList = document.querySelectorAll("#category-tab > .tab-item");
+    const table = document.querySelector("#category-contents > table > tbody");
+    var tableRows;
 
-loadPalettes().then((palettes) => {
-    showPalettes(palettes);
-});
+    for(var i=0; i<tabList.length; i++) {
+        tabList[i].addEventListener("click", function(event) {
+            event.preventDefault();
 
+            // remove is-on class from tabs
+            for(var j=0; j<tabList.length; j++) {
+                tabList[j].classList.remove("is-on");
+            }
+            this.classList.add("is-on");
+
+            // remove all rows exist
+            tableRows = document.querySelectorAll("#category-contents .line");
+            for (var j=0; j<tableRows.length; j++) {
+                tableRows[j].remove();
+            }
+
+            // name of tab
+            var tabName = this.children[1].textContent;
+            callLoader(tabName, table);
+        });
+    }
+
+    // initializae
+    callLoader("utils", table);
+}
+
+showActivateTab();

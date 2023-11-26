@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <title>Save Your Time!</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="header" class="container">
+            <div id="header-logo">
+                <img src="./eagle.gif">
+                <span>Save Your Time!</span>
+            </div>
+            <div id="header-menu">
+                <a class="menu-page" href="./useful-site.html"><div>Utils</div></a>
+                <a class="menu-page" href="./color_palettes.html"><div>Color Palettes</div></a>
+                <a class="menu-page" href="./font_collection.html"><div>Fonts</div></a>
+            </div>
+        </div>
+
+        <div id="main" class="container">
+            <div id="font-collection-layout">
+                <!-- <div class="font-single">
+                    <div class="name"><a href=""></a></div>
+                    <div class="tag"></div>
+                    <div class="description"></div>
+                </div> -->
+            </div>
+        </div>
+    </body>
+
+    <script>
+        function loadFonts() {
+            return fetch("./fonts.json")
+                .then((res) => res.json())
+                .then((json) => json.fonts);
+        }
+
+        function showFonts(fonts) {
+            const container = document.querySelector("#font-collection-layout");
+
+            fonts.forEach(font => {
+                font_single = Object.assign(
+                    document.createElement('div'),
+                    { className: "font-single" }
+                )
+                
+                font_name = Object.assign(
+                    document.createElement('div'),
+                    { className: "name" }
+                );
+
+                link = Object.assign(
+                    document.createElement('a'),
+                    { href: font.url },
+                    { innerText: font.name },
+                    { target: "_blank"}
+                );
+
+                tag = Object.assign(
+                    document.createElement('div'),
+                    { className: "tag" },
+                    { innerText: font.tag }
+                );
+
+                desc = Object.assign(
+                    document.createElement('div'),
+                    { className: "description" },
+                    { innerText: font.desc }
+                );
+
+                font_name.appendChild(link);
+                font_single.appendChild(font_name);
+                font_single.appendChild(tag);
+                font_single.appendChild(desc);
+                container.appendChild(font_single);
+            });
+        }
+
+        loadFonts().then((fonts) => {
+            console.log(fonts);
+            showFonts(fonts);
+        });
+    </script>
+</html>

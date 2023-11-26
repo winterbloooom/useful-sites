@@ -1,0 +1,82 @@
+{
+    "fonts": [
+        {
+            "name": "Pretendard",
+            "url": "https://cactus.tistory.com/306",
+            "tag": "고딕",
+            "desc": "굵기 다양. PPT의 기본 글꼴로 쓰기 매우 무난하고 깔끔함."
+        },
+        {
+            "name": "Noto Sans",
+            "url": "https://fonts.google.com/noto/specimen/Noto+Sans+KR",
+            "tag": "고딕",
+            "desc": "웹 및 PPT에 사용하기 깔끔함."
+        },
+        {
+            "name": "나눔고딕",
+            "url": "https://hangeul.naver.com/font/nanum",
+            "tag": "고딕",
+            "desc": "기본 타입이 굵은 편"
+        },
+        {
+            "name": "나눔바른고딕",
+            "url": "https://hangeul.naver.com/font/nanum",
+            "tag": "고딕",
+            "desc": ""
+        },
+        {
+            "name": "나눔스퀘어",
+            "url": "https://hangeul.naver.com/font/nanum",
+            "tag": "고딕",
+            "desc": "각짐이 있는 나눔체"
+        },
+        {
+            "name": "나눔스퀘어 라운드",
+            "url": "https://hangeul.naver.com/font/nanum",
+            "tag": "고딕",
+            "desc": "동글동글한 나눔스퀘어"
+        },
+        {
+            "name": "나눔고딕 D2Coding",
+            "url": "https://hangeul.naver.com/font/nanum",
+            "tag": "코딩",
+            "desc": "글자의 가로 길이 동일. 코드 입력 및 터미널 글꼴."
+        },
+        {
+            "name": "G마켓 산스",
+            "url": "http://company.gmarket.co.kr/company/about/company/company--font.asp",
+            "tag": "고딕",
+            "desc": "캐주얼한 PPT 기본 글꼴로 괜찮음."
+        },
+        {
+            "name": "에스코어드림",
+            "url": "https://s-core.co.kr/company/font2/",
+            "tag": "고딕",
+            "desc": ""
+        },
+        {
+            "name": "KoPub 돋움",
+            "url": "https://www.kopus.org/biz-electronic-font2/",
+            "tag": "고딕",
+            "desc": "중심선에서 다소 위로 올라가 있음. 약간의 꾸밈이 있는 돋움체"
+        },
+        {
+            "name": "KoPub 바탕",
+            "url": "https://www.kopus.org/biz-electronic-font2/",
+            "tag": "명조",
+            "desc": ""
+        },
+        {
+            "name": "나눔명조",
+            "url": "https://hangeul.naver.com/font/nanum",
+            "tag": "명조",
+            "desc": "각짐이 있는 명조체"
+        },
+        {
+            "name": "마루 부리",
+            "url": "https://hangeul.naver.com/font/maru",
+            "tag": "명조",
+            "desc": "약간의 각짐이 있는 명조체"
+        }
+    ]
+}

@@ -4,235 +4,53 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <title>Tools & Sites</title>
+        <title>Save Your Time!</title>
 
         <link rel="stylesheet" href="style.css">
-        <script src="./script.js"></script>
     </head>
 
     <body>
-        <div id="notice">
-            <div class="check-wrapper">
-                <div class="check">⭐ 자주 사용</div>
-                <div class="check">😃 매우 좋음</div>
-                <div class="check">🌏 웹 개발 </div>
+        <div id="header" class="container">
+            <div id="header-logo">
+                <img src="./eagle.gif">
+                <span>Save Your Time!</span>
             </div>
-
-            <div id="date">
-                📅 Last Update: 2023.11.25.
-            </div>
-        </div>
-
-        <div id="notice">
-            <a href="./color_palettes.html">Colors</a>
-        </div>
-
-        <div class="page-divide">
-            <div id="sites-wrapper">
-                <div class="category-wrapper">
-                    <div class="category-level-1">Web Applications</div>
-        
-                    <div class="list">
-                        <table id="websites-table">
-                            <!-- Table Head -->
-                            <tr class="head">
-                                <td class="pick">Check</td>
-                                <td class="name">Site</td>
-                                <td class="description">Description</td>
-                            </tr>
-                            <!-- Table Lines -->
-                            <!-- <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name">
-                                    <a target="_blank" href=""></a>    
-                                </td>
-                                <td class="description"></td>
-                            </tr> -->
-                        </table>
-                    </div>
-                </div>
-        
-                <div class="category-wrapper">
-                    <div class="category-level-1">Design</div>
-                    <div class="category-level-2">Colors</div>
-                    <div class="list">
-                        <table>
-                            <tr class="head">
-                                <td class="pick">Check</td>
-                                <td class="name">Site</td>
-                                <td class="description">Description</td>
-                            </tr>
-        
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://coolors.co/palettes/palettes">Coolors</a></td>
-                                <td class="description">색조합, 그라디언트, 색 정보</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://colorhunt.co/">Color Hunt</a></td>
-                                <td class="description"></td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="http://khroma.co/train/">크로마</a></td>
-                                <td class="description">사용자가 선택한 색상 기준으로 컬러조합 & 팔레트 생성</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://2colors.colorion.co/">투 컬러 콤비네이션</a></td>
-                                <td class="description"></td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://uigradients.com/#Influenza">uiGradients</a></td>
-                                <td class="description"></td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://webgradients.com/">WebGradients</a></td>
-                                <td class="description">2색 그라디언트 조합</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.webdesignrankings.com/resources/lolcolors/">lol colors</a></td>
-                                <td class="description"></td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://flatuicolors.com/">Flat UI colors</a></td>
-                                <td class="description">UI에 사용할 수 있도록 밝기 조절된 다색 조합 제공</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.design-seeds.com/">디자인 씨드</a></td>
-                                <td class="description">사진에서 추출한 색상</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.colorhexa.com/">컬러헥사</a></td>
-                                <td class="description">특정 색 입력 시 분석 제공</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick">🌏</td>
-                                <td class="name"><a target="_blank" href="https://cssgradient.io/gradient-backgrounds/">Grabient</a></td>
-                                <td class="description">그래디언트</td>
-                            </tr>
-                        </table>
-                    </div>
-        
-                    <div class="category-level-2">Icons</div>
-                    <div class="list">
-                        <table id="icons-table">
-                            <tr class="head">
-                                <td class="pick">Check</td>
-                                <td class="name">Site</td>
-                                <td class="description">Description</td>
-                            </tr>
-                        </table>
-                    </div>
-        
-                    <div class="category-level-2">Images & Illustrations</div>
-                    <div class="list">
-                        <table>
-                            <tr class="head">
-                                <td class="pick">Check</td>
-                                <td class="name">Site</td>
-                                <td class="description">Description</td>
-                            </tr>
-        
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://unsplash.com/">Unsplash</a></td>
-                                <td class="description"></td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://pixabay.com/ko/">Pixabay</a></td>
-                                <td class="description">사진, 영상</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.pexels.com/ko-kr/">Pexels</a></td>
-                                <td class="description">사진, 영상</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://undraw.co/illustrations">unDraw</a></td>
-                                <td class="description">메인 컬러 지정한 일러스트</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://www.mockmagic.com/">Mock Magic</a></td>
-                                <td class="description">Mockup</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.emojiengine.com/ko/keyboard/">Emoji Engine</a></td>
-                                <td class="description">이모지</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://bgjar.com/">BGJar</a></td>
-                                <td class="description">패턴 배경. SVG로 다운 받아 PPT에 넣으면 깨짐</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick">⭐</td>
-                                <td class="name"><a target="_blank" href="https://www.manypixels.co/gallery">manypixels - 일러스트</a></td>
-                                <td class="description">색상 지정 가능</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.humaaans.com/">휴먼즈</a></td>
-                                <td class="description">사람 일러스트, 해상도 낮은 PNG</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.magicpattern.design/tools">MagicPattern</a></td>
-                                <td class="description">배경용 패턴 생성</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://iradesign.io/">Ira Design</a></td>
-                                <td class="description">사람 일러스트. 색상 지정 가능</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://notioncovergenerator.com/">Notion Cover Generator</a></td>
-                                <td class="description">노션 커버 이미지 제작</td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://covercons.vercel.app/">Covercons</a></td>
-                                <td class="description">아이콘을 메인으로 한 커버 이미지 제작</td>
-                            </tr>
-                        </table>
-                    </div>
-        
-                    <div class="category-level-2">Fonts</div>
-                    <div class="list">
-                        <table>
-                            <tr class="head">
-                                <td class="pick">Check</td>
-                                <td class="name">Site</td>
-                                <td class="description">Description</td>
-                            </tr>
-        
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://noonnu.cc/">눈누</a></td>
-                                <td class="description"></td>
-                            </tr>
-                            <tr class="line">
-                                <td class="pick"></td>
-                                <td class="name"><a target="_blank" href="https://www.dafont.com/">DaFont</a></td>
-                                <td class="description">영문</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+            <div id="header-menu">
+                <a class="menu-page" href="./useful-site.html"><div>Utils</div></a>
+                <a class="menu-page" href="./color_palettes.html"><div>Color Palettes</div></a>
+                <a class="menu-page" href="./font_collection.html"><div>Fonts</div></a>
             </div>
         </div>
-        
+
+        <div id="main" class="container">
+            <div id="category-tab">
+                <div class="tab-item is-on"><div class="is-on-indicator"></div><a>utils</a></div>
+                <div class="tab-item"><div class="is-on-indicator"></div><a>colors</a></div>
+                <div class="tab-item"><div class="is-on-indicator"></div><a>icons</a></div>
+                <div class="tab-item"><div class="is-on-indicator"></div><a>assets</a></div>
+                <div class="tab-item"><div class="is-on-indicator"></div><a>fonts</a></div>
+            </div>
+
+            <div id="category-contents">
+                <table>
+                    <tbody>
+                        <!-- Table Head -->
+                        <!-- <tr class="head">
+                            <td class="pick">Check</td>
+                            <td class="name">Website</td>
+                            <td class="description">Description</td>
+                        </tr> -->
+                        <!-- Table Lines -->
+                        <!-- <tr class="line">
+                            <td class="pick"></td>
+                            <td class="name"><a target="_blank" href=""></a></td>
+                            <td class="description"></td>
+                        </tr> -->
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
     </body>
+    <script src="./script.js"></script>
 </html>
