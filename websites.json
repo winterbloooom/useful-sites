@@ -9,14 +9,14 @@
         {
             "name": "이미지 병합하기",
             "url": "https://bbom.org/tools/",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "desc": "가로/세로로 이미지 병합 가능",
+            "pick": {"frequently": true, "good": true, "web": false}
         },
         {
             "name": "Diagrams",
             "url": "https://app.diagrams.net/",
             "desc": "순서도 그리기",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "pick": {"frequently": false, "good": true, "web": false}
         },
         {
             "name": "Lorem Ipsum 생성기",
@@ -31,10 +31,16 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
+            "name": "Mathpix",
+            "url": "https://mathpix.com/",
+            "desc": "손글씨나 텍스트 수식을 이미지, word 등으로 변환. 일정 횟수 무료.",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
             "name": "Latex Editor",
             "url": "https://latexeditor.lagrida.com/",
             "desc": "latex에서 이미지 변환",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "pick": {"frequently": false, "good": true, "web": false}
         },
         {
             "name": "carbon",
@@ -49,6 +55,30 @@
             "pick": {"frequently": true, "good": true, "web": false}
         },
         {
+            "name": "remove.bg",
+            "url": "https://www.remove.bg/ko",
+            "desc": "이미지에서 배경 제거",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "shortcuts design",
+            "url": "https://shortcuts.design/",
+            "desc": "디자인 툴 별 단축키 모음",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Image Backgorund blurer",
+            "url": "https://imagebgblurer.com/",
+            "desc": "이미지 배경 흐리게",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "클로바 더빙",
+            "url": "https://clovadubbing.naver.com/",
+            "desc": "텍스트를 입력하면 음성으로 변환해줌",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
             "name": "ezgif",
             "url": "https://ezgif.com/",
             "desc": "GIF 만들기",
@@ -57,13 +87,19 @@
         {
             "name": "Logo Maker",
             "url": "https://www.brandcrowd.com/logo-maker",
-            "desc": "",
+            "desc": "로고 생성",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
             "name": "mybrandnewlogo",
             "url": "https://mybrandnewlogo.com/ko",
-            "desc": "",
+            "desc": "로고 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Shopify logo maker",
+            "url": "https://www.shopify.com/tools/logo-maker",
+            "desc": "로고 생성",
             "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
@@ -134,6 +170,18 @@
             "url": "https://cssgradient.io/gradient-backgrounds/",
             "desc": "2-3가지 색상의 그래디언트 및 해당 CSS 코드",
             "pick": {"frequently": false, "good": false, "web": true}
+        },
+        {
+            "name": "엔사이컬러피디아",
+            "url": "https://encycolorpedia.kr/",
+            "desc": "입력 색상에 대한 분석 제공",
+            "pick": {"frequently": false, "good": false, "web": true}
+        },
+        {
+            "name": "브랜드 컬러스",
+            "url": "http://brandcolors.net/",
+            "desc": "기업 및 브랜드 색상 조합",
+            "pick": {"frequently": false, "good": false, "web": true}
         }
     ],
 
@@ -169,6 +217,12 @@
             "pick": {"frequently": true, "good": false, "web": false}
         },
         {
+            "name": "emojipedia",
+            "url": "https://emojipedia.org/",
+            "desc": "기기별 이모지 모양, 이모지 뜻, 이모지 이미지 버전 다운",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
             "name": "manypixels - icon",
             "url": "https://www.manypixels.co/free-icons",
             "desc": "색상 지정 가능",
@@ -179,6 +233,53 @@
             "url": "https://googlefonts.github.io/noto-emoji-animation/",
             "desc": "움직이는 이모지. GIF 다운도 가능",
             "pick": {"frequently": false, "good": true, "web": true}
+        },
+        {
+            "name": "SVG Repo",
+            "url": "https://www.svgrepo.com/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "아이콘 몬스터",
+            "url": "https://iconmonstr.com/",
+            "desc": "모노톤 아이콘. SVG 다운로드 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        
+        {
+            "name": "아이콘 스토어",
+            "url": "https://iconstore.co/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        
+        {
+            "name": "Human Pictogram 2.0",
+            "url": "https://pictogram2.com/?lang=en",
+            "desc": "픽토그램 스타일 사람 아이콘. 일본 웹사이트. JPG, PNG, Ai 형태 제공.",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        
+        {
+            "name": "lordicon",
+            "url": "https://lordicon.com/",
+            "desc": "움직이는 아이콘",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        
+        {
+            "name": "icons8",
+            "url": "https://icons8.kr/icons",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
 
@@ -214,17 +315,28 @@
             "pick": {"frequently": false, "good": true, "web": false}
         },
         {
+            "name": "IRA design",
+            "url": "https://iradesign.io/",
+            "desc": "일러스트. 배경, 색 등 커스터마이징 가능",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
             "name": "manypixels - 일러스트",
             "url": "https://www.manypixels.co/gallery",
             "desc": "일러스트. 메인 컬러 지정 가능",
             "pick": {"frequently": false, "good": true, "web": false}
         },
-        
         {
             "name": "MagicPattern",
             "url": "https://www.magicpattern.design/tools",
             "desc": "배경용 패턴 생성",
             "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Notion Svg Avatar Maker",
+            "url": "https://cvbox.org/avatar-plus",
+            "desc": "노션 스타일의 아바타 생성기",
+            "pick": {"frequently": false, "good": true, "web": false}
         },
         {
             "name": "Ira Design",
@@ -255,6 +367,18 @@
             "url": "https://www.mockmagic.com/",
             "desc": "Mockup",
             "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "placeit",
+            "url": "https://placeit.net/c/mockups",
+            "desc": "Mockup. 티셔츠, 물건 등 대상 다양.",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "IconFinder",
+            "url": "https://www.iconfinder.com/",
+            "desc": "Icons, 3D illustrations, Illustrations, Stickers",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
 
