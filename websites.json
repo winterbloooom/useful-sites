@@ -7,6 +7,18 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
+            "name": "Grammarly",
+            "url": "https://app.grammarly.com/",
+            "desc": "영어 문법 교정. Chrome Extension 있음",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "DeepL 번역기",
+            "url": "https://www.deepl.com/translator",
+            "desc": "AI기반 텍스트 및 파일 번역. Chrome Extension 있음",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
             "name": "이미지 병합하기",
             "url": "https://bbom.org/tools/",
             "desc": "가로/세로로 이미지 병합 가능",
@@ -31,16 +43,16 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
+            "name": "DataGraph",
+            "url": "https://www.visualdatatools.com/DataGraph/",
+            "desc": "(App) MAC용 그래프 그리기",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
             "name": "Mathpix",
             "url": "https://mathpix.com/",
             "desc": "손글씨나 텍스트 수식을 이미지, word 등으로 변환. 일정 횟수 무료.",
             "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "Latex Editor",
-            "url": "https://latexeditor.lagrida.com/",
-            "desc": "latex에서 이미지 변환",
-            "pick": {"frequently": false, "good": true, "web": false}
         },
         {
             "name": "carbon",
@@ -85,21 +97,78 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "Logo Maker",
-            "url": "https://www.brandcrowd.com/logo-maker",
-            "desc": "로고 생성",
+            "name": "VEED.IO",
+            "url": "https://www.veed.io/ko-KR/tools/subtitle-converter/srt-to-txt",
+            "desc": "자막 파일(.srt)를 txt 파일로 변환",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "mybrandnewlogo",
-            "url": "https://mybrandnewlogo.com/ko",
-            "desc": "로고 생성",
+            "name": "Scholarcy",
+            "url": "https://www.scholarcy.com/",
+            "desc": "AI-powered article summarizer (파일, tex 등 가능)",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "turnitin",
+            "url": "https://kr.turnitin.com/",
+            "desc": "유사도 검사",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "ChatGPT",
+            "url": "https://chat.openai.com/",
+            "desc": "",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "CSS Peeper",
+            "url": "https://chromewebstore.google.com/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk",
+            "desc": "Chrome Extension. 해당 웹사이트의 CSS 추출",
+            "pick": {"frequently": false, "good": false, "web": true}
+        },
+        {
+            "name": "웨않되",
+            "url": "https://chat.openai.com/",
+            "desc": "Chrome Extension. 맞춤법 검사기",
+            "pick": {"frequently": false, "good": true, "web": false}
+        }
+    ],
+
+    "research": [
+        {
+            "name": "Semantic Scholar",
+            "url": "https://www.semanticscholar.org/",
+            "desc": "AI-powered research tool for scientific literature. Chrome Extension 있음",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "Google  Scholar",
+            "url": "https://scholar.google.com/",
+            "desc": "Chrome Extension 편리",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "Overleaf 'List of Greek letters and math symbols'",
+            "url": "https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols",
+            "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "Shopify logo maker",
-            "url": "https://www.shopify.com/tools/logo-maker",
-            "desc": "로고 생성",
+            "name": "Scholar Inbox",
+            "url": "https://www.scholar-inbox.com/",
+            "desc": "매일 논문 추천",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
@@ -182,6 +251,30 @@
             "url": "http://brandcolors.net/",
             "desc": "기업 및 브랜드 색상 조합",
             "pick": {"frequently": false, "good": false, "web": true}
+        },
+        {
+            "name": "Color by Fardos - Color Picker",
+            "url": "https://chromewebstore.google.com/detail/color-by-fardos-color-pic/iibpgpkhpfggipbacjfeijkloidhmiei",
+            "desc": "Chrome Extension",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "ColorZilla",
+            "url": "https://chromewebstore.google.com/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp",
+            "desc": "Color Picker. Chrome Extension",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
 
@@ -276,10 +369,16 @@
         },
         
         {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "name": "IconScout",
+            "url": "https://iconscout.com/",
+            "desc": "3D Illustrations icons, Icons",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "특수문자 표",
+            "url": "https://ko.wikipedia.org/wiki/KS_X_1001%EC%9D%98_%ED%8A%B9%EC%88%98_%EB%AC%B8%EC%9E%90",
+            "desc": "KS X 1001의 특수문자 모음",
+            "pick": {"frequently": true, "good": false, "web": false}
         }
     ],
 
@@ -379,6 +478,24 @@
             "url": "https://www.iconfinder.com/",
             "desc": "Icons, 3D illustrations, Illustrations, Stickers",
             "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Logo Maker",
+            "url": "https://www.brandcrowd.com/logo-maker",
+            "desc": "로고 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "mybrandnewlogo",
+            "url": "https://mybrandnewlogo.com/ko",
+            "desc": "로고 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Shopify logo maker",
+            "url": "https://www.shopify.com/tools/logo-maker",
+            "desc": "로고 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
 
@@ -387,7 +504,7 @@
             "name": "눈누",
             "url": "https://noonnu.cc/",
             "desc": "무료 폰트 모음",
-            "pick": {"frequently": false, "good": true, "web": false}
+            "pick": {"frequently": true, "good": true, "web": true}
         },
         {
             "name": "DaFont",
@@ -399,6 +516,114 @@
             "name": "Google Fonts",
             "url": "https://fonts.google.com/",
             "desc": "all languages",
+            "pick": {"frequently": false, "good": true, "web": true}
+        }
+    ],
+
+    "design references": [
+        {
+            "name": "미리캔버스",
+            "url": "https://www.miricanvas.com/templates",
+            "desc": "PPT, 상세페이지, 카드뉴스, 동영상, 유튜브, 페이스북 등 템플릿 디자인 참고",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        }
+    ],
+
+    "latex": [
+        {
+            "name": "Wikipedia TeX formula",
+            "url": "https://en.wikipedia.org/wiki/Help:Displaying_a_formula",
+            "desc": "HTML 및 TeX에서 수식 입력하는 방법 모음",
+            "pick": {"frequently": true, "good": true, "web": true}
+        },
+        {
+            "name": "Overleaf",
+            "url": "https://www.overleaf.com/project",
+            "desc": "Online LaTeX editor",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "Latex Editor",
+            "url": "https://latexeditor.lagrida.com/",
+            "desc": "LaTeX에서 이미지 변환",
+            "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         }
     ]

@@ -55,7 +55,6 @@ function showWebsites(websites, container) {
 function callLoader(name, activeContent) {
     var pos = name.indexOf("_") + 1;
     name = name.substring(pos);
-
     loadWebsites(name).then((websites) => {
         showWebsites(websites, activeContent);
     })
