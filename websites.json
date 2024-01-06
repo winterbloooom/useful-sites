@@ -4,32 +4,241 @@
             "name": "사람인 맞춤법 검사기",
             "url": "https://www.saramin.co.kr/zf_user/tools/character-counter",
             "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["writing"]
+        },
+        {
+            "name": "웨않되",
+            "url": "https://chat.openai.com/",
+            "desc": "Chrome Extension. 맞춤법 검사기",
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["writing"]
         },
         {
             "name": "Grammarly",
             "url": "https://app.grammarly.com/",
             "desc": "영어 문법 교정. Chrome Extension 있음",
-            "pick": {"frequently": true, "good": true, "web": false}
+            "pick": {"frequently": true, "good": true, "web": false},
+            "tag": ["writing", "AI-powered", "english"]
         },
         {
             "name": "DeepL 번역기",
             "url": "https://www.deepl.com/translator",
             "desc": "AI기반 텍스트 및 파일 번역. Chrome Extension 있음",
-            "pick": {"frequently": false, "good": true, "web": false}
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["writing", "AI-powered"]
         },
         {
             "name": "이미지 병합하기",
             "url": "https://bbom.org/tools/",
             "desc": "가로/세로로 이미지 병합 가능",
-            "pick": {"frequently": true, "good": true, "web": false}
+            "pick": {"frequently": true, "good": true, "web": false},
+            "tag": ["converter"]
+        },
+        {
+            "name": "ezgif",
+            "url": "https://ezgif.com/",
+            "desc": "GIF 만들기",
+            "pick": {"frequently": false, "good": false, "web": false}
         },
         {
             "name": "Diagrams",
             "url": "https://app.diagrams.net/",
             "desc": "순서도 그리기",
-            "pick": {"frequently": false, "good": true, "web": false}
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["diagram", "visualization"]
         },
+        {
+            "name": "Desmos",
+            "url": "https://www.desmos.com/?lang=ko",
+            "desc": "그래프, 공학용 계산기, 행렬 계산기, 기하학 도구",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["math", "visualization"]
+        },
+        {
+            "name": "DataGraph",
+            "url": "https://www.visualdatatools.com/DataGraph/",
+            "desc": "(App) MAC용 그래프 그리기",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["math", "visualization"]
+        },
+        {
+            "name": "Mathpix",
+            "url": "https://mathpix.com/",
+            "desc": "손글씨나 텍스트 수식을 이미지, word 등으로 변환. 일정 횟수 무료.",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["math", "converter"]
+        },
+        {
+            "name": "carbon",
+            "url": "https://carbon.now.sh/",
+            "desc": "소스코드 이미지/내보내기",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["programming"]
+        },
+        {
+            "name": "Algorithm Visualizer",
+            "url": "https://algorithm-visualizer.org/",
+            "desc": "알고리즘 시각화",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["programming", "visualization"]
+        },
+        {
+            "name": "Visualgo",
+            "url": "https://visualgo.net/en",
+            "desc": "알고리즘 시각화",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["programming", "visualization"]
+        },
+        {
+            "name": "클로바 더빙",
+            "url": "https://clovadubbing.naver.com/",
+            "desc": "텍스트를 입력하면 음성으로 변환해줌",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["audio", "converter"]
+        },
+        {
+            "name": "VEED.IO",
+            "url": "https://www.veed.io/ko-KR/tools/subtitle-converter/srt-to-txt",
+            "desc": "자막 파일(.srt)를 txt 파일로 변환",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["converter"]
+        },
+        {
+            "name": "Scholarcy",
+            "url": "https://www.scholarcy.com/",
+            "desc": "AI-powered article summarizer (파일, tex 등 가능)",
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["writing", "AI-powered"]
+        },
+        {
+            "name": "turnitin",
+            "url": "https://kr.turnitin.com/",
+            "desc": "유사도 검사",
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["writing", "AI-powered"]
+        },
+        {
+            "name": "turnitin 사용법",
+            "url": "https://libguides.postech.ac.kr/turnitin",
+            "desc": "POSTECH 학생들의 turnitin 사용법 안내 (박태준학술정보관)",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["writing", "AI-powered"]
+        },
+        {
+            "name": "ChatGPT",
+            "url": "https://chat.openai.com/",
+            "desc": "",
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["AI-powered"]
+        },
+        {
+            "name": "copy.ai",
+            "url": "https://www.copy.ai/",
+            "desc": "카피 제작",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["AI-powered" ,"generation", "writing", "branding"]
+        },
+        {
+            "name": "jasper",
+            "url": "https://www.jasper.ai/",
+            "desc": "비즈니스를 위한 writing copilot",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["AI-powered" ,"generation", "writing", "branding"]
+        },
+        {
+            "name": "네임릭스",
+            "url": "https://namelix.com/",
+            "desc": "작명, 로고, 디자인",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["AI-powered" ,"generation", "branding"]
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        }
+    ],
+
+    "research": [
+        {
+            "name": "Semantic Scholar",
+            "url": "https://www.semanticscholar.org/",
+            "desc": "AI-powered research tool for scientific literature. Chrome Extension 있음",
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["AI-powered", "search", "paper"]
+        },
+        {
+            "name": "Google  Scholar",
+            "url": "https://scholar.google.com/",
+            "desc": "Chrome Extension 편리",
+            "pick": {"frequently": true, "good": true, "web": false},
+            "tag": ["search", "paper"]
+        },
+        {
+            "name": "Scholar Inbox",
+            "url": "https://www.scholar-inbox.com/",
+            "desc": "매일 논문 추천",
+            "pick": {"frequently": true, "good": true, "web": false},
+            "tag": ["AI-powered", "paper", "recommendation"]
+        },
+        {
+            "name": "Trinka",
+            "url": "https://www.trinka.ai/",
+            "desc": "논문 교정회사 enago에서 만듦. 유료 버전 있음. 문법 및 의역 등 교정.",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["writing", "paper"]
+        },
+        {
+            "name": "Scispace",
+            "url": "https://scispace.com/",
+            "desc": "논문 분석. Command 사용 가능",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["search", "paper", "summary"]
+        },
+        {
+            "name": "Connected Papers",
+            "url": "https://www.connectedpapers.com/",
+            "desc": "관련 논문을 그래프로 표현",
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["search", "paper"]
+        },
+        {
+            "name": "Elicit",
+            "url": "https://elicit.com/",
+            "desc": "텍스트 요약, 관련 논문 검색, 데이터 정리 및 제공",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["search", "paper", "summary"]
+        },
+        {
+            "name": "OpenRead",
+            "url": "https://elicit.com/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["search", "paper", "summary"]
+        }
+    ],
+
+    "design utils": [
         {
             "name": "Lorem Ipsum 생성기",
             "url": "https://www.lipsum.com/",
@@ -37,28 +246,10 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "Desmos",
-            "url": "https://www.desmos.com/?lang=ko",
-            "desc": "그래프, 공학용 계산기, 행렬 계산기, 기하학 도구",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "DataGraph",
-            "url": "https://www.visualdatatools.com/DataGraph/",
-            "desc": "(App) MAC용 그래프 그리기",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "Mathpix",
-            "url": "https://mathpix.com/",
-            "desc": "손글씨나 텍스트 수식을 이미지, word 등으로 변환. 일정 횟수 무료.",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "carbon",
-            "url": "https://carbon.now.sh/",
-            "desc": "소스코드 이미지/내보내기",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "name": "CSS Peeper",
+            "url": "https://chromewebstore.google.com/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk",
+            "desc": "Chrome Extension. 해당 웹사이트의 CSS 추출",
+            "pick": {"frequently": false, "good": false, "web": true}
         },
         {
             "name": "Photopea",
@@ -83,93 +274,6 @@
             "url": "https://imagebgblurer.com/",
             "desc": "이미지 배경 흐리게",
             "pick": {"frequently": false, "good": true, "web": false}
-        },
-        {
-            "name": "클로바 더빙",
-            "url": "https://clovadubbing.naver.com/",
-            "desc": "텍스트를 입력하면 음성으로 변환해줌",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "ezgif",
-            "url": "https://ezgif.com/",
-            "desc": "GIF 만들기",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "VEED.IO",
-            "url": "https://www.veed.io/ko-KR/tools/subtitle-converter/srt-to-txt",
-            "desc": "자막 파일(.srt)를 txt 파일로 변환",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "Scholarcy",
-            "url": "https://www.scholarcy.com/",
-            "desc": "AI-powered article summarizer (파일, tex 등 가능)",
-            "pick": {"frequently": false, "good": true, "web": false}
-        },
-        {
-            "name": "turnitin",
-            "url": "https://kr.turnitin.com/",
-            "desc": "유사도 검사",
-            "pick": {"frequently": false, "good": true, "web": false}
-        },
-        {
-            "name": "ChatGPT",
-            "url": "https://chat.openai.com/",
-            "desc": "",
-            "pick": {"frequently": false, "good": true, "web": false}
-        },
-        {
-            "name": "CSS Peeper",
-            "url": "https://chromewebstore.google.com/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk",
-            "desc": "Chrome Extension. 해당 웹사이트의 CSS 추출",
-            "pick": {"frequently": false, "good": false, "web": true}
-        },
-        {
-            "name": "웨않되",
-            "url": "https://chat.openai.com/",
-            "desc": "Chrome Extension. 맞춤법 검사기",
-            "pick": {"frequently": false, "good": true, "web": false}
-        }
-    ],
-
-    "research": [
-        {
-            "name": "Semantic Scholar",
-            "url": "https://www.semanticscholar.org/",
-            "desc": "AI-powered research tool for scientific literature. Chrome Extension 있음",
-            "pick": {"frequently": false, "good": true, "web": false}
-        },
-        {
-            "name": "Google  Scholar",
-            "url": "https://scholar.google.com/",
-            "desc": "Chrome Extension 편리",
-            "pick": {"frequently": true, "good": true, "web": false}
-        },
-        {
-            "name": "Overleaf 'List of Greek letters and math symbols'",
-            "url": "https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "Scholar Inbox",
-            "url": "https://www.scholar-inbox.com/",
-            "desc": "매일 논문 추천",
-            "pick": {"frequently": true, "good": true, "web": false}
-        },
-        {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
 
@@ -265,9 +369,9 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "Picular",
+            "url": "https://picular.co/",
+            "desc": "단어를 입력하면 색을 추천. 색상 조합(X)",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
@@ -420,6 +524,42 @@
             "pick": {"frequently": false, "good": true, "web": false}
         },
         {
+            "name": "소코스트",
+            "url": "https://soco-st.com/",
+            "desc": "동글동글한 일러스트. 색상 선택 및 SVG 다운 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Loose Drawing",
+            "url": "https://loosedrawing.com/",
+            "desc": "손그림 스타일 일러스트. 색상 선택 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "비즈니스소재",
+            "url": "https://web-sozai.com/",
+            "desc": "사람 중심 일러스트. ai 파일 다운 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
             "name": "manypixels - 일러스트",
             "url": "https://www.manypixels.co/gallery",
             "desc": "일러스트. 메인 컬러 지정 가능",
@@ -483,19 +623,22 @@
             "name": "Logo Maker",
             "url": "https://www.brandcrowd.com/logo-maker",
             "desc": "로고 생성",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["branding", "generation", "logo"]
         },
         {
             "name": "mybrandnewlogo",
             "url": "https://mybrandnewlogo.com/ko",
             "desc": "로고 생성",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["branding", "generation", "logo"]
         },
         {
             "name": "Shopify logo maker",
             "url": "https://www.shopify.com/tools/logo-maker",
             "desc": "로고 생성",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["branding", "generation", "logo"]
         }
     ],
 
@@ -589,6 +732,13 @@
             "url": "https://latexeditor.lagrida.com/",
             "desc": "LaTeX에서 이미지 변환",
             "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "Overleaf 'List of Greek letters and math symbols'",
+            "url": "https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["writing"]
         },
         {
             "name": "",
