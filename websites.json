@@ -175,7 +175,7 @@
             "name": "지수 표기법 변환기",
             "url": "https://mwultong.blogspot.com/2008/01/exponential-scientific-notation-convert.html",
             "desc": "과학적 표기법 변환",
-            "pick": {"frequently": true, "good": true, "web": false}
+            "pick": {"frequently": true, "good": true, "web": false}
         },
         {
             "name": "Online 3D Viewer",
@@ -186,30 +186,6 @@
         {
             "name": "Time Zone Converter",
             "url": "https://www.timeanddate.com/worldclock/converter.html",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "",
-            "url": "",
             "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         }
