@@ -206,7 +206,44 @@
             "url": "https://www.timeanddate.com/worldclock/converter.html",
             "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Apption",
+            "url": "https://apption.co/",
+            "desc": "노션 임베딩 가능한 html 위젯 사이트",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
+        
     ],
 
     "research": [
@@ -633,15 +670,15 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "Noticon",
+            "url": "https://noticon.tammolo.com/",
+            "desc": "GIF 아이콘. 클립보드 복사 가능. 노션 사용 가능",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "Notion Icons",
+            "url": "https://uno.notion.vip/icons/",
+            "desc": "노션용 아이콘 (크기, 색상 변경 가능)",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
@@ -904,15 +941,39 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "Notion Everything",
+            "url": "https://www.notioneverything.com/",
+            "desc": "노션 템플릿 공유 (유/무료)",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "Template Haven",
+            "url": "https://www.templateheaven.store/",
+            "desc": "웹페이지, 노션 등 무료 템플리 공유",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Notion Pages",
+            "url": "https://notionpages.com/",
+            "desc": "노션 템플릿 공유",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Notion Box",
+            "url": "https://www.notionbox.kr/",
+            "desc": "노션 템플릿 공유",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "템플래닛",
+            "url": "https://templanet.co.kr/",
+            "desc": "노션 템플릿 공유",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "aNotioneer",
+            "url": "https://www.anotioneer.com/",
+            "desc": "노션 템플릿 공유",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
