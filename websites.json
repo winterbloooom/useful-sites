@@ -154,38 +154,26 @@
             "tag": ["AI-powered" ,"generation", "branding"]
         },
         {
-            "name": "Templify",
-            "url": "https://chromewebstore.google.com/detail/fndgllkjbjkfnkjfcpnajbmgaedokmdo?hl=ko&utm_source=ext_sidebar",
-            "desc": "각종 메시지의 템플릿 제공 (크롬 확장프로그램)",
+            "name": "Momen",
+            "url": "https://momen.app/",
+            "desc": "코드를 사용하지 않고 웹 앱 만듦",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "유튜브 썸네일 추출하기",
-            "url": "https://marshallku.com/dev/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0",
-            "desc": "",
-            "pick": {"frequently": true, "good": true, "web": false}
-        },
-        {
-            "name": "자모야 모여라",
-            "url": "https://jamoya.one/",
-            "desc": "Mac에서 한글로 된 파일명이 분리되는 현상 방지",
+            "name": "Speechify",
+            "url": "https://speechify.com/",
+            "desc": "TTS",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "지수 표기법 변환기",
-            "url": "https://mwultong.blogspot.com/2008/01/exponential-scientific-notation-convert.html",
-            "desc": "과학적 표기법 변환",
-            "pick": {"frequently": true, "good": true, "web": false}
+            "name": "Durable",
+            "url": "https://durable.co/",
+            "desc": "웹사이트 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "Online 3D Viewer",
-            "url": "https://3dviewer.net/index.html",
-            "desc": "obj, fly 등 3D 파일 시각화",
-            "pick": {"frequently": true, "good": true, "web": false}
-        },
-        {
-            "name": "Time Zone Converter",
-            "url": "https://www.timeanddate.com/worldclock/converter.html",
+            "name": "",
+            "url": "",
             "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         }
@@ -213,6 +201,14 @@
             "pick": {"frequently": true, "good": true, "web": false},
             "tag": ["AI-powered", "paper", "recommendation"]
         },
+        {
+            "name": "Academic Phrasebank",
+            "url": "https://www.phrasebank.manchester.ac.uk/",
+            "desc": "영국 맨체스터대학에서 제작. 학술적 글쓰기 자료 제공. 논문에 바로 쓸 수 있는 예문",
+            "pick": {"frequently": true, "good": true, "web": false},
+            "tag": ["AI-powered", "paper", "recommendation"]
+        },
+        
         {
             "name": "Trinka",
             "url": "https://www.trinka.ai/",
@@ -272,7 +268,7 @@
         {
             "name": "remove.bg",
             "url": "https://www.remove.bg/ko",
-            "desc": "이미지에서 배경 제거",
+            "desc": "이미지에서 배경 제거. 해상도가 많이 낮아짐",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
@@ -286,7 +282,68 @@
             "url": "https://imagebgblurer.com/",
             "desc": "이미지 배경 흐리게",
             "pick": {"frequently": false, "good": true, "web": false}
+        },
+        {
+            "name": "Napkin AI",
+            "url": "https://www.napkin.ai/",
+            "desc": "AI 기반 텍스트 도식화/구조화 (인포그래픽)",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "ClipDrop",
+            "url": "https://clipdrop.co/",
+            "desc": "배경 제거 외 디자인 툴",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "beautiful.ai",
+            "url": "https://www.beautiful.ai/",
+            "desc": "PPT 생성 AI. 유/무료버전",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "TOME.app",
+            "url": "https://tome.app/lp/ai-presentations",
+            "desc": "PPT 생성 AI. 유/무료버전",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Gamma",
+            "url": "https://gamma.app/ko",
+            "desc": "PPT 생성 AI. 자료조사도 함. 퀄리티는 낮음",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
+        
     ],
 
     "colors": [
@@ -384,6 +441,31 @@
             "name": "Picular",
             "url": "https://picular.co/",
             "desc": "단어를 입력하면 색을 추천. 색상 조합(X)",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        
+        {
+            "name": "Snook Color Contrast",
+            "url": "https://snook.ca/technical/colour_contrast/colour.html",
+            "desc": "사용하고 있는 색조합이 애매할 때. Contrast ratio가 2.5가 넘도록 Hue, Saturation 값을 조정하기.",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Candy Icons",
+            "url": "https://www.candyicons.com/",
+            "desc": "아이콘 생성",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "ColorSpace",
+            "url": "https://mycolor.space/",
+            "desc": "메인 컬러 코드 입력 시 관련 팔레트 리스트업",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "AI Colors",
+            "url": "https://aicolors.co/",
+            "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
@@ -495,6 +577,54 @@
             "url": "https://ko.wikipedia.org/wiki/KS_X_1001%EC%9D%98_%ED%8A%B9%EC%88%98_%EB%AC%B8%EC%9E%90",
             "desc": "KS X 1001의 특수문자 모음",
             "pick": {"frequently": true, "good": false, "web": false}
+        },
+        {
+            "name": "토스페이스",
+            "url": "https://toss.im/tossface",
+            "desc": "토스 제공 아이콘. 복사 후 붙여넣기로 사용 (글꼴이 없으면 깨질수도 있음)",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "isometriclove",
+            "url": "http://isometriclove.com/",
+            "desc": "3D 아이콘. 각도 및 조명 설정 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "3icons",
+            "url": "https://3dicons.co/",
+            "desc": "3D 아이콘",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Free3Dicon",
+            "url": "https://free3dicon.com/",
+            "desc": "3D 아이콘",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
 
@@ -554,22 +684,22 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "videvo",
-            "url": "https://www.videvo.net/",
-            "desc": "비디오 클립",
+            "name": "doodle svg",
+            "url": "https://svgdoodles.com/",
+            "desc": "손그림 낙서스타일 일러스트. 코드 복사 후, svgviewer.dev에서 코드를 이미지로 변환해 svg로 사용",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "공유마당",
-            "url": "https://gongu.copyright.or.kr/gongu/main/main.do",
-            "desc": "이미지, 영상, 음악, 영화 등 저작물 공유",
+            "name": "국토지리정보원 어린이지도여행",
+            "url": "https://www.ngii.go.kr/child/content.do?sq=149",
+            "desc": "지도 도안 다운로드 가능 (백지도, 명칭 표기지도)",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "name": "storyset",
+            "url": "https://storyset.com/",
+            "desc": "색 수정, SVG 다운 가능",
+            "pick": {"frequently": false, "good": true, "web": false}
         },
         {
             "name": "manypixels - 일러스트",
@@ -651,7 +781,44 @@
             "desc": "로고 생성",
             "pick": {"frequently": false, "good": false, "web": false},
             "tag": ["branding", "generation", "logo"]
+        },
+        {
+            "name": "coverr",
+            "url": "https://coverr.co/",
+            "desc": "무료 영상. 전문성 높아보이는 영상.",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "VIDEVO",
+            "url": "https://www.videvo.net/",
+            "desc": "모션그래픽, 음악, 비디오 등",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Vecteezy",
+            "url": "https://www.vecteezy.com/",
+            "desc": "벡터 이미지, 사진, 영상 등",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
+        
     ],
 
     "fonts": [
@@ -683,15 +850,15 @@
             "pick": {"frequently": false, "good": true, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "Awwwards.com",
+            "url": "https://www.awwwards.com/",
+            "desc": "디자인 감각 기르는 용도로 참고",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "PosterPresetations",
+            "url": "https://www.posterpresentations.com/",
+            "desc": "포스터 발표 PPT 양식을 무료로 다운 가능",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
