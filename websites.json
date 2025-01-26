@@ -721,6 +721,18 @@
             "pick": {"frequently": true, "good": true, "web": false}
         },
         {
+            "name": "Shopify",
+            "url": "https://www.shopify.com/stock-photos",
+            "desc": "비즈니스와 마케팅에 쓰기 좋은 이미지",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Picjumbo",
+            "url": "https://picjumbo.com/",
+            "desc": "배경화면 스타일",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
             "name": "BGJar",
             "url": "https://bgjar.com/",
             "desc": "패턴 배경. SVG로 다운 받아 PPT에 넣으면 깨짐",
