@@ -172,8 +172,38 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
+            "name": "Templify",
+            "url": "https://chromewebstore.google.com/detail/fndgllkjbjkfnkjfcpnajbmgaedokmdo?hl=ko&utm_source=ext_sidebar",
+            "desc": "각종 메시지의 템플릿 제공 (크롬 확장프로그램)",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "유튜브 썸네일 추출하기",
+            "url": "https://marshallku.com/dev/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0",
+            "desc": "",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "자모야 모여라",
+            "url": "https://jamoya.one/",
+            "desc": "Mac에서 한글로 된 파일명이 분리되는 현상 방지",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "지수 표기법 변환기",
+            "url": "https://mwultong.blogspot.com/2008/01/exponential-scientific-notation-convert.html",
+            "desc": "과학적 표기법 변환",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "Online 3D Viewer",
+            "url": "https://3dviewer.net/index.html",
+            "desc": "obj, fly 등 3D 파일 시각화",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
+        {
+            "name": "Time Zone Converter",
+            "url": "https://www.timeanddate.com/worldclock/converter.html",
             "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         }
@@ -741,6 +771,18 @@
             "name": "휴먼즈",
             "url": "https://www.humaaans.com/",
             "desc": "사람 일러스트, 해상도 낮은 PNG",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "videvo",
+            "url": "https://www.videvo.net/",
+            "desc": "비디오 클립",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "공유마당",
+            "url": "https://gongu.copyright.or.kr/gongu/main/main.do",
+            "desc": "이미지, 영상, 음악, 영화 등 저작물 공유",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
