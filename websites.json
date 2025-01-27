@@ -648,13 +648,7 @@
         {
             "name": "토스페이스",
             "url": "https://toss.im/tossface",
-            "desc": "토스 제공 아이콘. 복사 후 붙여넣기로 사용 (글꼴이 없으면 깨질수도 있음)",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "isometriclove",
-            "url": "http://isometriclove.com/",
-            "desc": "3D 아이콘. 각도 및 조명 설정 가능",
+            "desc": "토스 제공 아이콘. 글꼴 설치 후 이모지 삽입하는 식(글꼴이 없으면 깨질수도 있음)",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
