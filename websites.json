@@ -535,9 +535,9 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "AutoDraw",
+            "url": "https://www.autodraw.com/",
+            "desc": "스케치 -> 아이콘",
             "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
@@ -951,9 +951,9 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "DrawKit",
+            "url": "https://www.drawkit.com/",
+            "desc": "일러스트. 이메일 필요. PNG+SVG",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
@@ -1001,7 +1001,14 @@
             "url": "https://fonts.google.com/",
             "desc": "all languages",
             "pick": {"frequently": false, "good": true, "web": true}
+        },
+        {
+            "name": "1001 Fonts",
+            "url": "https://www.1001fonts.com/",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
+        
     ],
 
     "design references": [
