@@ -130,6 +130,7 @@
             "url": "https://avocadomail.co.kr/",
             "desc": "메일 템플릿",
             "pick": {"frequently": false, "good": false, "web": false},
+            "tag": []
         },
         {
             "name": "copy.ai",
