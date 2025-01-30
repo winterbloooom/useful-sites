@@ -126,11 +126,10 @@
             "tag": ["writing", "AI-powered"]
         },
         {
-            "name": "ChatGPT",
-            "url": "https://chat.openai.com/",
-            "desc": "",
-            "pick": {"frequently": false, "good": true, "web": false},
-            "tag": ["AI-powered"]
+            "name": "아보카도",
+            "url": "https://avocadomail.co.kr/",
+            "desc": "메일 템플릿",
+            "pick": {"frequently": false, "good": false, "web": false},
         },
         {
             "name": "copy.ai",
@@ -532,7 +531,7 @@
         {
             "name": "AI Colors",
             "url": "https://aicolors.co/",
-            "desc": "",
+            "desc": "색상에 따른 UI 적용 예시도 보여줌",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
@@ -676,10 +675,10 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
+            "name": "Feather",
+            "url": "https://feathericons.com/",
             "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "pick": {"frequently": false, "good": false, "web": true}
         },
         {
             "name": "",
@@ -883,6 +882,84 @@
             "name": "Vecteezy",
             "url": "https://www.vecteezy.com/",
             "desc": "벡터 이미지, 사진, 영상 등",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "SkalGubbar",
+            "url": "https://skalgubbar.se/",
+            "desc": "누끼 따 있는 사람 사진",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Cut out people",
+            "url": "https://www.cutoutpeople.com/",
+            "desc": "누끼 따 있는 사람 사진. 그림자 포함",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "MrCutOut",
+            "url": "https://www.mrcutout.com/",
+            "desc": "누끼 따 있는 사진",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Shapefest",
+            "url": "https://shapefest.com/",
+            "desc": "3D 디자인 요소. 유료가 대부분",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "Lace",
+            "url": "http://da-lace.com/",
+            "desc": "레이스 이미지 (AI, EPS, SVG 가능). 일본어임",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "후키다시 디자인",
+            "url": "https://fukidesign.com/",
+            "desc": "말풍선",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "프리 라인 디자인",
+            "url": "http://free-line-design.com/",
+            "desc": "테두리 및 선",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "브이월드",
+            "url": "https://www.vworld.kr/v4po_main.do",
+            "desc": "국내 3D 지도. 건축물 정보 포함",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "스마트 서울맵 3D 서울지도",
+            "url": "https://smap.seoul.go.kr/",
+            "desc": "서울지역 3D 지",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "OpenDoodles",
+            "url": "https://opendoodles.com/",
+            "desc": "인물 드로잉 스타일 일러스트",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "EVERYPIXEL",
+            "url": "https://www.everypixel.com/",
+            "desc": "디자인 사이트 한 번에 검색",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
