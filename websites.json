@@ -213,9 +213,9 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "워드클라우드",
+            "url": "https://wordcloud.kr/",
+            "desc": "텍스트 복붙하고 디자인 설정하면 워드 클라우드 받을 수 있음",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
