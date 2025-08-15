@@ -836,7 +836,6 @@
             "desc": "사람 일러스트. 색상 지정 가능",
             "pick": {"frequently": false, "good": false, "web": false}
         },
-        
         {
             "name": "Pixels Market",
             "url": "https://pixels.market/",
