@@ -29,6 +29,12 @@
             "tag": ["writing", "AI-powered"]
         },
         {
+            "name": "WordReference 사전",
+            "url": "https://www.wordreference.com/englishcollocations/",
+            "desc": "영어 사전",
+            "pick": {"frequently": false, "good": true, "web": false},
+        },
+        {
             "name": "이미지 병합하기",
             "url": "https://bbom.org/tools/",
             "desc": "가로/세로로 이미지 병합 가능",
@@ -220,9 +226,9 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "Epic Pen",
+            "url": "https://epicpen.com/",
+            "desc": "화면에 그림 그리기. 설치 프로그램.",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
@@ -269,13 +275,33 @@
             "tag": ["AI-powered", "paper", "recommendation"]
         },
         {
+            "name": "Hugging Face - Daily Papers",
+            "url": "https://huggingface.co/papers",
+            "desc": "매일 논문 추천",
+            "pick": {"frequently": true, "good": true, "web": false},
+            "tag": ["paper", "recommendation"]
+        },
+        {
+            "name": "ResearchTrend.AI",
+            "url": "https://researchtrend.ai/",
+            "desc": "매일 분야별 논문 추천",
+            "pick": {"frequently": true, "good": false, "web": false},
+            "tag": ["paper", "recommendation"]
+        },
+        {
+            "name": "alphaXiv",
+            "url": "https://www.alphaxiv.org/assistant",
+            "desc": "AI 기반 검색, 질문",
+            "pick": {"frequently": false, "good": false, "web": false},
+            "tag": ["AI-powered", "paper", "chatting"]
+        },
+        {
             "name": "Academic Phrasebank",
             "url": "https://www.phrasebank.manchester.ac.uk/",
             "desc": "영국 맨체스터대학에서 제작. 학술적 글쓰기 자료 제공. 논문에 바로 쓸 수 있는 예문",
             "pick": {"frequently": true, "good": true, "web": false},
             "tag": ["AI-powered", "paper", "recommendation"]
         },
-        
         {
             "name": "Trinka",
             "url": "https://www.trinka.ai/",
@@ -414,6 +440,12 @@
     ],
 
     "colors": [
+        {
+            "name": "Color conversion",
+            "url": "https://www.rapidtables.com/convert/color/index.html",
+            "desc": "색의 다양한 표현법 간 전환 (예: Hex-RGB)",
+            "pick": {"frequently": true, "good": true, "web": false}
+        },
         {
             "name": "Coolors",
             "url": "https://coolors.co/palettes/palettes",
@@ -664,6 +696,12 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
+            "name": "Love 3D Icon",
+            "url": "https://love3dicon.com/",
+            "desc": "3D 아이콘",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
             "name": "Noticon",
             "url": "https://noticon.tammolo.com/",
             "desc": "GIF 아이콘. 클립보드 복사 가능. 노션 사용 가능",
@@ -796,6 +834,13 @@
             "name": "Ira Design",
             "url": "https://iradesign.io/",
             "desc": "사람 일러스트. 색상 지정 가능",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        
+        {
+            "name": "Pixels Market",
+            "url": "https://pixels.market/",
+            "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
