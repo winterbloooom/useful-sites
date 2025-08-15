@@ -32,7 +32,8 @@
             "name": "WordReference 사전",
             "url": "https://www.wordreference.com/englishcollocations/",
             "desc": "영어 사전",
-            "pick": {"frequently": false, "good": true, "web": false}
+            "pick": {"frequently": false, "good": true, "web": false},
+            "tag": ["writing", "dictionary"]
         },
         {
             "name": "이미지 병합하기",
