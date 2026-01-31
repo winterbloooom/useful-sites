@@ -1113,21 +1113,21 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
+            "name": "농립식품기술기획평가원 자료실",
+            "url": "https://www.ipet.re.kr/Material/IPETDataLV.asp?cate=BB",
+            "desc": "자료실>행사자료",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "정부 R&D 부처합동설명회",
+            "url": "https://govrnd.kr/28",
             "desc": "",
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
-        },
-        {
-            "name": "",
-            "url": "",
-            "desc": "",
+            "name": "한국과학기술기획평가원 부처합동 설명회",
+            "url": "https://www.kistep.re.kr/mjbs.es?mjbs_year=2025",
+            "desc": "2019년~",
             "pick": {"frequently": false, "good": false, "web": false}
         }
     ],
