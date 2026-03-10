@@ -126,13 +126,6 @@
             "tag": ["writing", "AI-powered"]
         },
         {
-            "name": "turnitin 사용법",
-            "url": "https://libguides.postech.ac.kr/turnitin",
-            "desc": "POSTECH 학생들의 turnitin 사용법 안내 (박태준학술정보관)",
-            "pick": {"frequently": false, "good": false, "web": false},
-            "tag": ["writing", "AI-powered"]
-        },
-        {
             "name": "아보카도",
             "url": "https://avocadomail.co.kr/",
             "desc": "메일 템플릿",
@@ -233,21 +226,21 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "name": "빅카인즈",
+            "url": "kinds.or.kr",
+            "desc": "한국 공공 뉴스 아카이브. 빅데이터 분석 등",
+            "pick": {"frequently": false, "good": true, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "name": "갤럽",
+            "url": "https://www.gallup.co.kr/",
+            "desc": "여론 조사 결과 제공, 특정 주제 관련 수치, 객관적 통계 자료",
+            "pick": {"frequently": false, "good": true, "web": false}
         },
         {
-            "name": "",
+            "name": "구글트렌드",
             "url": "",
-            "desc": "",
+            "desc": "키워드별 구글 검색량. 유사 사이트: 네이버 데이터랩",
             "pick": {"frequently": false, "good": false, "web": false}
         }
         
@@ -408,10 +401,10 @@
             "pick": {"frequently": false, "good": false, "web": false}
         },
         {
-            "name": "",
-            "url": "",
-            "desc": "",
-            "pick": {"frequently": false, "good": false, "web": false}
+            "name": "Type Scale",
+            "url": "https://typescale.com/",
+            "desc": "웹다지인 시 폰트 크기 미리보기",
+            "pick": {"frequently": false, "good": true, "web": true}
         },
         {
             "name": "",
@@ -1129,7 +1122,13 @@
             "url": "https://www.kistep.re.kr/mjbs.es?mjbs_year=2025",
             "desc": "2019년~",
             "pick": {"frequently": false, "good": false, "web": false}
-        }
+        },
+        {
+            "name": "notefolio",
+            "url": "https://notefolio.net/",
+            "desc": "디자이너의 포트폴리오와 작업물. 비슷한 외국 사이트: behance, dribble",
+            "pick": {"frequently": false, "good": false, "web": false}
+        }        
     ],
 
     "latex": [
