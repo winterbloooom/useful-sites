@@ -242,6 +242,24 @@
             "url": "",
             "desc": "키워드별 구글 검색량. 유사 사이트: 네이버 데이터랩",
             "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "대한민국 정책브리핑",
+            "url": "",
+            "desc": "제안서 등 작성 시 정부 정책이나 기조에 맞춰 쓸 소재를 찾기 좋음",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "KOTRA 해외 시장 뉴스",
+            "url": "",
+            "desc": "해외 시장 동향이나 국제적 업계 동향 주장 근거 찾기 좋음",
+            "pick": {"frequently": false, "good": false, "web": false}
+        },
+        {
+            "name": "IEEE Spectrum",
+            "url": "",
+            "desc": "전기, 전자, IT 최신 기술 동향 및 트렌드 기사",
+            "pick": {"frequently": false, "good": false, "web": false}
         }
         
     ],
