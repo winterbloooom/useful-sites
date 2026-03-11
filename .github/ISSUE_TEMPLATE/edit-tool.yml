@@ -1,31 +1,26 @@
 name: Edit tool
 description: Request an update to an existing tool entry
 title: "[Edit] "
-labels:
-  - tool-edit
+labels: [tool-edit]
 body:
   - type: input
     id: current_name
     attributes:
       label: Current name
-      placeholder: Grammarly
     validations:
       required: true
   - type: input
     id: current_url
     attributes:
       label: Current URL
-      placeholder: https://app.grammarly.com/
   - type: input
     id: current_category
     attributes:
       label: Current category
-      placeholder: utils
   - type: input
     id: current_frequently_used
     attributes:
       label: Current frequently used
-      placeholder: Yes or No
   - type: dropdown
     id: field
     attributes:
@@ -66,12 +61,10 @@ body:
         - dictionary
         - english
         - uncategorized
-      default: 0
   - type: textarea
     id: new_description
     attributes:
       label: New description
-      placeholder: Leave blank if unchanged
   - type: dropdown
     id: frequently_used
     attributes:
@@ -80,9 +73,7 @@ body:
         - No change
         - Yes
         - No
-      default: 0
   - type: textarea
     id: notes
     attributes:
       label: Notes
-      placeholder: Optional context
