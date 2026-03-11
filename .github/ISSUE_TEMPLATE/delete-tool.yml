@@ -1,0 +1,51 @@
+name: Delete tool
+description: Request removal of an existing tool entry
+title: "[Delete] "
+labels:
+  - tool-delete
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Name of the entry to remove
+      placeholder: Grammarly
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Helps identify the exact entry
+      placeholder: https://app.grammarly.com/
+    validations:
+      required: false
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Unknown
+        - utils
+        - writing
+        - programming
+        - converter
+        - audio
+        - math
+        - visualization
+        - diagram
+        - branding
+        - generation
+        - dictionary
+        - english
+        - uncategorized
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: Why should this entry be removed?
+      placeholder: The service shut down or the link is permanently dead
+    validations:
+      required: true

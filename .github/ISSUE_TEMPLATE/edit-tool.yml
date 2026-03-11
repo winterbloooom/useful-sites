@@ -1,0 +1,96 @@
+name: Edit tool
+description: Request an update to an existing tool entry
+title: "[Edit] "
+labels:
+  - tool-edit
+body:
+  - type: input
+    id: current_name
+    attributes:
+      label: Current name
+      description: Name of the existing tool entry
+      placeholder: Grammarly
+    validations:
+      required: true
+  - type: input
+    id: current_url
+    attributes:
+      label: Current URL
+      description: Helps identify the exact entry if names are similar
+      placeholder: https://app.grammarly.com/
+    validations:
+      required: false
+  - type: dropdown
+    id: field
+    attributes:
+      label: What do you want to change?
+      options:
+        - Name
+        - URL
+        - Category
+        - Description
+        - Frequently used
+        - Multiple fields
+    validations:
+      required: true
+  - type: input
+    id: new_name
+    attributes:
+      label: New name
+      placeholder: Leave blank if unchanged
+    validations:
+      required: false
+  - type: input
+    id: new_url
+    attributes:
+      label: New URL
+      placeholder: https://example.com
+    validations:
+      required: false
+  - type: dropdown
+    id: new_category
+    attributes:
+      label: New category
+      description: Select only if the category should change
+      options:
+        - No change
+        - utils
+        - writing
+        - programming
+        - converter
+        - audio
+        - math
+        - visualization
+        - diagram
+        - branding
+        - generation
+        - dictionary
+        - english
+        - uncategorized
+    validations:
+      required: true
+  - type: textarea
+    id: new_description
+    attributes:
+      label: New description
+      placeholder: Leave blank if unchanged
+    validations:
+      required: false
+  - type: dropdown
+    id: frequently_used
+    attributes:
+      label: Frequently used
+      options:
+        - No change
+        - Yes
+        - No
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Any context needed to apply the change safely
+      placeholder: Rename because the service rebranded in 2026
+    validations:
+      required: false

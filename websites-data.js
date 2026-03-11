@@ -1,0 +1,1540 @@
+window.WEBSITES_DATA = {
+    "utils": [
+        {
+            "name": "사람인 맞춤법 검사기",
+            "url": "https://www.saramin.co.kr/zf_user/tools/character-counter",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "웨않되",
+            "url": "https://chat.openai.com/",
+            "desc": "Chrome Extension. 맞춤법 검사기",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Grammarly",
+            "url": "https://app.grammarly.com/",
+            "desc": "영어 문법 교정. Chrome Extension 있음",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "DeepL 번역기",
+            "url": "https://www.deepl.com/translator",
+            "desc": "AI기반 텍스트 및 파일 번역. Chrome Extension 있음",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "WordReference 사전",
+            "url": "https://www.wordreference.com/englishcollocations/",
+            "desc": "영어 사전",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "이미지 병합하기",
+            "url": "https://bbom.org/tools/",
+            "desc": "가로/세로로 이미지 병합 가능",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "ezgif",
+            "url": "https://ezgif.com/",
+            "desc": "GIF 만들기",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Diagrams",
+            "url": "https://app.diagrams.net/",
+            "desc": "순서도 그리기",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Desmos",
+            "url": "https://www.desmos.com/?lang=ko",
+            "desc": "그래프, 공학용 계산기, 행렬 계산기, 기하학 도구",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "DataGraph",
+            "url": "https://www.visualdatatools.com/DataGraph/",
+            "desc": "(App) MAC용 그래프 그리기",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Mathpix",
+            "url": "https://mathpix.com/",
+            "desc": "손글씨나 텍스트 수식을 이미지, word 등으로 변환. 일정 횟수 무료.",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "carbon",
+            "url": "https://carbon.now.sh/",
+            "desc": "소스코드 이미지/내보내기",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Algorithm Visualizer",
+            "url": "https://algorithm-visualizer.org/",
+            "desc": "알고리즘 시각화",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Visualgo",
+            "url": "https://visualgo.net/en",
+            "desc": "알고리즘 시각화",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "클로바 더빙",
+            "url": "https://clovadubbing.naver.com/",
+            "desc": "텍스트를 입력하면 음성으로 변환해줌",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "VEED.IO",
+            "url": "https://www.veed.io/ko-KR/tools/subtitle-converter/srt-to-txt",
+            "desc": "자막 파일(.srt)를 txt 파일로 변환",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Scholarcy",
+            "url": "https://www.scholarcy.com/",
+            "desc": "AI-powered article summarizer (파일, tex 등 가능)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "turnitin",
+            "url": "https://kr.turnitin.com/",
+            "desc": "유사도 검사",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "아보카도",
+            "url": "https://avocadomail.co.kr/",
+            "desc": "메일 템플릿",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "copy.ai",
+            "url": "https://www.copy.ai/",
+            "desc": "카피 제작",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "jasper",
+            "url": "https://www.jasper.ai/",
+            "desc": "비즈니스를 위한 writing copilot",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "네임릭스",
+            "url": "https://namelix.com/",
+            "desc": "작명, 로고, 디자인",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Momen",
+            "url": "https://momen.app/",
+            "desc": "코드를 사용하지 않고 웹 앱 만듦",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Speechify",
+            "url": "https://speechify.com/",
+            "desc": "TTS",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Durable",
+            "url": "https://durable.co/",
+            "desc": "웹사이트 생성",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Templify",
+            "url": "https://chromewebstore.google.com/detail/fndgllkjbjkfnkjfcpnajbmgaedokmdo?hl=ko&utm_source=ext_sidebar",
+            "desc": "각종 메시지의 템플릿 제공 (크롬 확장프로그램)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "유튜브 썸네일 추출하기",
+            "url": "https://marshallku.com/dev/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0",
+            "desc": "",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "자모야 모여라",
+            "url": "https://jamoya.one/",
+            "desc": "Mac에서 한글로 된 파일명이 분리되는 현상 방지",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "지수 표기법 변환기",
+            "url": "https://mwultong.blogspot.com/2008/01/exponential-scientific-notation-convert.html",
+            "desc": "과학적 표기법 변환",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Online 3D Viewer",
+            "url": "https://3dviewer.net/index.html",
+            "desc": "obj, fly 등 3D 파일 시각화",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Time Zone Converter",
+            "url": "https://www.timeanddate.com/worldclock/converter.html",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Apption",
+            "url": "https://apption.co/",
+            "desc": "노션 임베딩 가능한 html 위젯 사이트",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "워드클라우드",
+            "url": "https://wordcloud.kr/",
+            "desc": "텍스트 복붙하고 디자인 설정하면 워드 클라우드 받을 수 있음",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Epic Pen",
+            "url": "https://epicpen.com/",
+            "desc": "화면에 그림 그리기. 설치 프로그램.",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "빅카인즈",
+            "url": "kinds.or.kr",
+            "desc": "한국 공공 뉴스 아카이브. 빅데이터 분석 등",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "갤럽",
+            "url": "https://www.gallup.co.kr/",
+            "desc": "여론 조사 결과 제공, 특정 주제 관련 수치, 객관적 통계 자료",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "구글트렌드",
+            "url": "",
+            "desc": "키워드별 구글 검색량. 유사 사이트: 네이버 데이터랩",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "대한민국 정책브리핑",
+            "url": "",
+            "desc": "제안서 등 작성 시 정부 정책이나 기조에 맞춰 쓸 소재를 찾기 좋음",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "KOTRA 해외 시장 뉴스",
+            "url": "",
+            "desc": "해외 시장 동향이나 국제적 업계 동향 주장 근거 찾기 좋음",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "IEEE Spectrum",
+            "url": "",
+            "desc": "전기, 전자, IT 최신 기술 동향 및 트렌드 기사",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "research": [
+        {
+            "name": "Semantic Scholar",
+            "url": "https://www.semanticscholar.org/",
+            "desc": "AI-powered research tool for scientific literature. Chrome Extension 있음",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Google  Scholar",
+            "url": "https://scholar.google.com/",
+            "desc": "Chrome Extension 편리",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Scholar Inbox",
+            "url": "https://www.scholar-inbox.com/",
+            "desc": "매일 논문 추천",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Hugging Face - Daily Papers",
+            "url": "https://huggingface.co/papers",
+            "desc": "매일 논문 추천",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "ResearchTrend.AI",
+            "url": "https://researchtrend.ai/",
+            "desc": "매일 분야별 논문 추천",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "alphaXiv",
+            "url": "https://www.alphaxiv.org/assistant",
+            "desc": "AI 기반 검색, 질문",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Academic Phrasebank",
+            "url": "https://www.phrasebank.manchester.ac.uk/",
+            "desc": "영국 맨체스터대학에서 제작. 학술적 글쓰기 자료 제공. 논문에 바로 쓸 수 있는 예문",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Trinka",
+            "url": "https://www.trinka.ai/",
+            "desc": "논문 교정회사 enago에서 만듦. 유료 버전 있음. 문법 및 의역 등 교정.",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Scispace",
+            "url": "https://scispace.com/",
+            "desc": "논문 분석. Command 사용 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Connected Papers",
+            "url": "https://www.connectedpapers.com/",
+            "desc": "관련 논문을 그래프로 표현",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Elicit",
+            "url": "https://elicit.com/",
+            "desc": "텍스트 요약, 관련 논문 검색, 데이터 정리 및 제공",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "OpenRead",
+            "url": "https://elicit.com/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "design utils": [
+        {
+            "name": "Lorem Ipsum 생성기",
+            "url": "https://www.lipsum.com/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "CSS Peeper",
+            "url": "https://chromewebstore.google.com/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk",
+            "desc": "Chrome Extension. 해당 웹사이트의 CSS 추출",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Photopea",
+            "url": "https://www.photopea.com/",
+            "desc": "웹 포토샵",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "remove.bg",
+            "url": "https://www.remove.bg/ko",
+            "desc": "이미지에서 배경 제거. 해상도가 많이 낮아짐",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "shortcuts design",
+            "url": "https://shortcuts.design/",
+            "desc": "디자인 툴 별 단축키 모음",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Image Backgorund blurer",
+            "url": "https://imagebgblurer.com/",
+            "desc": "이미지 배경 흐리게",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Napkin AI",
+            "url": "https://www.napkin.ai/",
+            "desc": "AI 기반 텍스트 도식화/구조화 (인포그래픽)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "ClipDrop",
+            "url": "https://clipdrop.co/",
+            "desc": "배경 제거 외 디자인 툴",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "beautiful.ai",
+            "url": "https://www.beautiful.ai/",
+            "desc": "PPT 생성 AI. 유/무료버전",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "TOME.app",
+            "url": "https://tome.app/lp/ai-presentations",
+            "desc": "PPT 생성 AI. 유/무료버전",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Gamma",
+            "url": "https://gamma.app/ko",
+            "desc": "PPT 생성 AI. 자료조사도 함. 퀄리티는 낮음",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Type Scale",
+            "url": "https://typescale.com/",
+            "desc": "웹다지인 시 폰트 크기 미리보기",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "colors": [
+        {
+            "name": "Color conversion",
+            "url": "https://www.rapidtables.com/convert/color/index.html",
+            "desc": "색의 다양한 표현법 간 전환 (예: Hex-RGB)",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Coolors",
+            "url": "https://coolors.co/palettes/palettes",
+            "desc": "색조합, 그라디언트, 색 정보 등",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Color Hunt",
+            "url": "https://colorhunt.co/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "크로마",
+            "url": "http://khroma.co/train/",
+            "desc": "사용자가 선택한 색상 기준으로 컬러조합 & 팔레트 생성",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "투 컬러 콤비네이션",
+            "url": "https://2colors.colorion.co/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "uiGradients",
+            "url": "https://uigradients.com/#Influenza",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "WebGradients",
+            "url": "https://webgradients.com/",
+            "desc": "2색 그라디언트 조합",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "lol colors",
+            "url": "https://www.webdesignrankings.com/resources/lolcolors/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Flat UI colors",
+            "url": "https://flatuicolors.com/",
+            "desc": "UI에 사용할 수 있도록 밝기 조절된 다색 조합 제공",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "컬러헥사",
+            "url": "https://www.colorhexa.com/",
+            "desc": "특정 색 입력 시 색상 분석",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "디자인 씨드",
+            "url": "https://www.design-seeds.com/",
+            "desc": "사진에서 추출한 색상 조합 제공",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Grabient",
+            "url": "https://cssgradient.io/gradient-backgrounds/",
+            "desc": "2-3가지 색상의 그래디언트 및 해당 CSS 코드",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "엔사이컬러피디아",
+            "url": "https://encycolorpedia.kr/",
+            "desc": "입력 색상에 대한 분석 제공",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "브랜드 컬러스",
+            "url": "http://brandcolors.net/",
+            "desc": "기업 및 브랜드 색상 조합",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Color by Fardos - Color Picker",
+            "url": "https://chromewebstore.google.com/detail/color-by-fardos-color-pic/iibpgpkhpfggipbacjfeijkloidhmiei",
+            "desc": "Chrome Extension",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "ColorZilla",
+            "url": "https://chromewebstore.google.com/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp",
+            "desc": "Color Picker. Chrome Extension",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Picular",
+            "url": "https://picular.co/",
+            "desc": "단어를 입력하면 색을 추천. 색상 조합(X)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Snook Color Contrast",
+            "url": "https://snook.ca/technical/colour_contrast/colour.html",
+            "desc": "사용하고 있는 색조합이 애매할 때. Contrast ratio가 2.5가 넘도록 Hue, Saturation 값을 조정하기.",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Candy Icons",
+            "url": "https://www.candyicons.com/",
+            "desc": "아이콘 생성",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "ColorSpace",
+            "url": "https://mycolor.space/",
+            "desc": "메인 컬러 코드 입력 시 관련 팔레트 리스트업",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "AI Colors",
+            "url": "https://aicolors.co/",
+            "desc": "색상에 따른 UI 적용 예시도 보여줌",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "AutoDraw",
+            "url": "https://www.autodraw.com/",
+            "desc": "스케치 -> 아이콘",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "icons": [
+        {
+            "name": "Noun Project",
+            "url": "https://thenounproject.com/",
+            "desc": "모노톤 아이콘. SVG 다운로드 가능",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Font Awesome",
+            "url": "https://fontawesome.com/",
+            "desc": "회원가입&링크 발급 필요. 무료 리소스 적음. 모노톤",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "구글 폰트 아이콘",
+            "url": "https://fonts.google.com/icons",
+            "desc": "커스터마이징 가능. 리소스 적음. 모노톤",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Flaticon",
+            "url": "https://www.flaticon.com/",
+            "desc": "커스터마이징 가능. SVG 유료.",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Emoji Engine",
+            "url": "https://www.emojiengine.com/ko/keyboard/",
+            "desc": "Emoji",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "emojipedia",
+            "url": "https://emojipedia.org/",
+            "desc": "기기별 이모지 모양, 이모지 뜻, 이모지 이미지 버전 다운",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "manypixels - icon",
+            "url": "https://www.manypixels.co/free-icons",
+            "desc": "색상 지정 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Animated Emoji",
+            "url": "https://googlefonts.github.io/noto-emoji-animation/",
+            "desc": "움직이는 이모지. GIF 다운도 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "SVG Repo",
+            "url": "https://www.svgrepo.com/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "아이콘 몬스터",
+            "url": "https://iconmonstr.com/",
+            "desc": "모노톤 아이콘. SVG 다운로드 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "아이콘 스토어",
+            "url": "https://iconstore.co/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Human Pictogram 2.0",
+            "url": "https://pictogram2.com/?lang=en",
+            "desc": "픽토그램 스타일 사람 아이콘. 일본 웹사이트. JPG, PNG, Ai 형태 제공.",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "lordicon",
+            "url": "https://lordicon.com/",
+            "desc": "움직이는 아이콘",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "icons8",
+            "url": "https://icons8.kr/icons",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "IconScout",
+            "url": "https://iconscout.com/",
+            "desc": "3D Illustrations icons, Icons",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "특수문자 표",
+            "url": "https://ko.wikipedia.org/wiki/KS_X_1001%EC%9D%98_%ED%8A%B9%EC%88%98_%EB%AC%B8%EC%9E%90",
+            "desc": "KS X 1001의 특수문자 모음",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "토스페이스",
+            "url": "https://toss.im/tossface",
+            "desc": "토스 제공 아이콘. 글꼴 설치 후 이모지 삽입하는 식(글꼴이 없으면 깨질수도 있음)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "3icons",
+            "url": "https://3dicons.co/",
+            "desc": "3D 아이콘",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Free3Dicon",
+            "url": "https://free3dicon.com/",
+            "desc": "3D 아이콘",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Love 3D Icon",
+            "url": "https://love3dicon.com/",
+            "desc": "3D 아이콘",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Noticon",
+            "url": "https://noticon.tammolo.com/",
+            "desc": "GIF 아이콘. 클립보드 복사 가능. 노션 사용 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Notion Icons",
+            "url": "https://uno.notion.vip/icons/",
+            "desc": "노션용 아이콘 (크기, 색상 변경 가능)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Feather",
+            "url": "https://feathericons.com/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "assets": [
+        {
+            "name": "Unsplash",
+            "url": "https://unsplash.com/",
+            "desc": "감성 사진 위주",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Pixabay",
+            "url": "https://pixabay.com/",
+            "desc": "사진 & 영상",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Pexels",
+            "url": "https://www.pexels.com/ko-kr/",
+            "desc": "사진 & 영상",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "unDraw",
+            "url": "https://undraw.co/illustrations",
+            "desc": "일러스트. 메인 컬러 지정 가능. 수 적음.",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Shopify",
+            "url": "https://www.shopify.com/stock-photos",
+            "desc": "비즈니스와 마케팅에 쓰기 좋은 이미지",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Picjumbo",
+            "url": "https://picjumbo.com/",
+            "desc": "배경화면 스타일",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "BGJar",
+            "url": "https://bgjar.com/",
+            "desc": "패턴 배경. SVG로 다운 받아 PPT에 넣으면 깨짐",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "IRA design",
+            "url": "https://iradesign.io/",
+            "desc": "일러스트. 배경, 색 등 커스터마이징 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "소코스트",
+            "url": "https://soco-st.com/",
+            "desc": "동글동글한 일러스트. 색상 선택 및 SVG 다운 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Loose Drawing",
+            "url": "https://loosedrawing.com/",
+            "desc": "손그림 스타일 일러스트. 색상 선택 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "비즈니스소재",
+            "url": "https://web-sozai.com/",
+            "desc": "사람 중심 일러스트. ai 파일 다운 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "doodle svg",
+            "url": "https://svgdoodles.com/",
+            "desc": "손그림 낙서스타일 일러스트. 코드 복사 후, svgviewer.dev에서 코드를 이미지로 변환해 svg로 사용",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "국토지리정보원 어린이지도여행",
+            "url": "https://www.ngii.go.kr/child/content.do?sq=149",
+            "desc": "지도 도안 다운로드 가능 (백지도, 명칭 표기지도)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "storyset",
+            "url": "https://storyset.com/",
+            "desc": "색 수정, SVG 다운 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "manypixels - 일러스트",
+            "url": "https://www.manypixels.co/gallery",
+            "desc": "일러스트. 메인 컬러 지정 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "MagicPattern",
+            "url": "https://www.magicpattern.design/tools",
+            "desc": "배경용 패턴 생성",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Notion Svg Avatar Maker",
+            "url": "https://cvbox.org/avatar-plus",
+            "desc": "노션 스타일의 아바타 생성기",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Ira Design",
+            "url": "https://iradesign.io/",
+            "desc": "사람 일러스트. 색상 지정 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Pixels Market",
+            "url": "https://pixels.market/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Notion Cover Generator",
+            "url": "https://notioncovergenerator.com/",
+            "desc": "노션 커버 이미지 제작",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Covercons",
+            "url": "https://covercons.vercel.app/",
+            "desc": "아이콘을 메인으로 한 커버 이미지 제작",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "휴먼즈",
+            "url": "https://www.humaaans.com/",
+            "desc": "사람 일러스트, 해상도 낮은 PNG",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "videvo",
+            "url": "https://www.videvo.net/",
+            "desc": "비디오 클립",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "공유마당",
+            "url": "https://gongu.copyright.or.kr/gongu/main/main.do",
+            "desc": "이미지, 영상, 음악, 영화 등 저작물 공유",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Mock Magic",
+            "url": "https://www.mockmagic.com/",
+            "desc": "Mockup",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "placeit",
+            "url": "https://placeit.net/c/mockups",
+            "desc": "Mockup. 티셔츠, 물건 등 대상 다양.",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "IconFinder",
+            "url": "https://www.iconfinder.com/",
+            "desc": "Icons, 3D illustrations, Illustrations, Stickers",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Logo Maker",
+            "url": "https://www.brandcrowd.com/logo-maker",
+            "desc": "로고 생성",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "mybrandnewlogo",
+            "url": "https://mybrandnewlogo.com/ko",
+            "desc": "로고 생성",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Shopify logo maker",
+            "url": "https://www.shopify.com/tools/logo-maker",
+            "desc": "로고 생성",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "coverr",
+            "url": "https://coverr.co/",
+            "desc": "무료 영상. 전문성 높아보이는 영상.",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "VIDEVO",
+            "url": "https://www.videvo.net/",
+            "desc": "모션그래픽, 음악, 비디오 등",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Vecteezy",
+            "url": "https://www.vecteezy.com/",
+            "desc": "벡터 이미지, 사진, 영상 등",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "SkalGubbar",
+            "url": "https://skalgubbar.se/",
+            "desc": "누끼 따 있는 사람 사진",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Cut out people",
+            "url": "https://www.cutoutpeople.com/",
+            "desc": "누끼 따 있는 사람 사진. 그림자 포함",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "MrCutOut",
+            "url": "https://www.mrcutout.com/",
+            "desc": "누끼 따 있는 사진",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Shapefest",
+            "url": "https://shapefest.com/",
+            "desc": "3D 디자인 요소. 유료가 대부분",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Lace",
+            "url": "http://da-lace.com/",
+            "desc": "레이스 이미지 (AI, EPS, SVG 가능). 일본어임",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "후키다시 디자인",
+            "url": "https://fukidesign.com/",
+            "desc": "말풍선",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "프리 라인 디자인",
+            "url": "http://free-line-design.com/",
+            "desc": "테두리 및 선",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "브이월드",
+            "url": "https://www.vworld.kr/v4po_main.do",
+            "desc": "국내 3D 지도. 건축물 정보 포함",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "스마트 서울맵 3D 서울지도",
+            "url": "https://smap.seoul.go.kr/",
+            "desc": "서울지역 3D 지",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "OpenDoodles",
+            "url": "https://opendoodles.com/",
+            "desc": "인물 드로잉 스타일 일러스트",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "EVERYPIXEL",
+            "url": "https://www.everypixel.com/",
+            "desc": "디자인 사이트 한 번에 검색",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "DrawKit",
+            "url": "https://www.drawkit.com/",
+            "desc": "일러스트. 이메일 필요. PNG+SVG",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "fonts": [
+        {
+            "name": "눈누",
+            "url": "https://noonnu.cc/",
+            "desc": "무료 폰트 모음",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "DaFont",
+            "url": "https://www.dafont.com/",
+            "desc": "English",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Google Fonts",
+            "url": "https://fonts.google.com/",
+            "desc": "all languages",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "1001 Fonts",
+            "url": "https://www.1001fonts.com/",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "design references": [
+        {
+            "name": "미리캔버스",
+            "url": "https://www.miricanvas.com/templates",
+            "desc": "PPT, 상세페이지, 카드뉴스, 동영상, 유튜브, 페이스북 등 템플릿 디자인 참고",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Awwwards.com",
+            "url": "https://www.awwwards.com/",
+            "desc": "디자인 감각 기르는 용도로 참고",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "PosterPresetations",
+            "url": "https://www.posterpresentations.com/",
+            "desc": "포스터 발표 PPT 양식을 무료로 다운 가능",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Notion Everything",
+            "url": "https://www.notioneverything.com/",
+            "desc": "노션 템플릿 공유 (유/무료)",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Template Haven",
+            "url": "https://www.templateheaven.store/",
+            "desc": "웹페이지, 노션 등 무료 템플리 공유",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Notion Pages",
+            "url": "https://notionpages.com/",
+            "desc": "노션 템플릿 공유",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Notion Box",
+            "url": "https://www.notionbox.kr/",
+            "desc": "노션 템플릿 공유",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "템플래닛",
+            "url": "https://templanet.co.kr/",
+            "desc": "노션 템플릿 공유",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "aNotioneer",
+            "url": "https://www.anotioneer.com/",
+            "desc": "노션 템플릿 공유",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "농립식품기술기획평가원 자료실",
+            "url": "https://www.ipet.re.kr/Material/IPETDataLV.asp?cate=BB",
+            "desc": "자료실>행사자료",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "정부 R&D 부처합동설명회",
+            "url": "https://govrnd.kr/28",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "한국과학기술기획평가원 부처합동 설명회",
+            "url": "https://www.kistep.re.kr/mjbs.es?mjbs_year=2025",
+            "desc": "2019년~",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "notefolio",
+            "url": "https://notefolio.net/",
+            "desc": "디자이너의 포트폴리오와 작업물. 비슷한 외국 사이트: behance, dribble",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ],
+    "latex": [
+        {
+            "name": "Wikipedia TeX formula",
+            "url": "https://en.wikipedia.org/wiki/Help:Displaying_a_formula",
+            "desc": "HTML 및 TeX에서 수식 입력하는 방법 모음",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Overleaf",
+            "url": "https://www.overleaf.com/project",
+            "desc": "Online LaTeX editor",
+            "pick": {
+                "frequently": true
+            }
+        },
+        {
+            "name": "Latex Editor",
+            "url": "https://latexeditor.lagrida.com/",
+            "desc": "LaTeX에서 이미지 변환",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "Overleaf 'List of Greek letters and math symbols'",
+            "url": "https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        },
+        {
+            "name": "",
+            "url": "",
+            "desc": "",
+            "pick": {
+                "frequently": false
+            }
+        }
+    ]
+};

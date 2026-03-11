@@ -1,0 +1,57 @@
+name: Add tool
+description: Request a new tool entry
+title: "[Add] "
+labels:
+  - tool-add
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Tool name to display in the directory
+      placeholder: Grammarly
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Full URL including https://
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Pick the closest existing category
+      options:
+        - utils
+        - writing
+        - programming
+        - converter
+        - audio
+        - math
+        - visualization
+        - diagram
+        - branding
+        - generation
+        - dictionary
+        - english
+        - uncategorized
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Short note about why this tool is useful
+      placeholder: English grammar correction with Chrome extension support
+    validations:
+      required: false
+  - type: checkboxes
+    id: flags
+    attributes:
+      label: Options
+      options:
+        - label: Mark as frequently used

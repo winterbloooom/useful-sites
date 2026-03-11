@@ -1,95 +1,289 @@
-/**
- * Load array of websites from json file.
- * @param {string} category - Which category to load objects. Be sure that it should be exactly same with name of array object in json file.
- * @returns list of websites in `category` object
- */
-function loadWebsites(category) {
-    return fetch("./websites.json")
-        .then((res) => res.json())
-        .then((json) => json[category]);
+const DEFAULT_SOURCE = "./websites.json";
+const GITHUB_REPO = "winterbloooom/useful-sites";
+const ISSUE_BASE_URL = `https://github.com/${GITHUB_REPO}/issues/new`;
+
+const state = {
+    items: [],
+    search: "",
+    categoryFilter: "all",
+    initialized: false
+};
+
+const refs = {
+    rows: document.getElementById("tool-rows"),
+    listMeta: document.getElementById("list-meta"),
+    rowTemplate: document.getElementById("row-template"),
+    categoryFilter: document.getElementById("category-filter"),
+    searchInput: document.getElementById("search-input"),
+    addIssueBtn: document.getElementById("add-issue-btn"),
+    editIssueBtn: document.getElementById("edit-issue-btn"),
+    deleteIssueBtn: document.getElementById("delete-issue-btn")
+};
+
+function uid() {
+    if (window.crypto && crypto.randomUUID) {
+        return crypto.randomUUID();
+    }
+    return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
+function normalizeUrl(url) {
+    const trimmed = String(url || "").trim();
+    if (!trimmed) {
+        return "";
+    }
+    if (/^https?:\/\//i.test(trimmed)) {
+        return trimmed;
+    }
+    return `https://${trimmed}`;
+}
 
-/**
- * Insert rows in table
- * @param {Array} websites - array of website objects from json file
- * @param {Promise} container - table to insert rows
- */
-function showWebsites(websites, container) {
-    websites.forEach(website => {
-        line_tr = Object.assign(
-            document.createElement('tr'),
-            { className: "line" }
-        );
-        pick_td = Object.assign(
-            document.createElement('td'),
-            { className: "pick" }
-        );
-        pick_td.innerText += website.pick.frequently ? "⭐" : "";
-        pick_td.innerText += website.pick.good ? "👍" : "";
-        pick_td.innerText += website.pick.web ? "🌏" : "";
-        name_td = Object.assign(
-            document.createElement('td'),
-            { className: "name" }
-        );
-        link_td = Object.assign(
-            document.createElement('a'),
-            { href: website.url },
-            { innerText: website.name },
-            { target: "_blank"}
-        );
-        desc_td = Object.assign(
-            document.createElement('td'),
-            { className: "description" },
-            { innerText: website.desc }
-        );
-        name_td.appendChild(link_td);
-        line_tr.appendChild(pick_td);
-        line_tr.appendChild(name_td);
-        line_tr.appendChild(desc_td);
-        container.appendChild(line_tr);
+function normalizeLegacyData(raw) {
+    if (Array.isArray(raw)) {
+        return raw.map(normalizeItem).filter(Boolean);
+    }
+
+    const items = [];
+    Object.entries(raw || {}).forEach(([category, list]) => {
+        if (!Array.isArray(list)) {
+            return;
+        }
+        list.forEach((entry) => {
+            const normalized = normalizeItem({ ...entry, category });
+            if (normalized) {
+                items.push(normalized);
+            }
+        });
+    });
+
+    return items;
+}
+
+function normalizeItem(entry) {
+    if (!entry || !entry.name) {
+        return null;
+    }
+
+    return {
+        id: entry.id || uid(),
+        name: String(entry.name || "").trim(),
+        url: normalizeUrl(entry.url || ""),
+        desc: String(entry.desc || "").trim(),
+        category: String(entry.category || "uncategorized").trim().toLowerCase(),
+        frequently: Boolean(entry.frequently || (entry.pick && entry.pick.frequently))
+    };
+}
+
+async function loadInitialData() {
+    try {
+        const response = await fetch(DEFAULT_SOURCE);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        const json = await response.json();
+        state.items = normalizeLegacyData(json);
+        return;
+    } catch (error) {
+        if (window.WEBSITES_DATA) {
+            state.items = normalizeLegacyData(window.WEBSITES_DATA);
+            return;
+        }
+        throw error;
+    }
+}
+
+function compareItems(a, b) {
+    if (a.category !== b.category) {
+        return a.category.localeCompare(b.category);
+    }
+    return a.name.localeCompare(b.name);
+}
+
+function getCategories() {
+    const set = new Set();
+    state.items.forEach((item) => set.add(item.category));
+    return Array.from(set).sort((a, b) => a.localeCompare(b));
+}
+
+function filterItems() {
+    const search = state.search.trim().toLowerCase();
+
+    return state.items
+        .filter((item) => state.categoryFilter === "all" || item.category === state.categoryFilter)
+        .filter((item) => {
+            if (!search) {
+                return true;
+            }
+            const bucket = [item.name, item.desc, item.category].join(" ").toLowerCase();
+            return bucket.includes(search);
+        })
+        .sort(compareItems);
+}
+
+function createIssueUrl(template, fields = {}) {
+    const params = new URLSearchParams({ template });
+    Object.entries(fields).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && String(value) !== "") {
+            params.set(key, String(value));
+        }
+    });
+    return `${ISSUE_BASE_URL}?${params.toString()}`;
+}
+
+function addIssueUrl() {
+    return createIssueUrl("add-tool.yml", { title: "[Add] " });
+}
+
+function editIssueUrl(item) {
+    return createIssueUrl("edit-tool.yml", {
+        title: `[Edit] ${item.name}`,
+        current_name: item.name,
+        current_url: item.url,
+        field: "Multiple fields",
+        new_description: item.desc,
+        new_category: "No change",
+        frequently_used: "No change"
     });
 }
 
-
-function callLoader(name, activeContent) {
-    var pos = name.indexOf("_") + 1;
-    name = name.substring(pos);
-    loadWebsites(name).then((websites) => {
-        showWebsites(websites, activeContent);
-    })
+function deleteIssueUrl(item) {
+    return createIssueUrl("delete-tool.yml", {
+        title: `[Delete] ${item.name}`,
+        name: item.name,
+        url: item.url,
+        category: item.category
+    });
 }
 
+function refreshCategoryControls() {
+    const categories = getCategories();
+    if (state.categoryFilter !== "all" && !categories.includes(state.categoryFilter)) {
+        state.categoryFilter = "all";
+    }
 
-function showActivateTab() {
-    const tabList = document.querySelectorAll("#category-tab > .tab-item");
-    const table = document.querySelector("#category-contents > table > tbody");
-    var tableRows;
+    refs.categoryFilter.innerHTML = "";
+    const all = document.createElement("option");
+    all.value = "all";
+    all.textContent = "All";
+    refs.categoryFilter.appendChild(all);
 
-    for(var i=0; i<tabList.length; i++) {
-        tabList[i].addEventListener("click", function(event) {
-            event.preventDefault();
+    categories.forEach((category) => {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        refs.categoryFilter.appendChild(option);
+    });
+    refs.categoryFilter.value = state.categoryFilter;
+}
 
-            // remove is-on class from tabs
-            for(var j=0; j<tabList.length; j++) {
-                tabList[j].classList.remove("is-on");
+function renderRows() {
+    const filtered = filterItems();
+    refs.rows.innerHTML = "";
+
+    if (!filtered.length) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.colSpan = 4;
+        td.className = "empty";
+        td.textContent = "No tools found.";
+        tr.appendChild(td);
+        refs.rows.appendChild(tr);
+    } else {
+        filtered.forEach((item) => {
+            const row = refs.rowTemplate.content.firstElementChild.cloneNode(true);
+
+            const nameCell = row.querySelector(".name-cell");
+            if (item.url) {
+                const link = document.createElement("a");
+                link.href = item.url;
+                link.target = "_blank";
+                link.rel = "noreferrer";
+                link.textContent = item.name;
+                nameCell.appendChild(link);
+            } else {
+                const text = document.createElement("span");
+                text.className = "name-text";
+                text.textContent = item.name;
+                nameCell.appendChild(text);
             }
-            this.classList.add("is-on");
 
-            // remove all rows exist
-            tableRows = document.querySelectorAll("#category-contents .line");
-            for (var j=0; j<tableRows.length; j++) {
-                tableRows[j].remove();
+            if (item.desc) {
+                const desc = document.createElement("div");
+                desc.className = "panel-meta";
+                desc.textContent = item.desc;
+                nameCell.appendChild(desc);
             }
 
-            // name of tab
-            var tabName = this.children[1].textContent;
-            callLoader(tabName, table);
+            row.querySelector(".category-cell").textContent = item.category;
+            row.querySelector(".tag-cell").innerHTML = item.frequently
+                ? '<span class="tag-chip tag-chip-accent">자주 사용</span>'
+                : "-";
+
+            const actionCell = row.querySelector(".action-cell");
+
+            const editLink = document.createElement("a");
+            editLink.className = "btn";
+            editLink.href = editIssueUrl(item);
+            editLink.target = "_blank";
+            editLink.rel = "noreferrer";
+            editLink.textContent = "Edit Issue";
+
+            const deleteLink = document.createElement("a");
+            deleteLink.className = "btn btn-danger";
+            deleteLink.href = deleteIssueUrl(item);
+            deleteLink.target = "_blank";
+            deleteLink.rel = "noreferrer";
+            deleteLink.textContent = "Delete Issue";
+
+            actionCell.append(editLink, deleteLink);
+            refs.rows.appendChild(row);
         });
     }
 
-    // initializae
-    callLoader("utils", table);
+    refs.listMeta.textContent = `${filtered.length} shown / ${state.items.length} total`;
 }
 
-showActivateTab();
+function render() {
+    refreshCategoryControls();
+    renderRows();
+}
+
+function bindEvents() {
+    refs.searchInput.addEventListener("input", (event) => {
+        state.search = event.target.value;
+        renderRows();
+    });
+
+    refs.categoryFilter.addEventListener("change", (event) => {
+        state.categoryFilter = event.target.value;
+        renderRows();
+    });
+
+    refs.addIssueBtn.href = addIssueUrl();
+    refs.editIssueBtn.href = createIssueUrl("edit-tool.yml", {
+        title: "[Edit] ",
+        field: "Multiple fields",
+        new_category: "No change",
+        frequently_used: "No change"
+    });
+    refs.deleteIssueBtn.href = createIssueUrl("delete-tool.yml", {
+        title: "[Delete] ",
+        category: "Unknown"
+    });
+}
+
+async function init() {
+    if (state.initialized) {
+        return;
+    }
+
+    bindEvents();
+    await loadInitialData();
+    render();
+    state.initialized = true;
+}
+
+init().catch((error) => {
+    console.error(error);
+    alert(`Initialization failed: ${error.message}`);
+});
