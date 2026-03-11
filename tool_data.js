@@ -1,4 +1,4 @@
-window.WEBSITES_DATA = {
+window.TOOL_DATA = {
     "utils": [
         {
             "name": "사람인 맞춤법 검사기",

@@ -7,8 +7,8 @@ from typing import Dict, List, Tuple
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_PATH = ROOT / "websites.json"
-FALLBACK_PATH = ROOT / "websites-data.js"
+DATA_PATH = ROOT / "tool_data.json"
+FALLBACK_PATH = ROOT / "tool_data.js"
 
 SECTION_RE = re.compile(r"^###\s+(.+?)\s*$")
 
@@ -96,7 +96,7 @@ def save_data(data: dict) -> None:
         fh.write("\n")
 
     with open(FALLBACK_PATH, "w", encoding="utf-8") as fh:
-        fh.write("window.WEBSITES_DATA = ")
+        fh.write("window.TOOL_DATA = ")
         json.dump(ordered, fh, ensure_ascii=False, indent=4)
         fh.write(";\n")
 

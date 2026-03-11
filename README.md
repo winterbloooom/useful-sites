@@ -4,22 +4,22 @@ Static tools directory page built with plain HTML/CSS/JS.
 
 ## Open locally
 
-1. Open [`useful-site.html`](./useful-site.html) in a browser.
+1. Open [`tool_directory.html`](./tool_directory.html) in a browser.
 2. Local file mode also works because the page includes a bundled data fallback.
 
 ## Features
 
 - Public URL access (no login required for viewers)
 - Search + category filter
-- Read-only listing sourced from `websites.json`
+- Read-only listing sourced from `tool_data.json`
 - Add / edit / delete requests through GitHub Issues
 
 ## Data behavior
 
-- The site reads directly from `websites.json`.
+- The page reads directly from `tool_data.json`.
 - Browser-side editing is intentionally disabled.
 - To change the shared list, open a GitHub Issue using the built-in add/edit/delete buttons.
-- A GitHub Actions workflow processes supported issue forms and updates `websites.json` plus `websites-data.js`.
+- A GitHub Actions workflow processes supported issue forms and updates `tool_data.json` plus `tool_data.js`.
 
 ## Deploy with GitHub Pages (free)
 
@@ -38,7 +38,7 @@ Static tools directory page built with plain HTML/CSS/JS.
 
 ## JSON format
 
-This app reads the existing category-object format in `websites.json`.
+This app reads the existing category-object format in `tool_data.json`.
 Each entry currently uses:
 
 - `name`

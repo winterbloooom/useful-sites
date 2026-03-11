@@ -33,7 +33,7 @@ jobs:
         id: diff
         if: steps.process.outcome == 'success'
         run: |
-          if git diff --quiet -- websites.json websites-data.js; then
+          if git diff --quiet -- tool_data.json tool_data.js; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add websites.json websites-data.js
+          git add tool_data.json tool_data.js
           git commit -m "Update tools from issue #${{ github.event.issue.number }}"
           git push
 
@@ -59,7 +59,7 @@ jobs:
             const message = process.env.PROCESS_MESSAGE;
             const changed = process.env.CHANGED === 'true';
             const body = changed
-              ? `${message}\n\nwebsites.json and websites-data.js were updated from this issue.`
+              ? `${message}\n\ntool_data.json and tool_data.js were updated from this issue.`
               : `${message}\n\nNo file change was needed.`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,

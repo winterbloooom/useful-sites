@@ -1,4 +1,4 @@
-const DEFAULT_SOURCE = "./websites.json";
+const TOOL_DATA_SOURCE = "./tool_data.json";
 const GITHUB_REPO = "winterbloooom/useful-sites";
 const ISSUE_BASE_URL = `https://github.com/${GITHUB_REPO}/issues/new`;
 
@@ -74,7 +74,7 @@ function normalizeItem(entry) {
 
 async function loadInitialData() {
     try {
-        const response = await fetch(DEFAULT_SOURCE);
+        const response = await fetch(TOOL_DATA_SOURCE);
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
         }
@@ -82,8 +82,8 @@ async function loadInitialData() {
         state.items = normalizeLegacyData(json);
         return;
     } catch (error) {
-        if (window.WEBSITES_DATA) {
-            state.items = normalizeLegacyData(window.WEBSITES_DATA);
+        if (window.TOOL_DATA) {
+            state.items = normalizeLegacyData(window.TOOL_DATA);
             return;
         }
         throw error;
@@ -224,14 +224,14 @@ function renderRows() {
             editLink.href = editIssueUrl(item);
             editLink.target = "_blank";
             editLink.rel = "noreferrer";
-            editLink.textContent = "Edit Issue";
+            editLink.textContent = "Edit";
 
             const deleteLink = document.createElement("a");
             deleteLink.className = "btn btn-danger";
             deleteLink.href = deleteIssueUrl(item);
             deleteLink.target = "_blank";
             deleteLink.rel = "noreferrer";
-            deleteLink.textContent = "Delete Issue";
+            deleteLink.textContent = "Delete";
 
             actionCell.append(editLink, deleteLink);
             refs.rows.appendChild(row);
