@@ -15,9 +15,7 @@ const refs = {
     rowTemplate: document.getElementById("row-template"),
     categoryFilter: document.getElementById("category-filter"),
     searchInput: document.getElementById("search-input"),
-    addIssueBtn: document.getElementById("add-issue-btn"),
-    editIssueBtn: document.getElementById("edit-issue-btn"),
-    deleteIssueBtn: document.getElementById("delete-issue-btn")
+    addIssueBtn: document.getElementById("add-issue-btn")
 };
 
 function uid() {
@@ -260,16 +258,6 @@ function bindEvents() {
     });
 
     refs.addIssueBtn.href = addIssueUrl();
-    refs.editIssueBtn.href = createIssueUrl("edit-tool.yml", {
-        title: "[Edit] ",
-        field: "Multiple fields",
-        new_category: "No change",
-        frequently_used: "No change"
-    });
-    refs.deleteIssueBtn.href = createIssueUrl("delete-tool.yml", {
-        title: "[Delete] ",
-        category: "Unknown"
-    });
 }
 
 async function init() {
