@@ -136,11 +136,7 @@ function editIssueUrl(item) {
     return createIssueUrl("edit-tool.yml", {
         title: `[Edit] ${item.name}`,
         current_name: item.name,
-        current_url: item.url,
-        field: "Multiple fields",
-        new_description: item.desc,
-        new_category: "No change",
-        frequently_used: "No change"
+        current_url: item.url
     });
 }
 
