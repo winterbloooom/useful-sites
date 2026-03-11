@@ -136,7 +136,9 @@ function editIssueUrl(item) {
     return createIssueUrl("edit-tool.yml", {
         title: `[Edit] ${item.name}`,
         current_name: item.name,
-        current_url: item.url
+        current_url: item.url,
+        current_category: item.category,
+        current_frequently_used: item.frequently ? "Yes" : "No"
     });
 }
 

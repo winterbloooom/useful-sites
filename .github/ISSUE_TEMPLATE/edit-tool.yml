@@ -16,6 +16,16 @@ body:
     attributes:
       label: Current URL
       placeholder: https://app.grammarly.com/
+  - type: input
+    id: current_category
+    attributes:
+      label: Current category
+      placeholder: utils
+  - type: input
+    id: current_frequently_used
+    attributes:
+      label: Current frequently used
+      placeholder: Yes or No
   - type: dropdown
     id: field
     attributes:
@@ -37,21 +47,40 @@ body:
     id: new_url
     attributes:
       label: New URL
-  - type: input
+  - type: dropdown
     id: new_category
     attributes:
       label: New category
-      placeholder: Leave blank if unchanged
+      options:
+        - No change
+        - utils
+        - writing
+        - programming
+        - converter
+        - audio
+        - math
+        - visualization
+        - diagram
+        - branding
+        - generation
+        - dictionary
+        - english
+        - uncategorized
+      default: 0
   - type: textarea
     id: new_description
     attributes:
       label: New description
       placeholder: Leave blank if unchanged
-  - type: input
+  - type: dropdown
     id: frequently_used
     attributes:
       label: Frequently used
-      placeholder: No change / Yes / No
+      options:
+        - No change
+        - Yes
+        - No
+      default: 0
   - type: textarea
     id: notes
     attributes:
