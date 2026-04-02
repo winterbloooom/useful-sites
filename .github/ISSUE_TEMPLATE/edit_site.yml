@@ -24,11 +24,21 @@ body:
       label: "설명"
     validations:
       required: false
-  - type: input
+  - type: dropdown
     id: category
     attributes:
       label: "카테고리"
-      description: "글쓰기 / 연구 / 변환 / 개발 / 시각화 / 디자인소재 / 템플릿 / 통계·동향 / 브랜딩"
+      options:
+        - "(변경 안 함)"
+        - 글쓰기
+        - 연구
+        - 변환
+        - 개발
+        - 시각화
+        - 디자인소재
+        - 템플릿
+        - 통계·동향
+        - 브랜딩
     validations:
       required: true
   - type: dropdown
@@ -36,6 +46,7 @@ body:
     attributes:
       label: "자주 사용"
       options:
+        - "(변경 안 함)"
         - "예"
         - "아니오"
     validations:

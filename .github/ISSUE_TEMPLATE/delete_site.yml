@@ -5,16 +5,11 @@ labels: ["delete"]
 body:
   - type: markdown
     attributes:
-      value: "아래 사이트가 삭제됩니다. 확인 후 제출하세요."
-  - type: input
-    id: name
+      value: "제목에 표시된 사이트가 삭제됩니다. 확인 후 제출하세요."
+  - type: checkboxes
+    id: confirm
     attributes:
-      label: "이름"
-    validations:
-      required: true
-  - type: input
-    id: category
-    attributes:
-      label: "카테고리"
-    validations:
-      required: true
+      label: "확인"
+      options:
+        - label: "이 사이트를 삭제합니다."
+          required: true

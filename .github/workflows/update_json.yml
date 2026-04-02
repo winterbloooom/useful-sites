@@ -78,11 +78,11 @@ jobs:
               console.log(`Added "${name}" to "${category}"`);
 
             } else if (labels.includes('edit')) {
-              // Title format: "[수정] id"
+              // Title format: "[수정] 이름 | 카테고리 | id"
               const title = context.payload.issue.title;
-              const titleMatch = title.match(/^\[수정\]\s*(\S+)/);
+              const titleMatch = title.match(/\|\s*(\d{8}-\d{6})\s*$/);
               if (!titleMatch) {
-                core.setFailed(`Invalid title format: "${title}"`);
+                core.setFailed(`ID not found in title: "${title}"`);
                 return;
               }
               const id = titleMatch[1];
@@ -111,10 +111,11 @@ jobs:
               if (newName) item.name = newName;
               if (newUrl !== undefined) item.url = newUrl;
               if (newDesc !== undefined) item.desc = newDesc;
-              item.pick = newPick === '예';
+              if (newPick === '예') item.pick = true;
+              else if (newPick === '아니오') item.pick = false;
 
               // Move category if changed
-              if (newCategory && newCategory !== foundCat) {
+              if (newCategory && newCategory !== '(변경 안 함)' && newCategory !== foundCat) {
                 if (!data[newCategory]) {
                   core.setFailed(`Invalid category: "${newCategory}"`);
                   return;
@@ -127,11 +128,11 @@ jobs:
               console.log(`Edited id="${id}" ("${item.name}")`);
 
             } else if (labels.includes('delete')) {
-              // Title format: "[삭제] id"
+              // Title format: "[삭제] 이름 | 카테고리 | id"
               const title = context.payload.issue.title;
-              const titleMatch = title.match(/^\[삭제\]\s*(\S+)/);
+              const titleMatch = title.match(/\|\s*(\d{8}-\d{6})\s*$/);
               if (!titleMatch) {
-                core.setFailed(`Invalid title format: "${title}"`);
+                core.setFailed(`ID not found in title: "${title}"`);
                 return;
               }
               const id = titleMatch[1];
