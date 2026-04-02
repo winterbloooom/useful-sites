@@ -1,3 +1,11 @@
-pending_inst.txt
-AGENTS.md
+.DS_Store
+*.pyc
 
+# Temporal files
+_pending_inst.txt
+
+# Local settings
+.claude/settings.local.json
+
+# Design samples (backup only)
+design-samples/

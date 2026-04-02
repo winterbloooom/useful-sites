@@ -1,0 +1,47 @@
+name: "사이트 추가"
+description: "만물상자에 새로운 사이트를 추가합니다."
+labels: ["add"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: "사이트 이름"
+      placeholder: "예: Grammarly"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: "URL"
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: input
+    id: desc
+    attributes:
+      label: "설명"
+      placeholder: "간단한 설명"
+    validations:
+      required: false
+  - type: dropdown
+    id: category
+    attributes:
+      label: "카테고리"
+      options:
+        - 글쓰기
+        - 연구
+        - 변환
+        - 개발
+        - 시각화
+        - 디자인소재
+        - 템플릿
+        - 통계·동향
+        - 브랜딩
+    validations:
+      required: true
+  - type: checkboxes
+    id: pick
+    attributes:
+      label: "표시"
+      options:
+        - label: "자주 사용"

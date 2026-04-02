@@ -1,275 +1,262 @@
-const TOOL_DATA_SOURCE = "./tool_data.json";
-const GITHUB_REPO = "winterbloooom/useful-sites";
-const ISSUE_BASE_URL = `https://github.com/${GITHUB_REPO}/issues/new`;
+// ===== State =====
+let toolboxData = null;
+let colorsData = null;
+let fontsData = null;
 
-const state = {
-    items: [],
-    search: "",
-    categoryFilter: "all",
-    initialized: false
-};
+let currentSection = 'toolbox';
+let currentCategory = null;
+let currentView = 'list';
+let currentSort = 'default';
+let currentSearch = '';
 
-const refs = {
-    rows: document.getElementById("tool-rows"),
-    listMeta: document.getElementById("list-meta"),
-    rowTemplate: document.getElementById("row-template"),
-    categoryFilter: document.getElementById("category-filter"),
-    searchInput: document.getElementById("search-input"),
-    addIssueBtn: document.getElementById("add-issue-btn")
-};
 
-function uid() {
-    if (window.crypto && crypto.randomUUID) {
-        return crypto.randomUUID();
-    }
-    return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+// ===== Data Loading =====
+async function loadJSON(url) {
+    const res = await fetch(url);
+    return res.json();
 }
 
-function normalizeUrl(url) {
-    const trimmed = String(url || "").trim();
-    if (!trimmed) {
-        return "";
+async function init() {
+    try {
+        const [toolbox, colors, fonts] = await Promise.all([
+            loadJSON('./toolbox.json'),
+            loadJSON('./design-colors.json'),
+            loadJSON('./design-fonts.json'),
+        ]);
+        toolboxData = toolbox;
+        colorsData = colors;
+        fontsData = fonts;
+    } catch (e) {
+        document.getElementById('section-toolbox').innerHTML =
+            '<div class="container" style="padding-top:3rem;text-align:center;color:var(--brown-light)">' +
+            '데이터를 불러오지 못했습니다. 페이지를 새로고침해 주세요.</div>';
+        return;
     }
-    if (/^https?:\/\//i.test(trimmed)) {
-        return trimmed;
-    }
-    return `https://${trimmed}`;
+
+    // Set hero count
+    const total = Object.values(toolboxData).reduce((sum, arr) => sum + arr.length, 0);
+    document.getElementById('hero-count').textContent = total + '개 도구 모음';
+
+    setupNavTabs();
+    setupCategoryTabs();
+    setupToolbar();
+    setupCheatsheetTabs();
+    renderPalettes();
+    renderFonts();
+    renderItems();
 }
 
-function normalizeLegacyData(raw) {
-    if (Array.isArray(raw)) {
-        return raw.map(normalizeItem).filter(Boolean);
-    }
+// ===== Navigation (만물상자 / 디자인 치트시트) =====
+function setupNavTabs() {
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
 
-    const items = [];
-    Object.entries(raw || {}).forEach(([category, list]) => {
-        if (!Array.isArray(list)) {
-            return;
-        }
-        list.forEach((entry) => {
-            const normalized = normalizeItem({ ...entry, category });
-            if (normalized) {
-                items.push(normalized);
-            }
+            currentSection = tab.dataset.section;
+            document.getElementById('section-toolbox').style.display =
+                currentSection === 'toolbox' ? '' : 'none';
+            document.getElementById('section-cheatsheet').style.display =
+                currentSection === 'cheatsheet' ? '' : 'none';
         });
     });
+}
+
+// ===== Category Tabs =====
+function getCategoryNames() {
+    return Object.keys(toolboxData);
+}
+
+function setupCategoryTabs() {
+    const container = document.getElementById('category-tabs');
+    const categories = getCategoryNames();
+    currentCategory = categories[0];
+
+    const allBtn = document.createElement('button');
+    allBtn.className = 'cat-tab is-active';
+    allBtn.textContent = '전체';
+    allBtn.dataset.cat = '__all__';
+    allBtn.addEventListener('click', () => selectCategory('__all__'));
+    container.appendChild(allBtn);
+
+    currentCategory = '__all__';
+
+    categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'cat-tab';
+        btn.textContent = cat;
+        btn.dataset.cat = cat;
+        btn.addEventListener('click', () => selectCategory(cat));
+        container.appendChild(btn);
+    });
+}
+
+function selectCategory(cat) {
+    currentCategory = cat;
+    document.querySelectorAll('.cat-tab').forEach(t => {
+        t.classList.toggle('is-active', t.dataset.cat === cat);
+    });
+    renderItems();
+}
+
+// ===== Toolbar =====
+function setupToolbar() {
+    document.getElementById('search-input').addEventListener('input', (e) => {
+        currentSearch = e.target.value.toLowerCase();
+        renderItems();
+    });
+
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        renderItems();
+    });
+
+    document.getElementById('view-toggle').addEventListener('click', () => {
+        currentView = currentView === 'list' ? 'card' : 'list';
+        const container = document.getElementById('items-container');
+        container.className = currentView === 'list' ? 'view-list' : 'view-card';
+        document.getElementById('icon-grid').style.display = currentView === 'list' ? '' : 'none';
+        document.getElementById('icon-list').style.display = currentView === 'card' ? '' : 'none';
+    });
+}
+
+// ===== Constants =====
+const REPO_URL = 'https://github.com/winterbloooom/useful-sites';
+
+// ===== Get & Filter Items =====
+function getFilteredItems() {
+    let items = [];
+
+    if (currentCategory === '__all__') {
+        Object.entries(toolboxData).forEach(([cat, arr]) => {
+            arr.forEach(item => items.push({ ...item, _cat: cat }));
+        });
+    } else {
+        items = (toolboxData[currentCategory] || []).map(item => ({ ...item, _cat: currentCategory }));
+    }
+
+    // Search
+    if (currentSearch) {
+        items = items.filter(item =>
+            item.name.toLowerCase().includes(currentSearch) ||
+            (item.desc && item.desc.toLowerCase().includes(currentSearch))
+        );
+    }
+
+    // Sort
+    if (currentSort === 'name') {
+        items.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+    } else if (currentSort === 'frequent') {
+        items.sort((a, b) => {
+            const af = a.pick ? 1 : 0;
+            const bf = b.pick ? 1 : 0;
+            return bf - af || a.name.localeCompare(b.name, 'ko');
+        });
+    }
 
     return items;
 }
 
-function normalizeItem(entry) {
-    if (!entry || !entry.name) {
-        return null;
-    }
+// ===== Render Items =====
+function renderItems() {
+    const container = document.getElementById('items-container');
+    container.innerHTML = '';
 
-    return {
-        id: entry.id || uid(),
-        name: String(entry.name || "").trim(),
-        url: normalizeUrl(entry.url || ""),
-        desc: String(entry.desc || "").trim(),
-        category: String(entry.category || "uncategorized").trim().toLowerCase(),
-        frequently: Boolean(entry.frequently || (entry.pick && entry.pick.frequently))
-    };
-}
+    const items = getFilteredItems();
 
-async function loadInitialData() {
-    try {
-        const response = await fetch(TOOL_DATA_SOURCE);
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
-        const json = await response.json();
-        state.items = normalizeLegacyData(json);
+    if (items.length === 0) {
+        container.innerHTML = '<div class="empty-state">검색 결과가 없습니다.</div>';
         return;
-    } catch (error) {
-        if (window.TOOL_DATA) {
-            state.items = normalizeLegacyData(window.TOOL_DATA);
-            return;
-        }
-        throw error;
-    }
-}
-
-function compareItems(a, b) {
-    if (a.category !== b.category) {
-        return a.category.localeCompare(b.category);
-    }
-    return a.name.localeCompare(b.name);
-}
-
-function getCategories() {
-    const set = new Set();
-    state.items.forEach((item) => set.add(item.category));
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
-}
-
-function filterItems() {
-    const search = state.search.trim().toLowerCase();
-
-    return state.items
-        .filter((item) => state.categoryFilter === "all" || item.category === state.categoryFilter)
-        .filter((item) => {
-            if (!search) {
-                return true;
-            }
-            const bucket = [item.name, item.desc, item.category].join(" ").toLowerCase();
-            return bucket.includes(search);
-        })
-        .sort(compareItems);
-}
-
-function createIssueUrl(template, fields = {}) {
-    const params = new URLSearchParams({ template });
-    Object.entries(fields).forEach(([key, value]) => {
-        if (value !== undefined && value !== null && String(value) !== "") {
-            params.set(key, String(value));
-        }
-    });
-    return `${ISSUE_BASE_URL}?${params.toString()}`;
-}
-
-function addIssueUrl() {
-    return createIssueUrl("add-tool.yml", { title: "[Add] " });
-}
-
-function editIssueUrl(item) {
-    return createIssueUrl("edit-tool.yml", {
-        title: `[Edit] ${item.name}`,
-        current_name: item.name,
-        current_url: item.url,
-        current_category: item.category,
-        current_frequently_used: item.frequently ? "Yes" : "No"
-    });
-}
-
-function deleteIssueUrl(item) {
-    return createIssueUrl("delete-tool.yml", {
-        title: `[Delete] ${item.name}`,
-        name: item.name,
-        url: item.url,
-        category: item.category
-    });
-}
-
-function refreshCategoryControls() {
-    const categories = getCategories();
-    if (state.categoryFilter !== "all" && !categories.includes(state.categoryFilter)) {
-        state.categoryFilter = "all";
     }
 
-    refs.categoryFilter.innerHTML = "";
-    const all = document.createElement("option");
-    all.value = "all";
-    all.textContent = "All";
-    refs.categoryFilter.appendChild(all);
+    items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item';
 
-    categories.forEach((category) => {
-        const option = document.createElement("option");
-        option.value = category;
-        option.textContent = category;
-        refs.categoryFilter.appendChild(option);
+        const pickText = item.pick ? '⭐' : '';
+        const target = encodeURIComponent(item._cat + ' | ' + item.name);
+        const editUrl = `${REPO_URL}/issues/new?template=edit_site.yml&target=${target}`;
+        const deleteUrl = `${REPO_URL}/issues/new?template=delete_site.yml&target=${target}`;
+
+        div.innerHTML =
+            `<div class="item-pick">${pickText}</div>` +
+            `<div class="item-name"><a href="${item.url || '#'}" target="_blank">${item.name}</a></div>` +
+            `<div class="item-desc">${item.desc || ''}</div>` +
+            `<div class="item-actions">` +
+                `<a href="${editUrl}" target="_blank" title="수정">수정</a>` +
+                `<a href="${deleteUrl}" target="_blank" title="삭제">삭제</a>` +
+            `</div>`;
+
+        container.appendChild(div);
     });
-    refs.categoryFilter.value = state.categoryFilter;
 }
 
-function renderRows() {
-    const filtered = filterItems();
-    refs.rows.innerHTML = "";
+// ===== Cheatsheet =====
+function setupCheatsheetTabs() {
+    document.querySelectorAll('.cs-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.cs-tab').forEach(t => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
 
-    if (!filtered.length) {
-        const tr = document.createElement("tr");
-        const td = document.createElement("td");
-        td.colSpan = 4;
-        td.className = "empty";
-        td.textContent = "No tools found.";
-        tr.appendChild(td);
-        refs.rows.appendChild(tr);
-    } else {
-        filtered.forEach((item) => {
-            const row = refs.rowTemplate.content.firstElementChild.cloneNode(true);
-
-            const nameCell = row.querySelector(".name-cell");
-            if (item.url) {
-                const link = document.createElement("a");
-                link.href = item.url;
-                link.target = "_blank";
-                link.rel = "noreferrer";
-                link.textContent = item.name;
-                nameCell.appendChild(link);
-            } else {
-                const text = document.createElement("span");
-                text.className = "name-text";
-                text.textContent = item.name;
-                nameCell.appendChild(text);
-            }
-
-            if (item.desc) {
-                const desc = document.createElement("div");
-                desc.className = "panel-meta";
-                desc.textContent = item.desc;
-                nameCell.appendChild(desc);
-            }
-
-            row.querySelector(".category-cell").textContent = item.category;
-            row.querySelector(".tag-cell").innerHTML = item.frequently
-                ? '<span class="tag-chip tag-chip-accent">자주 사용</span>'
-                : "-";
-
-            const actionCell = row.querySelector(".action-cell");
-
-            const editLink = document.createElement("a");
-            editLink.className = "btn";
-            editLink.href = editIssueUrl(item);
-            editLink.target = "_blank";
-            editLink.rel = "noreferrer";
-            editLink.textContent = "Edit";
-
-            const deleteLink = document.createElement("a");
-            deleteLink.className = "btn btn-danger";
-            deleteLink.href = deleteIssueUrl(item);
-            deleteLink.target = "_blank";
-            deleteLink.rel = "noreferrer";
-            deleteLink.textContent = "Delete";
-
-            actionCell.append(editLink, deleteLink);
-            refs.rows.appendChild(row);
+            const target = tab.dataset.cs;
+            document.getElementById('cs-colors').style.display = target === 'colors' ? '' : 'none';
+            document.getElementById('cs-fonts').style.display = target === 'fonts' ? '' : 'none';
         });
-    }
-
-    refs.listMeta.textContent = `${filtered.length} shown / ${state.items.length} total`;
-}
-
-function render() {
-    refreshCategoryControls();
-    renderRows();
-}
-
-function bindEvents() {
-    refs.searchInput.addEventListener("input", (event) => {
-        state.search = event.target.value;
-        renderRows();
     });
+}
 
-    refs.categoryFilter.addEventListener("change", (event) => {
-        state.categoryFilter = event.target.value;
-        renderRows();
+function renderPalettes() {
+    const container = document.getElementById('palette-container');
+    container.innerHTML = '';
+
+    colorsData.palettes.forEach(pal => {
+        const card = document.createElement('div');
+        card.className = 'palette-card';
+
+        const row = document.createElement('div');
+        row.className = 'palette-row';
+
+        pal.forEach(hex => {
+            const color = document.createElement('div');
+            color.className = 'palette-color';
+            color.style.backgroundColor = '#' + hex;
+            color.textContent = hex;
+
+            // Determine text color based on luminance
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+            const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            color.style.color = lum > 0.55 ? '#000' : '#fff';
+
+            color.addEventListener('click', () => {
+                navigator.clipboard.writeText('#' + hex).then(() => {
+                    color.textContent = 'copied!';
+                    setTimeout(() => { color.textContent = hex; }, 800);
+                });
+            });
+            row.appendChild(color);
+        });
+
+        card.appendChild(row);
+        container.appendChild(card);
     });
-
-    refs.addIssueBtn.href = addIssueUrl();
 }
 
-async function init() {
-    if (state.initialized) {
-        return;
-    }
+function renderFonts() {
+    const container = document.getElementById('font-container');
+    container.innerHTML = '';
 
-    bindEvents();
-    await loadInitialData();
-    render();
-    state.initialized = true;
+    fontsData.fonts.forEach(font => {
+        const card = document.createElement('div');
+        card.className = 'font-card';
+        card.innerHTML =
+            `<div class="font-name"><a href="${font.url}" target="_blank">${font.name}</a></div>` +
+            `<span class="font-tag">${font.tag}</span>` +
+            `<div class="font-desc">${font.desc || ''}</div>`;
+        container.appendChild(card);
+    });
 }
 
-init().catch((error) => {
-    console.error(error);
-    alert(`Initialization failed: ${error.message}`);
-});
+// ===== Init =====
+init();
