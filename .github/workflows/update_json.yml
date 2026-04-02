@@ -166,69 +166,11 @@ jobs:
 
             fs.writeFileSync('toolbox.json', JSON.stringify(data, null, 4) + '\n');
 
-      - name: Sync Issue Template dropdowns
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const data = JSON.parse(fs.readFileSync('toolbox.json', 'utf8'));
-
-            // Build site options from toolbox.json (single source of truth)
-            const siteOptions = [];
-            for (const [cat, items] of Object.entries(data)) {
-              for (const item of items) {
-                siteOptions.push(`"${cat} | ${item.name}"`);
-              }
-            }
-
-            // Replace options under "id: target" dropdown only
-            function patchTargetDropdown(filePath) {
-              const lines = fs.readFileSync(filePath, 'utf8').split('\n');
-              const out = [];
-              let foundTarget = false;
-              let foundOptions = false;
-              let skipping = false;
-              let indent = '';
-
-              for (const line of lines) {
-                if (line.trim() === 'id: target') {
-                  foundTarget = true;
-                }
-
-                if (foundTarget && !foundOptions && line.trim() === 'options:') {
-                  foundOptions = true;
-                  skipping = true;
-                  indent = line.match(/^(\s*)/)[1];
-                  out.push(line);
-                  for (const opt of siteOptions) {
-                    out.push(indent + '  - ' + opt);
-                  }
-                  continue;
-                }
-
-                if (skipping) {
-                  if (line.trim().startsWith('- "') || line.trim().startsWith("- '")) {
-                    continue;
-                  }
-                  skipping = false;
-                  foundTarget = false;
-                }
-
-                out.push(line);
-              }
-
-              fs.writeFileSync(filePath, out.join('\n'));
-            }
-
-            patchTargetDropdown('.github/ISSUE_TEMPLATE/edit_site.yml');
-            patchTargetDropdown('.github/ISSUE_TEMPLATE/delete_site.yml');
-            console.log(`Synced ${siteOptions.length} items to edit/delete templates`);
-
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add toolbox.json .github/ISSUE_TEMPLATE/edit_site.yml .github/ISSUE_TEMPLATE/delete_site.yml
+          git add toolbox.json
           git diff --cached --quiet && echo "No changes" && exit 0
           git commit -m "Update toolbox.json via issue #${{ github.event.issue.number }}"
           git push
