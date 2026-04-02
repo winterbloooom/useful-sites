@@ -17,6 +17,10 @@ async function loadJSON(url) {
 }
 
 async function init() {
+    // Nav/cheatsheet tabs work regardless of data loading
+    setupNavTabs();
+    setupCheatsheetTabs();
+
     try {
         const [toolbox, colors, fonts] = await Promise.all([
             loadJSON('./toolbox.json'),
@@ -27,9 +31,8 @@ async function init() {
         colorsData = colors;
         fontsData = fonts;
     } catch (e) {
-        document.getElementById('section-toolbox').innerHTML =
-            '<div class="container" style="padding-top:3rem;text-align:center;color:var(--brown-light)">' +
-            '데이터를 불러오지 못했습니다. 페이지를 새로고침해 주세요.</div>';
+        document.getElementById('items-container').innerHTML =
+            '<div class="empty-state">데이터를 불러오지 못했습니다. 페이지를 새로고침해 주세요.</div>';
         return;
     }
 
@@ -37,10 +40,8 @@ async function init() {
     const total = Object.values(toolboxData).reduce((sum, arr) => sum + arr.length, 0);
     document.getElementById('hero-count').textContent = total + '개 도구 모음';
 
-    setupNavTabs();
     setupCategoryTabs();
     setupToolbar();
-    setupCheatsheetTabs();
     renderPalettes();
     renderFonts();
     renderItems();
