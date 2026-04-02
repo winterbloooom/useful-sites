@@ -54,13 +54,6 @@ jobs:
               return match[1].trim();
             }
 
-            // Parse "카테고리 | 사이트명" dropdown value
-            function parseTarget(field) {
-              const val = parseField(field);
-              const sep = val.indexOf(' | ');
-              if (sep === -1) return { cat: '', name: val };
-              return { cat: val.substring(0, sep), name: val.substring(sep + 3) };
-            }
 
             const data = JSON.parse(fs.readFileSync('toolbox.json', 'utf8'));
 
@@ -81,87 +74,75 @@ jobs:
               console.log(`Added "${name}" to "${category}"`);
 
             } else if (labels.includes('edit')) {
-              const target = parseTarget('수정할 사이트');
-              const newName = parseField('새 이름');
-              const newUrl = parseField('새 URL');
-              const newDesc = parseField('새 설명');
-              const newCategory = parseField('새 카테고리');
-              const newPick = parseField('자주 사용 표시');
+              const origName = parseField('현재 이름 \\(수정 금지\\)');
+              const origCat = parseField('현재 카테고리 \\(수정 금지\\)');
+              const newName = parseField('이름');
+              const newUrl = parseField('URL');
+              const newDesc = parseField('설명');
+              const newCategory = parseField('카테고리');
+              const newPick = parseField('자주 사용');
 
-              // Find the item
-              let foundCat = target.cat && data[target.cat] ? target.cat : null;
+              // Find the item by original name/category
+              let foundCat = origCat && data[origCat] ? origCat : null;
               let foundIdx = -1;
 
               if (foundCat) {
-                foundIdx = data[foundCat].findIndex(item => item.name === target.name);
+                foundIdx = data[foundCat].findIndex(item => item.name === origName);
               }
               if (foundIdx === -1) {
                 for (const cat of Object.keys(data)) {
-                  const idx = data[cat].findIndex(item => item.name === target.name);
+                  const idx = data[cat].findIndex(item => item.name === origName);
                   if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
                 }
               }
               if (foundIdx === -1) {
-                core.setFailed(`Site not found: "${target.name}"`);
+                core.setFailed(`Site not found: "${origName}" in "${origCat}"`);
                 return;
               }
 
               const item = data[foundCat][foundIdx];
 
-              // Comment current data
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: `📋 **수정 전 정보**\n| 항목 | 값 |\n|---|---|\n| 이름 | ${item.name} |\n| URL | ${item.url} |\n| 설명 | ${item.desc || '(없음)'} |\n| 카테고리 | ${foundCat} |\n| 자주 사용 | ${item.pick ? '✅' : '❌'} |`,
-              });
-
+              // Update all fields with submitted values
               if (newName) item.name = newName;
-              if (newUrl) item.url = newUrl;
-              if (newDesc) item.desc = newDesc;
-              if (newPick === '켜기') item.pick = true;
-              if (newPick === '끄기') item.pick = false;
+              if (newUrl !== undefined) item.url = newUrl;
+              if (newDesc !== undefined) item.desc = newDesc;
+              item.pick = newPick === '예';
 
-              if (newCategory && newCategory !== '(변경 안 함)' && newCategory !== foundCat && data[newCategory]) {
+              // Move category if changed
+              if (newCategory && newCategory !== foundCat && data[newCategory]) {
                 data[foundCat].splice(foundIdx, 1);
                 data[newCategory].push(item);
-                console.log(`Moved "${target.name}" from "${foundCat}" to "${newCategory}"`);
+                console.log(`Moved "${origName}" from "${foundCat}" to "${newCategory}"`);
+              } else if (newCategory && !data[newCategory]) {
+                core.setFailed(`Invalid category: "${newCategory}"`);
+                return;
               }
 
-              console.log(`Edited "${target.name}"`);
+              console.log(`Edited "${origName}"`);
 
             } else if (labels.includes('delete')) {
-              const target = parseTarget('삭제할 사이트');
+              const delName = parseField('이름');
+              const delCat = parseField('카테고리');
 
-              let foundCat = target.cat && data[target.cat] ? target.cat : null;
+              let foundCat = delCat && data[delCat] ? delCat : null;
               let foundIdx = -1;
 
               if (foundCat) {
-                foundIdx = data[foundCat].findIndex(item => item.name === target.name);
+                foundIdx = data[foundCat].findIndex(item => item.name === delName);
               }
               if (foundIdx === -1) {
                 for (const cat of Object.keys(data)) {
-                  const idx = data[cat].findIndex(item => item.name === target.name);
+                  const idx = data[cat].findIndex(item => item.name === delName);
                   if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
                 }
               }
               if (foundIdx === -1) {
-                core.setFailed(`Site not found: "${target.name}"`);
+                core.setFailed(`Site not found: "${delName}"`);
                 return;
               }
 
-              const item = data[foundCat][foundIdx];
-
-              // Comment deleted data
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: `🗑️ **삭제된 항목**\n| 항목 | 값 |\n|---|---|\n| 이름 | ${item.name} |\n| URL | ${item.url} |\n| 설명 | ${item.desc || '(없음)'} |\n| 카테고리 | ${foundCat} |\n| 자주 사용 | ${item.pick ? '✅' : '❌'} |`,
-              });
-
               data[foundCat].splice(foundIdx, 1);
-              console.log(`Deleted "${target.name}" from "${foundCat}"`);
+              console.log(`Deleted "${delName}" from "${foundCat}"`);
             }
 
             fs.writeFileSync('toolbox.json', JSON.stringify(data, null, 4) + '\n');

@@ -175,9 +175,9 @@ function renderItems() {
         div.className = 'item';
 
         const pickText = item.pick ? '⭐' : '';
-        const target = encodeURIComponent(item._cat + ' | ' + item.name);
-        const editUrl = `${REPO_URL}/issues/new?template=edit_site.yml&target=${target}`;
-        const deleteUrl = `${REPO_URL}/issues/new?template=delete_site.yml&target=${target}`;
+        const p = (k, v) => `${k}=${encodeURIComponent(v)}`;
+        const editUrl = `${REPO_URL}/issues/new?template=edit_site.yml&${p('original_name', item.name)}&${p('original_category', item._cat)}&${p('name', item.name)}&${p('url', item.url || '')}&${p('desc', item.desc || '')}&${p('category', item._cat)}&${p('pick', item.pick ? '예' : '아니오')}`;
+        const deleteUrl = `${REPO_URL}/issues/new?template=delete_site.yml&${p('name', item.name)}&${p('category', item._cat)}&${p('url', item.url || '')}`;
 
         div.innerHTML =
             `<div class="item-pick">${pickText}</div>` +
