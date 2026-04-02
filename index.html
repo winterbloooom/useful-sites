@@ -1,13 +1,87 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="refresh" content="0; url=./tool_directory.html">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Useful Sites</title>
-        <link rel="canonical" href="./tool_directory.html">
-    </head>
-    <body>
-        <p>Redirecting to <a href="./tool_directory.html">tool_directory.html</a>...</p>
-    </body>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>만물상자</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+    <div class="header-inner">
+        <div id="header-logo">
+            <div class="logo-mark">M</div>
+            <span>만물상자</span>
+        </div>
+        <nav id="header-nav">
+            <button class="nav-tab is-active" data-section="toolbox">만물상자</button>
+            <button class="nav-tab" data-section="cheatsheet">디자인 치트시트</button>
+        </nav>
+    </div>
+</header>
+
+<!-- Toolbox Section -->
+<main id="section-toolbox" class="section">
+    <div class="hero container">
+        <div class="hero-title">필요한 건 다 <span>여기에.</span></div>
+        <div class="hero-count" id="hero-count"></div>
+    </div>
+
+    <!-- Toolbar -->
+    <div id="toolbar" class="container">
+        <div id="search-wrap">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="search-input" placeholder="이름이나 설명으로 검색..." aria-label="검색">
+        </div>
+        <div id="toolbar-actions">
+            <select id="sort-select" aria-label="정렬">
+                <option value="default">기본 정렬</option>
+                <option value="name">이름순</option>
+                <option value="frequent">자주 사용순</option>
+            </select>
+            <button id="view-toggle" title="뷰 전환">
+                <svg id="icon-grid" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                <svg id="icon-list" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </button>
+            <a class="toolbar-link" href="https://github.com/winterbloooom/useful-sites/issues/new?template=add_site.yml" target="_blank" title="사이트 추가">+ 추가</a>
+        </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div id="category-tabs" class="container"></div>
+
+    <!-- Items -->
+    <div class="container">
+        <div id="items-container" class="view-list"></div>
+    </div>
+</main>
+
+<!-- Cheatsheet Section -->
+<section id="section-cheatsheet" class="section" style="display:none">
+    <div class="hero container">
+        <div class="hero-title">디자인 <span>치트시트</span></div>
+        <div class="hero-count">색상 팔레트와 폰트를 빠르게 참고하세요</div>
+    </div>
+
+    <div id="cheatsheet-tabs" class="container">
+        <button class="cs-tab is-active" data-cs="colors">Colors</button>
+        <button class="cs-tab" data-cs="fonts">Fonts</button>
+    </div>
+
+    <div id="cs-colors" class="cs-content container">
+        <div id="palette-container"></div>
+    </div>
+
+    <div id="cs-fonts" class="cs-content container" style="display:none">
+        <div id="font-container"></div>
+    </div>
+</section>
+
+<script src="./script.js"></script>
+</body>
 </html>

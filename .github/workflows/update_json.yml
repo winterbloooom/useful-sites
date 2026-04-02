@@ -1,0 +1,264 @@
+name: Update toolbox.json from Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'add') || contains(github.event.issue.labels.*.name, 'edit') || contains(github.event.issue.labels.*.name, 'delete')
+    steps:
+      - name: Check maintainer permission (add/delete only)
+        if: contains(github.event.issue.labels.*.name, 'add') || contains(github.event.issue.labels.*.name, 'delete')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const assoc = context.payload.issue.author_association;
+            const allowed = ['OWNER', 'MEMBER', 'COLLABORATOR'];
+            if (!allowed.includes(assoc)) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: '⛔ 사이트 추가/삭제는 maintainer만 가능합니다. 권한이 없어 처리되지 않았습니다.',
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: 'closed',
+                state_reason: 'not_planned',
+              });
+              core.setFailed(`Permission denied: author_association="${assoc}"`);
+            }
+
+      - uses: actions/checkout@v4
+
+      - name: Parse issue and update JSON
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = context.payload.issue.body;
+            const labels = context.payload.issue.labels.map(l => l.name);
+
+            function parseField(name) {
+              const regex = new RegExp(`### ${name}\\s*\\n\\n([\\s\\S]*?)(?=\\n###|$)`);
+              const match = body.match(regex);
+              if (!match) return '';
+              return match[1].trim();
+            }
+
+            // Parse "카테고리 | 사이트명" dropdown value
+            function parseTarget(field) {
+              const val = parseField(field);
+              const sep = val.indexOf(' | ');
+              if (sep === -1) return { cat: '', name: val };
+              return { cat: val.substring(0, sep), name: val.substring(sep + 3) };
+            }
+
+            const data = JSON.parse(fs.readFileSync('toolbox.json', 'utf8'));
+
+            if (labels.includes('add')) {
+              const name = parseField('사이트 이름');
+              const url = parseField('URL');
+              const desc = parseField('설명');
+              const category = parseField('카테고리');
+              const pickRaw = parseField('표시');
+              const pick = pickRaw.includes('[X]') || pickRaw.includes('[x]');
+
+              if (!name || !category || !data[category]) {
+                core.setFailed(`Invalid name or category: name="${name}", category="${category}"`);
+                return;
+              }
+
+              data[category].push({ name, url: url || '', desc: desc || '', pick });
+              console.log(`Added "${name}" to "${category}"`);
+
+            } else if (labels.includes('edit')) {
+              const target = parseTarget('수정할 사이트');
+              const newName = parseField('새 이름');
+              const newUrl = parseField('새 URL');
+              const newDesc = parseField('새 설명');
+              const newCategory = parseField('새 카테고리');
+              const newPick = parseField('자주 사용 표시');
+
+              // Find the item
+              let foundCat = target.cat && data[target.cat] ? target.cat : null;
+              let foundIdx = -1;
+
+              if (foundCat) {
+                foundIdx = data[foundCat].findIndex(item => item.name === target.name);
+              }
+              if (foundIdx === -1) {
+                for (const cat of Object.keys(data)) {
+                  const idx = data[cat].findIndex(item => item.name === target.name);
+                  if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
+                }
+              }
+              if (foundIdx === -1) {
+                core.setFailed(`Site not found: "${target.name}"`);
+                return;
+              }
+
+              const item = data[foundCat][foundIdx];
+
+              // Comment current data
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `📋 **수정 전 정보**\n| 항목 | 값 |\n|---|---|\n| 이름 | ${item.name} |\n| URL | ${item.url} |\n| 설명 | ${item.desc || '(없음)'} |\n| 카테고리 | ${foundCat} |\n| 자주 사용 | ${item.pick ? '✅' : '❌'} |`,
+              });
+
+              if (newName) item.name = newName;
+              if (newUrl) item.url = newUrl;
+              if (newDesc) item.desc = newDesc;
+              if (newPick === '켜기') item.pick = true;
+              if (newPick === '끄기') item.pick = false;
+
+              if (newCategory && newCategory !== '(변경 안 함)' && newCategory !== foundCat && data[newCategory]) {
+                data[foundCat].splice(foundIdx, 1);
+                data[newCategory].push(item);
+                console.log(`Moved "${target.name}" from "${foundCat}" to "${newCategory}"`);
+              }
+
+              console.log(`Edited "${target.name}"`);
+
+            } else if (labels.includes('delete')) {
+              const target = parseTarget('삭제할 사이트');
+
+              let foundCat = target.cat && data[target.cat] ? target.cat : null;
+              let foundIdx = -1;
+
+              if (foundCat) {
+                foundIdx = data[foundCat].findIndex(item => item.name === target.name);
+              }
+              if (foundIdx === -1) {
+                for (const cat of Object.keys(data)) {
+                  const idx = data[cat].findIndex(item => item.name === target.name);
+                  if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
+                }
+              }
+              if (foundIdx === -1) {
+                core.setFailed(`Site not found: "${target.name}"`);
+                return;
+              }
+
+              const item = data[foundCat][foundIdx];
+
+              // Comment deleted data
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `🗑️ **삭제된 항목**\n| 항목 | 값 |\n|---|---|\n| 이름 | ${item.name} |\n| URL | ${item.url} |\n| 설명 | ${item.desc || '(없음)'} |\n| 카테고리 | ${foundCat} |\n| 자주 사용 | ${item.pick ? '✅' : '❌'} |`,
+              });
+
+              data[foundCat].splice(foundIdx, 1);
+              console.log(`Deleted "${target.name}" from "${foundCat}"`);
+            }
+
+            fs.writeFileSync('toolbox.json', JSON.stringify(data, null, 4) + '\n');
+
+      - name: Sync Issue Template dropdowns
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const data = JSON.parse(fs.readFileSync('toolbox.json', 'utf8'));
+
+            // Build site options from toolbox.json (single source of truth)
+            const siteOptions = [];
+            for (const [cat, items] of Object.entries(data)) {
+              for (const item of items) {
+                siteOptions.push(`"${cat} | ${item.name}"`);
+              }
+            }
+
+            // Replace options under "id: target" dropdown only
+            function patchTargetDropdown(filePath) {
+              const lines = fs.readFileSync(filePath, 'utf8').split('\n');
+              const out = [];
+              let foundTarget = false;
+              let foundOptions = false;
+              let skipping = false;
+              let indent = '';
+
+              for (const line of lines) {
+                if (line.trim() === 'id: target') {
+                  foundTarget = true;
+                }
+
+                if (foundTarget && !foundOptions && line.trim() === 'options:') {
+                  foundOptions = true;
+                  skipping = true;
+                  indent = line.match(/^(\s*)/)[1];
+                  out.push(line);
+                  for (const opt of siteOptions) {
+                    out.push(indent + '  - ' + opt);
+                  }
+                  continue;
+                }
+
+                if (skipping) {
+                  if (line.trim().startsWith('- "') || line.trim().startsWith("- '")) {
+                    continue;
+                  }
+                  skipping = false;
+                  foundTarget = false;
+                }
+
+                out.push(line);
+              }
+
+              fs.writeFileSync(filePath, out.join('\n'));
+            }
+
+            patchTargetDropdown('.github/ISSUE_TEMPLATE/edit_site.yml');
+            patchTargetDropdown('.github/ISSUE_TEMPLATE/delete_site.yml');
+            console.log(`Synced ${siteOptions.length} items to edit/delete templates`);
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add toolbox.json .github/ISSUE_TEMPLATE/edit_site.yml .github/ISSUE_TEMPLATE/delete_site.yml
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update toolbox.json via issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: Close issue on success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ toolbox.json이 업데이트되었습니다. 이 이슈는 자동으로 닫힙니다.',
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+            });
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '❌ 처리 중 오류가 발생했습니다. 입력 내용을 확인해 주세요.\n\n자세한 내용은 [Actions 로그](' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId + ')를 참고하세요.',
+            });

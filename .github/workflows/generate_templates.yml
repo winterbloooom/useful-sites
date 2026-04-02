@@ -1,0 +1,127 @@
+name: Generate Issue Templates
+
+on:
+  push:
+    branches: [main]
+    paths: ['toolbox.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate edit/delete issue templates
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const data = JSON.parse(fs.readFileSync('toolbox.json', 'utf8'));
+
+            const sites = [];
+            for (const [cat, items] of Object.entries(data)) {
+              for (const item of items) {
+                sites.push(`        - "${cat} | ${item.name}"`);
+              }
+            }
+            const siteOptions = sites.join('\n');
+
+            const categories = Object.keys(data);
+            const catOptions = categories.map(c => `        - "${c}"`).join('\n');
+
+            const editYml = `name: "사이트 수정"
+            description: "기존 사이트 정보를 수정합니다."
+            labels: ["edit"]
+            body:
+              - type: dropdown
+                id: target
+                attributes:
+                  label: "수정할 사이트"
+                  description: "\\"카테고리 | 사이트 이름\\" 형식입니다. 현재 정보는 이슈 생성 후 코멘트로 표시됩니다."
+                  options:
+            ${siteOptions}
+                validations:
+                  required: true
+              - type: input
+                id: name
+                attributes:
+                  label: "새 이름"
+                  description: "변경하지 않으면 비워두세요."
+                  placeholder: "예: Grammarly"
+                validations:
+                  required: false
+              - type: input
+                id: url
+                attributes:
+                  label: "새 URL"
+                  description: "변경하지 않으면 비워두세요."
+                  placeholder: "https://..."
+                validations:
+                  required: false
+              - type: input
+                id: desc
+                attributes:
+                  label: "새 설명"
+                  description: "변경하지 않으면 비워두세요."
+                validations:
+                  required: false
+              - type: dropdown
+                id: category
+                attributes:
+                  label: "새 카테고리"
+                  description: "카테고리를 변경할 때만 선택하세요."
+                  options:
+                    - "(변경 안 함)"
+            ${catOptions}
+                validations:
+                  required: false
+              - type: dropdown
+                id: pick
+                attributes:
+                  label: "자주 사용 표시"
+                  options:
+                    - "(변경 안 함)"
+                    - "켜기"
+                    - "끄기"
+                validations:
+                  required: false
+            `.replace(/^            /gm, '');
+
+            const deleteYml = `name: "사이트 삭제"
+            description: "만물상자에서 사이트를 삭제합니다."
+            labels: ["delete"]
+            body:
+              - type: dropdown
+                id: target
+                attributes:
+                  label: "삭제할 사이트"
+                  description: "\\"카테고리 | 사이트 이름\\" 형식입니다. 현재 정보는 이슈 생성 후 코멘트로 표시됩니다."
+                  options:
+            ${siteOptions}
+                validations:
+                  required: true
+              - type: textarea
+                id: reason
+                attributes:
+                  label: "삭제 사유 (선택)"
+                  placeholder: "삭제 이유를 적어주세요"
+                validations:
+                  required: false
+            `.replace(/^            /gm, '');
+
+            fs.writeFileSync('.github/ISSUE_TEMPLATE/edit_site.yml', editYml);
+            fs.writeFileSync('.github/ISSUE_TEMPLATE/delete_site.yml', deleteYml);
+            console.log(`Generated templates with ${sites.length} sites`);
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/ISSUE_TEMPLATE/edit_site.yml .github/ISSUE_TEMPLATE/delete_site.yml
+          git diff --cached --quiet && echo "No template changes" && exit 0
+          git commit -m "Auto-update issue templates from toolbox.json"
+          git push
