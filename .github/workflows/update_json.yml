@@ -70,79 +70,85 @@ jobs:
                 return;
               }
 
-              data[category].push({ name, url: url || '', desc: desc || '', pick });
+              const now = new Date();
+              const pad = (n) => String(n).padStart(2, '0');
+              const id = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+
+              data[category].push({ id, name, url: url || '', desc: desc || '', pick });
               console.log(`Added "${name}" to "${category}"`);
 
             } else if (labels.includes('edit')) {
-              const origName = parseField('현재 이름 \\(수정 금지\\)');
-              const origCat = parseField('현재 카테고리 \\(수정 금지\\)');
+              // Title format: "[수정] id"
+              const title = context.payload.issue.title;
+              const titleMatch = title.match(/^\[수정\]\s*(\S+)/);
+              if (!titleMatch) {
+                core.setFailed(`Invalid title format: "${title}"`);
+                return;
+              }
+              const id = titleMatch[1];
+
               const newName = parseField('이름');
               const newUrl = parseField('URL');
               const newDesc = parseField('설명');
               const newCategory = parseField('카테고리');
               const newPick = parseField('자주 사용');
 
-              // Find the item by original name/category
-              let foundCat = origCat && data[origCat] ? origCat : null;
+              // Find item by id
+              let foundCat = null;
               let foundIdx = -1;
-
-              if (foundCat) {
-                foundIdx = data[foundCat].findIndex(item => item.name === origName);
+              for (const cat of Object.keys(data)) {
+                const idx = data[cat].findIndex(item => item.id === id);
+                if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
               }
               if (foundIdx === -1) {
-                for (const cat of Object.keys(data)) {
-                  const idx = data[cat].findIndex(item => item.name === origName);
-                  if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
-                }
-              }
-              if (foundIdx === -1) {
-                core.setFailed(`Site not found: "${origName}" in "${origCat}"`);
+                core.setFailed(`Item not found: id="${id}"`);
                 return;
               }
 
               const item = data[foundCat][foundIdx];
 
-              // Update all fields with submitted values
+              // Update fields
               if (newName) item.name = newName;
               if (newUrl !== undefined) item.url = newUrl;
               if (newDesc !== undefined) item.desc = newDesc;
               item.pick = newPick === '예';
 
               // Move category if changed
-              if (newCategory && newCategory !== foundCat && data[newCategory]) {
+              if (newCategory && newCategory !== foundCat) {
+                if (!data[newCategory]) {
+                  core.setFailed(`Invalid category: "${newCategory}"`);
+                  return;
+                }
                 data[foundCat].splice(foundIdx, 1);
                 data[newCategory].push(item);
-                console.log(`Moved "${origName}" from "${foundCat}" to "${newCategory}"`);
-              } else if (newCategory && !data[newCategory]) {
-                core.setFailed(`Invalid category: "${newCategory}"`);
-                return;
+                console.log(`Moved "${item.name}" from "${foundCat}" to "${newCategory}"`);
               }
 
-              console.log(`Edited "${origName}"`);
+              console.log(`Edited id="${id}" ("${item.name}")`);
 
             } else if (labels.includes('delete')) {
-              const delName = parseField('이름');
-              const delCat = parseField('카테고리');
+              // Title format: "[삭제] id"
+              const title = context.payload.issue.title;
+              const titleMatch = title.match(/^\[삭제\]\s*(\S+)/);
+              if (!titleMatch) {
+                core.setFailed(`Invalid title format: "${title}"`);
+                return;
+              }
+              const id = titleMatch[1];
 
-              let foundCat = delCat && data[delCat] ? delCat : null;
+              let foundCat = null;
               let foundIdx = -1;
-
-              if (foundCat) {
-                foundIdx = data[foundCat].findIndex(item => item.name === delName);
+              for (const cat of Object.keys(data)) {
+                const idx = data[cat].findIndex(item => item.id === id);
+                if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
               }
               if (foundIdx === -1) {
-                for (const cat of Object.keys(data)) {
-                  const idx = data[cat].findIndex(item => item.name === delName);
-                  if (idx !== -1) { foundCat = cat; foundIdx = idx; break; }
-                }
-              }
-              if (foundIdx === -1) {
-                core.setFailed(`Site not found: "${delName}"`);
+                core.setFailed(`Item not found: id="${id}"`);
                 return;
               }
 
-              data[foundCat].splice(foundIdx, 1);
-              console.log(`Deleted "${delName}" from "${foundCat}"`);
+              const deleted = data[foundCat].splice(foundIdx, 1)[0];
+              console.log(`Deleted id="${id}" ("${deleted.name}") from "${foundCat}"`);
             }
 
             fs.writeFileSync('toolbox.json', JSON.stringify(data, null, 4) + '\n');

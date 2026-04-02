@@ -1,24 +1,11 @@
 name: "사이트 수정"
-description: "기존 사이트 정보를 수정합니다."
+description: "기존 사이트 정보를 수정합니다. 바꿀 항목만 수정하고 제출하세요."
+title: "[수정] "
 labels: ["edit"]
 body:
   - type: markdown
     attributes:
-      value: "바꿀 항목만 수정하고, 나머지는 그대로 두세요."
-  - type: input
-    id: original_name
-    attributes:
-      label: "현재 이름 (수정 금지)"
-      description: "항목 식별용입니다. 이 값을 바꾸면 처리되지 않습니다."
-    validations:
-      required: true
-  - type: input
-    id: original_category
-    attributes:
-      label: "현재 카테고리 (수정 금지)"
-      description: "항목 식별용입니다."
-    validations:
-      required: true
+      value: "모든 칸이 현재 값으로 채워져 있습니다. 바꿀 부분만 수정하세요."
   - type: input
     id: name
     attributes:

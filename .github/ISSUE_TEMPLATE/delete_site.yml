@@ -1,5 +1,6 @@
 name: "사이트 삭제"
 description: "만물상자에서 사이트를 삭제합니다."
+title: "[삭제] "
 labels: ["delete"]
 body:
   - type: markdown
@@ -17,9 +18,3 @@ body:
       label: "카테고리"
     validations:
       required: true
-  - type: input
-    id: url
-    attributes:
-      label: "URL"
-    validations:
-      required: false

@@ -176,8 +176,8 @@ function renderItems() {
 
         const pickText = item.pick ? '⭐' : '';
         const p = (k, v) => `${k}=${encodeURIComponent(v)}`;
-        const editUrl = `${REPO_URL}/issues/new?template=edit_site.yml&${p('original_name', item.name)}&${p('original_category', item._cat)}&${p('name', item.name)}&${p('url', item.url || '')}&${p('desc', item.desc || '')}&${p('category', item._cat)}&${p('pick', item.pick ? '예' : '아니오')}`;
-        const deleteUrl = `${REPO_URL}/issues/new?template=delete_site.yml&${p('name', item.name)}&${p('category', item._cat)}&${p('url', item.url || '')}`;
+        const editUrl = `${REPO_URL}/issues/new?template=edit_site.yml&${p('title', '[수정] ' + item.id)}&${p('name', item.name)}&${p('url', item.url || '')}&${p('desc', item.desc || '')}&${p('category', item._cat)}&${p('pick', item.pick ? '예' : '아니오')}`;
+        const deleteUrl = `${REPO_URL}/issues/new?template=delete_site.yml&${p('title', '[삭제] ' + item.id)}&${p('name', item.name)}&${p('category', item._cat)}`;
 
         div.innerHTML =
             `<div class="item-pick">${pickText}</div>` +
