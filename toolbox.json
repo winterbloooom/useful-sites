@@ -1253,6 +1253,13 @@
             "url": "",
             "desc": "전기, 전자, IT 최신 기술 동향 및 트렌드 기사",
             "pick": false
+        },
+        {
+            "id": "20260412-055558",
+            "name": "금융감독원 <대학생을 위한 실용금융>",
+            "url": "https://www.fss.or.kr/edu/fec/contMng/view.do?contentsSlno=688&menuNo=300017",
+            "desc": "_No response_",
+            "pick": true
         }
     ],
     "브랜딩": [
