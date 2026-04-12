@@ -64,39 +64,95 @@ function setupNavTabs() {
 }
 
 // ===== Category Tabs =====
+const DESIGN_SUBCATS = ['색', '글꼴', '아이콘·일러스트', '사진·영상', '편집', '레퍼런스'];
+const DESIGN_PARENT = '디자인';
+
 function getCategoryNames() {
     return Object.keys(toolboxData);
 }
 
+function isDesignSub(cat) {
+    return DESIGN_SUBCATS.includes(cat);
+}
+
 function setupCategoryTabs() {
     const container = document.getElementById('category-tabs');
+    const subContainer = document.getElementById('subcategory-tabs');
     const categories = getCategoryNames();
-    currentCategory = categories[0];
+
+    const total = categories.reduce((sum, c) => sum + toolboxData[c].length, 0);
 
     const allBtn = document.createElement('button');
     allBtn.className = 'cat-tab is-active';
-    allBtn.textContent = '전체';
+    allBtn.innerHTML = `전체 <span class="cat-count">${total}</span>`;
     allBtn.dataset.cat = '__all__';
     allBtn.addEventListener('click', () => selectCategory('__all__'));
     container.appendChild(allBtn);
 
     currentCategory = '__all__';
 
+    let designInserted = false;
     categories.forEach(cat => {
+        if (isDesignSub(cat)) {
+            if (!designInserted) {
+                const designTotal = DESIGN_SUBCATS.reduce((s, c) => s + (toolboxData[c]?.length || 0), 0);
+                const dBtn = document.createElement('button');
+                dBtn.className = 'cat-tab';
+                dBtn.innerHTML = `${DESIGN_PARENT} <span class="cat-count">${designTotal}</span>`;
+                dBtn.dataset.cat = '__design__';
+                dBtn.addEventListener('click', () => selectCategory('__design__'));
+                container.appendChild(dBtn);
+                designInserted = true;
+            }
+            return;
+        }
         const btn = document.createElement('button');
         btn.className = 'cat-tab';
-        btn.textContent = cat;
+        btn.innerHTML = `${cat} <span class="cat-count">${toolboxData[cat].length}</span>`;
         btn.dataset.cat = cat;
         btn.addEventListener('click', () => selectCategory(cat));
         container.appendChild(btn);
+    });
+
+    // Build design sub-tabs (rendered once, shown when design active)
+    const subAll = document.createElement('button');
+    const subTotal = DESIGN_SUBCATS.reduce((s, c) => s + (toolboxData[c]?.length || 0), 0);
+    subAll.className = 'subcat-tab is-active';
+    subAll.innerHTML = `전체 <span class="cat-count">${subTotal}</span>`;
+    subAll.dataset.cat = '__design__';
+    subAll.addEventListener('click', () => selectCategory('__design__'));
+    subContainer.appendChild(subAll);
+
+    DESIGN_SUBCATS.forEach(cat => {
+        if (!toolboxData[cat]) return;
+        const btn = document.createElement('button');
+        btn.className = 'subcat-tab';
+        btn.innerHTML = `${cat} <span class="cat-count">${toolboxData[cat].length}</span>`;
+        btn.dataset.cat = cat;
+        btn.addEventListener('click', () => selectCategory(cat));
+        subContainer.appendChild(btn);
     });
 }
 
 function selectCategory(cat) {
     currentCategory = cat;
+
+    // Top tabs: highlight design parent if a design sub is active
+    const topActive = isDesignSub(cat) ? '__design__' : cat;
     document.querySelectorAll('.cat-tab').forEach(t => {
-        t.classList.toggle('is-active', t.dataset.cat === cat);
+        t.classList.toggle('is-active', t.dataset.cat === topActive);
     });
+
+    // Sub tabs: visible only when design parent or design sub active
+    const sub = document.getElementById('subcategory-tabs');
+    const showSub = cat === '__design__' || isDesignSub(cat);
+    sub.style.display = showSub ? '' : 'none';
+    if (showSub) {
+        document.querySelectorAll('.subcat-tab').forEach(t => {
+            t.classList.toggle('is-active', t.dataset.cat === cat);
+        });
+    }
+
     renderItems();
 }
 
@@ -131,6 +187,10 @@ function getFilteredItems() {
     if (currentCategory === '__all__') {
         Object.entries(toolboxData).forEach(([cat, arr]) => {
             arr.forEach(item => items.push({ ...item, _cat: cat }));
+        });
+    } else if (currentCategory === '__design__') {
+        DESIGN_SUBCATS.forEach(cat => {
+            (toolboxData[cat] || []).forEach(item => items.push({ ...item, _cat: cat }));
         });
     } else {
         items = (toolboxData[currentCategory] || []).map(item => ({ ...item, _cat: currentCategory }));

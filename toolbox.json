@@ -422,7 +422,7 @@
             "pick": false
         }
     ],
-    "디자인소재": [
+    "색": [
         {
             "id": "20260403-000457",
             "name": "Coolors",
@@ -543,13 +543,6 @@
             "pick": false
         },
         {
-            "id": "20260403-000514",
-            "name": "Candy Icons",
-            "url": "https://www.candyicons.com/",
-            "desc": "아이콘 생성",
-            "pick": false
-        },
-        {
             "id": "20260403-000515",
             "name": "ColorSpace",
             "url": "https://mycolor.space/",
@@ -561,6 +554,52 @@
             "name": "AI Colors",
             "url": "https://aicolors.co/",
             "desc": "색상에 따른 UI 적용 예시도 보여줌",
+            "pick": false
+        },
+        {
+            "id": "20260412-051227",
+            "name": "photogradient",
+            "url": "https://photogradient.com/",
+            "desc": "사진에서 그라데이션 자동 생성",
+            "pick": true
+        }
+    ],
+    "글꼴": [
+        {
+            "id": "20260403-000618",
+            "name": "눈누",
+            "url": "https://noonnu.cc/",
+            "desc": "무료 폰트 모음",
+            "pick": true
+        },
+        {
+            "id": "20260403-000619",
+            "name": "DaFont",
+            "url": "https://www.dafont.com/",
+            "desc": "English",
+            "pick": false
+        },
+        {
+            "id": "20260403-000620",
+            "name": "Google Fonts",
+            "url": "https://fonts.google.com/",
+            "desc": "all languages",
+            "pick": true
+        },
+        {
+            "id": "20260403-000621",
+            "name": "1001 Fonts",
+            "url": "https://www.1001fonts.com/",
+            "desc": "",
+            "pick": false
+        }
+    ],
+    "아이콘·일러스트": [
+        {
+            "id": "20260403-000514",
+            "name": "Candy Icons",
+            "url": "https://www.candyicons.com/",
+            "desc": "아이콘 생성",
             "pick": false
         },
         {
@@ -732,24 +771,17 @@
             "pick": false
         },
         {
-            "id": "20260403-000541",
-            "name": "Unsplash",
-            "url": "https://unsplash.com/",
-            "desc": "감성 사진 위주",
-            "pick": true
+            "id": "20260403-000603",
+            "name": "IconFinder",
+            "url": "https://www.iconfinder.com/",
+            "desc": "Icons, 3D illustrations, Illustrations, Stickers",
+            "pick": false
         },
         {
-            "id": "20260403-000542",
-            "name": "Pixabay",
-            "url": "https://pixabay.com/",
-            "desc": "사진 & 영상",
-            "pick": true
-        },
-        {
-            "id": "20260403-000543",
-            "name": "Pexels",
-            "url": "https://www.pexels.com/ko-kr/",
-            "desc": "사진 & 영상",
+            "id": "20260412-051251",
+            "name": "openmoji",
+            "url": "https://openmoji.org/",
+            "desc": "이모지 기반 아이콘",
             "pick": false
         },
         {
@@ -758,20 +790,6 @@
             "url": "https://undraw.co/illustrations",
             "desc": "일러스트. 메인 컬러 지정 가능. 수 적음.",
             "pick": true
-        },
-        {
-            "id": "20260403-000545",
-            "name": "Shopify",
-            "url": "https://www.shopify.com/stock-photos",
-            "desc": "비즈니스와 마케팅에 쓰기 좋은 이미지",
-            "pick": false
-        },
-        {
-            "id": "20260403-000546",
-            "name": "Picjumbo",
-            "url": "https://picjumbo.com/",
-            "desc": "배경화면 스타일",
-            "pick": false
         },
         {
             "id": "20260403-000547",
@@ -816,13 +834,6 @@
             "pick": false
         },
         {
-            "id": "20260403-000553",
-            "name": "국토지리정보원 어린이지도여행",
-            "url": "https://www.ngii.go.kr/child/content.do?sq=149",
-            "desc": "지도 도안 다운로드 가능 (백지도, 명칭 표기지도)",
-            "pick": false
-        },
-        {
             "id": "20260403-000554",
             "name": "storyset",
             "url": "https://storyset.com/",
@@ -844,17 +855,138 @@
             "pick": false
         },
         {
-            "id": "20260403-000557",
-            "name": "Pixels Market",
-            "url": "https://pixels.market/",
-            "desc": "",
-            "pick": false
-        },
-        {
             "id": "20260403-000558",
             "name": "휴먼즈",
             "url": "https://www.humaaans.com/",
             "desc": "사람 일러스트, 해상도 낮은 PNG",
+            "pick": false
+        },
+        {
+            "id": "20260403-000609",
+            "name": "Shapefest",
+            "url": "https://shapefest.com/",
+            "desc": "3D 디자인 요소. 유료가 대부분",
+            "pick": false
+        },
+        {
+            "id": "20260403-000610",
+            "name": "Lace",
+            "url": "http://da-lace.com/",
+            "desc": "레이스 이미지 (AI, EPS, SVG 가능). 일본어임",
+            "pick": false
+        },
+        {
+            "id": "20260403-000611",
+            "name": "후키다시 디자인",
+            "url": "https://fukidesign.com/",
+            "desc": "말풍선",
+            "pick": false
+        },
+        {
+            "id": "20260403-000612",
+            "name": "프리 라인 디자인",
+            "url": "http://free-line-design.com/",
+            "desc": "테두리 및 선",
+            "pick": false
+        },
+        {
+            "id": "20260403-000615",
+            "name": "OpenDoodles",
+            "url": "https://opendoodles.com/",
+            "desc": "인물 드로잉 스타일 일러스트",
+            "pick": false
+        },
+        {
+            "id": "20260403-000617",
+            "name": "DrawKit",
+            "url": "https://www.drawkit.com/",
+            "desc": "일러스트. 이메일 필요. PNG+SVG",
+            "pick": false
+        },
+        {
+            "id": "20260403-000625",
+            "name": "Notion Svg Avatar Maker",
+            "url": "https://cvbox.org/avatar-plus",
+            "desc": "노션 스타일의 아바타 생성기",
+            "pick": true
+        },
+        {
+            "id": "20260403-000626",
+            "name": "Notion Cover Generator",
+            "url": "https://notioncovergenerator.com/",
+            "desc": "노션 커버 이미지 제작",
+            "pick": true
+        },
+        {
+            "id": "20260403-000627",
+            "name": "Covercons",
+            "url": "https://covercons.vercel.app/",
+            "desc": "아이콘을 메인으로 한 커버 이미지 제작",
+            "pick": true
+        },
+        {
+            "id": "20260403-000553",
+            "name": "국토지리정보원 어린이지도여행",
+            "url": "https://www.ngii.go.kr/child/content.do?sq=149",
+            "desc": "지도 도안 다운로드 가능 (백지도, 명칭 표기지도)",
+            "pick": false
+        },
+        {
+            "id": "20260403-000613",
+            "name": "브이월드",
+            "url": "https://www.vworld.kr/v4po_main.do",
+            "desc": "국내 3D 지도. 건축물 정보 포함",
+            "pick": false
+        },
+        {
+            "id": "20260403-000614",
+            "name": "스마트 서울맵 3D 서울지도",
+            "url": "https://smap.seoul.go.kr/",
+            "desc": "서울지역 3D 지",
+            "pick": false
+        }
+    ],
+    "사진·영상": [
+        {
+            "id": "20260403-000541",
+            "name": "Unsplash",
+            "url": "https://unsplash.com/",
+            "desc": "감성 사진 위주",
+            "pick": true
+        },
+        {
+            "id": "20260403-000542",
+            "name": "Pixabay",
+            "url": "https://pixabay.com/",
+            "desc": "사진 & 영상",
+            "pick": true
+        },
+        {
+            "id": "20260403-000543",
+            "name": "Pexels",
+            "url": "https://www.pexels.com/ko-kr/",
+            "desc": "사진 & 영상",
+            "pick": false
+        },
+        {
+            "id": "20260403-000545",
+            "name": "Shopify",
+            "url": "https://www.shopify.com/stock-photos",
+            "desc": "비즈니스와 마케팅에 쓰기 좋은 이미지",
+            "pick": false
+        },
+        {
+            "id": "20260403-000546",
+            "name": "Picjumbo",
+            "url": "https://picjumbo.com/",
+            "desc": "배경화면 스타일",
+            "pick": false
+        },
+        {
+            "id": "20260403-000557",
+            "name": "Pixels Market",
+            "url": "https://pixels.market/",
+            "desc": "",
             "pick": false
         },
         {
@@ -869,27 +1001,6 @@
             "name": "공유마당",
             "url": "https://gongu.copyright.or.kr/gongu/main/main.do",
             "desc": "이미지, 영상, 음악, 영화 등 저작물 공유",
-            "pick": false
-        },
-        {
-            "id": "20260403-000601",
-            "name": "Mock Magic",
-            "url": "https://www.mockmagic.com/",
-            "desc": "Mockup",
-            "pick": true
-        },
-        {
-            "id": "20260403-000602",
-            "name": "placeit",
-            "url": "https://placeit.net/c/mockups",
-            "desc": "Mockup. 티셔츠, 물건 등 대상 다양.",
-            "pick": false
-        },
-        {
-            "id": "20260403-000603",
-            "name": "IconFinder",
-            "url": "https://www.iconfinder.com/",
-            "desc": "Icons, 3D illustrations, Illustrations, Stickers",
             "pick": false
         },
         {
@@ -928,126 +1039,14 @@
             "pick": false
         },
         {
-            "id": "20260403-000609",
-            "name": "Shapefest",
-            "url": "https://shapefest.com/",
-            "desc": "3D 디자인 요소. 유료가 대부분",
-            "pick": false
-        },
-        {
-            "id": "20260403-000610",
-            "name": "Lace",
-            "url": "http://da-lace.com/",
-            "desc": "레이스 이미지 (AI, EPS, SVG 가능). 일본어임",
-            "pick": false
-        },
-        {
-            "id": "20260403-000611",
-            "name": "후키다시 디자인",
-            "url": "https://fukidesign.com/",
-            "desc": "말풍선",
-            "pick": false
-        },
-        {
-            "id": "20260403-000612",
-            "name": "프리 라인 디자인",
-            "url": "http://free-line-design.com/",
-            "desc": "테두리 및 선",
-            "pick": false
-        },
-        {
-            "id": "20260403-000613",
-            "name": "브이월드",
-            "url": "https://www.vworld.kr/v4po_main.do",
-            "desc": "국내 3D 지도. 건축물 정보 포함",
-            "pick": false
-        },
-        {
-            "id": "20260403-000614",
-            "name": "스마트 서울맵 3D 서울지도",
-            "url": "https://smap.seoul.go.kr/",
-            "desc": "서울지역 3D 지",
-            "pick": false
-        },
-        {
-            "id": "20260403-000615",
-            "name": "OpenDoodles",
-            "url": "https://opendoodles.com/",
-            "desc": "인물 드로잉 스타일 일러스트",
-            "pick": false
-        },
-        {
             "id": "20260403-000616",
             "name": "EVERYPIXEL",
             "url": "https://www.everypixel.com/",
             "desc": "디자인 사이트 한 번에 검색",
             "pick": false
-        },
-        {
-            "id": "20260403-000617",
-            "name": "DrawKit",
-            "url": "https://www.drawkit.com/",
-            "desc": "일러스트. 이메일 필요. PNG+SVG",
-            "pick": false
-        },
-        {
-            "id": "20260403-000618",
-            "name": "눈누",
-            "url": "https://noonnu.cc/",
-            "desc": "무료 폰트 모음",
-            "pick": true
-        },
-        {
-            "id": "20260403-000619",
-            "name": "DaFont",
-            "url": "https://www.dafont.com/",
-            "desc": "English",
-            "pick": false
-        },
-        {
-            "id": "20260403-000620",
-            "name": "Google Fonts",
-            "url": "https://fonts.google.com/",
-            "desc": "all languages",
-            "pick": true
-        },
-        {
-            "id": "20260403-000621",
-            "name": "1001 Fonts",
-            "url": "https://www.1001fonts.com/",
-            "desc": "",
-            "pick": false
-        },
-        {
-            "id": "20260412-051034",
-            "name": "Formia",
-            "url": "https://formia.so/",
-            "desc": "모든 2D 형태를 360도 회전 가능한 3D 오브제로 변환",
-            "pick": false
-        },
-        {
-            "id": "20260412-051150",
-            "name": "Swishy",
-            "url": "https://www.swishy.ai/",
-            "desc": "AI 프롬프트 기반으로 모션 자동 생성",
-            "pick": false
-        },
-        {
-            "id": "20260412-051227",
-            "name": "photogradient",
-            "url": "https://photogradient.com/",
-            "desc": "사진에서 그라데이션 자동 생성",
-            "pick": true
-        },
-        {
-            "id": "20260412-051251",
-            "name": "openmoji",
-            "url": "https://openmoji.org/",
-            "desc": "이모지 기반 아이콘",
-            "pick": false
         }
     ],
-    "템플릿": [
+    "편집": [
         {
             "id": "20260403-000622",
             "name": "beautiful.ai",
@@ -1070,26 +1069,35 @@
             "pick": false
         },
         {
-            "id": "20260403-000625",
-            "name": "Notion Svg Avatar Maker",
-            "url": "https://cvbox.org/avatar-plus",
-            "desc": "노션 스타일의 아바타 생성기",
+            "id": "20260403-000601",
+            "name": "Mock Magic",
+            "url": "https://www.mockmagic.com/",
+            "desc": "Mockup",
             "pick": true
         },
         {
-            "id": "20260403-000626",
-            "name": "Notion Cover Generator",
-            "url": "https://notioncovergenerator.com/",
-            "desc": "노션 커버 이미지 제작",
-            "pick": true
+            "id": "20260403-000602",
+            "name": "placeit",
+            "url": "https://placeit.net/c/mockups",
+            "desc": "Mockup. 티셔츠, 물건 등 대상 다양.",
+            "pick": false
         },
         {
-            "id": "20260403-000627",
-            "name": "Covercons",
-            "url": "https://covercons.vercel.app/",
-            "desc": "아이콘을 메인으로 한 커버 이미지 제작",
-            "pick": true
+            "id": "20260412-051034",
+            "name": "Formia",
+            "url": "https://formia.so/",
+            "desc": "모든 2D 형태를 360도 회전 가능한 3D 오브제로 변환",
+            "pick": false
         },
+        {
+            "id": "20260412-051150",
+            "name": "Swishy",
+            "url": "https://www.swishy.ai/",
+            "desc": "AI 프롬프트 기반으로 모션 자동 생성",
+            "pick": false
+        }
+    ],
+    "레퍼런스": [
         {
             "id": "20260403-000628",
             "name": "미리캔버스",
@@ -1154,6 +1162,13 @@
             "pick": false
         },
         {
+            "id": "20260403-000640",
+            "name": "notefolio",
+            "url": "https://notefolio.net/",
+            "desc": "디자이너의 포트폴리오와 작업물. 비슷한 외국 사이트: behance, dribble",
+            "pick": false
+        },
+        {
             "id": "20260403-000637",
             "name": "농립식품기술기획평가원 자료실",
             "url": "https://www.ipet.re.kr/Material/IPETDataLV.asp?cate=BB",
@@ -1172,13 +1187,6 @@
             "name": "한국과학기술기획평가원 부처합동 설명회",
             "url": "https://www.kistep.re.kr/mjbs.es?mjbs_year=2025",
             "desc": "2019년~",
-            "pick": false
-        },
-        {
-            "id": "20260403-000640",
-            "name": "notefolio",
-            "url": "https://notefolio.net/",
-            "desc": "디자이너의 포트폴리오와 작업물. 비슷한 외국 사이트: behance, dribble",
             "pick": false
         }
     ],
