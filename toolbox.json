@@ -111,6 +111,13 @@
             "url": "https://www.lipsum.com/",
             "desc": "",
             "pick": false
+        },
+        {
+            "id": "20260412-055148",
+            "name": "적독가",
+            "url": "https://xn--o39a90m89r.com/",
+            "desc": "책 소개 및 인상 깊은 문장",
+            "pick": false
         }
     ],
     "연구": [
