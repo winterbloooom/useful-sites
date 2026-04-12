@@ -125,6 +125,13 @@
             "url": "https://typing.works/",
             "desc": "랜덤으로 나오는 문장 필사",
             "pick": false
+        },
+        {
+            "id": "20260412-055314",
+            "name": "Writing Prompts",
+            "url": "https://reedsy.com/creative-writing-prompts/",
+            "desc": "글쓰기 소재 추천",
+            "pick": false
         }
     ],
     "연구": [
