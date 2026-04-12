@@ -1297,6 +1297,13 @@
             "url": "https://www.shopify.com/tools/logo-maker",
             "desc": "로고 생성",
             "pick": false
+        },
+        {
+            "id": "20260412-060357",
+            "name": "Pomelli",
+            "url": "https://labs.google.com/pomelli/about/",
+            "desc": "웹사이트 주소만 넣으면 브랜드 톤에 맞는 마케팅 소재 제작",
+            "pick": false
         }
     ]
 }
