@@ -1031,6 +1031,13 @@
             "url": "https://www.swishy.ai/",
             "desc": "AI 프롬프트 기반으로 모션 자동 생성",
             "pick": false
+        },
+        {
+            "id": "20260412-051227",
+            "name": "photogradient",
+            "url": "https://photogradient.com/",
+            "desc": "사진에서 그라데이션 자동 생성",
+            "pick": true
         }
     ],
     "템플릿": [
