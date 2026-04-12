@@ -1260,6 +1260,13 @@
             "url": "https://www.fss.or.kr/edu/fec/contMng/view.do?contentsSlno=688&menuNo=300017",
             "desc": "_No response_",
             "pick": true
+        },
+        {
+            "id": "20260412-055719",
+            "name": "금융감독원 <성인을 위한 실용금융>",
+            "url": "https://www.fss.or.kr/edu/fec/contMng/view.do?contentsSlno=626&menuNo=300017",
+            "desc": "_No response_",
+            "pick": true
         }
     ],
     "브랜딩": [
