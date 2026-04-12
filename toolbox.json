@@ -1038,6 +1038,13 @@
             "url": "https://photogradient.com/",
             "desc": "사진에서 그라데이션 자동 생성",
             "pick": true
+        },
+        {
+            "id": "20260412-051251",
+            "name": "openmoji",
+            "url": "https://openmoji.org/",
+            "desc": "이모지 기반 아이콘",
+            "pick": false
         }
     ],
     "템플릿": [
