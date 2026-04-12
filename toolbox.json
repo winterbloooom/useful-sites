@@ -118,6 +118,13 @@
             "url": "https://xn--o39a90m89r.com/",
             "desc": "책 소개 및 인상 깊은 문장",
             "pick": false
+        },
+        {
+            "id": "20260412-055238",
+            "name": "typing.works",
+            "url": "https://typing.works/",
+            "desc": "랜덤으로 나오는 문장 필사",
+            "pick": false
         }
     ],
     "연구": [
