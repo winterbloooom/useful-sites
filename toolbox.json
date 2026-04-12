@@ -1017,6 +1017,13 @@
             "url": "https://www.1001fonts.com/",
             "desc": "",
             "pick": false
+        },
+        {
+            "id": "20260412-051034",
+            "name": "Formia",
+            "url": "https://formia.so/",
+            "desc": "모든 2D 형태를 360도 회전 가능한 3D 오브제로 변환",
+            "pick": false
         }
     ],
     "템플릿": [
