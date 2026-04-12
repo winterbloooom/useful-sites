@@ -1024,6 +1024,13 @@
             "url": "https://formia.so/",
             "desc": "모든 2D 형태를 360도 회전 가능한 3D 오브제로 변환",
             "pick": false
+        },
+        {
+            "id": "20260412-051150",
+            "name": "Swishy",
+            "url": "https://www.swishy.ai/",
+            "desc": "AI 프롬프트 기반으로 모션 자동 생성",
+            "pick": false
         }
     ],
     "템플릿": [
