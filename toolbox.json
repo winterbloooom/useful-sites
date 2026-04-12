@@ -132,6 +132,13 @@
             "url": "https://reedsy.com/creative-writing-prompts/",
             "desc": "글쓰기 소재 추천",
             "pick": false
+        },
+        {
+            "id": "20260412-061253",
+            "name": "NotebookLM",
+            "url": "https://notebooklm.google.com/",
+            "desc": "원본 소스에서만 핵심 정리 & 문답",
+            "pick": false
         }
     ],
     "연구": [
