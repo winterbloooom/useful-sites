@@ -1086,6 +1086,13 @@
             "url": "https://www.everypixel.com/",
             "desc": "디자인 사이트 한 번에 검색",
             "pick": false
+        },
+        {
+            "id": "20260621-112431",
+            "name": "국가유산 디지털 서비스",
+            "url": "https://digital.khs.go.kr/",
+            "desc": "3D 에셋, 전통 문양, 원천데이터 등",
+            "pick": false
         }
     ],
     "편집": [
