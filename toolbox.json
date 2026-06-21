@@ -290,6 +290,13 @@
             "url": "https://www.rapidtables.com/convert/color/index.html",
             "desc": "색의 다양한 표현법 간 전환 (예: Hex-RGB)",
             "pick": true
+        },
+        {
+            "id": "20260621-043152",
+            "name": "Fish audio",
+            "url": "https://fish.audio/ko/",
+            "desc": "상업용이 아니라면 무료 이용 가능",
+            "pick": false
         }
     ],
     "개발": [
