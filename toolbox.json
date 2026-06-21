@@ -1116,6 +1116,13 @@
             "url": "https://www.swishy.ai/",
             "desc": "AI 프롬프트 기반으로 모션 자동 생성",
             "pick": false
+        },
+        {
+            "id": "20260621-043904",
+            "name": "Stitch",
+            "url": "https://stitch.withgoogle.com/",
+            "desc": "UI Design",
+            "pick": false
         }
     ],
     "레퍼런스": [
