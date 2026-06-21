@@ -1288,6 +1288,13 @@
             "url": "https://www.welcometothejungle.com/en",
             "desc": "연봉 범위, 회사 단계, 문화 등 회사 정보 정리됨. 회사 전문가가 객관적으로 쓴 정보.",
             "pick": false
+        },
+        {
+            "id": "20260621-045459",
+            "name": "Cord",
+            "url": "https://cord.com/",
+            "desc": "영국, 유럽, 미국 테크 기업 중심으로, 검증된 회사 위주로 골라볼 수 있음. 양방향 매칭.",
+            "pick": false
         }
     ],
     "브랜딩": [
