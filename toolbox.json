@@ -1209,6 +1209,13 @@
             "url": "https://www.kistep.re.kr/mjbs.es?mjbs_year=2025",
             "desc": "2019년~",
             "pick": false
+        },
+        {
+            "id": "20260621-043323",
+            "name": "Awesome DESIGN.md",
+            "url": "https://github.com/voltagent/awesome-design-md",
+            "desc": "브랜드 디자인 시스템",
+            "pick": false
         }
     ],
     "통계·동향": [
