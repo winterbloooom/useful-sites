@@ -1258,6 +1258,13 @@
             "url": "https://www.logggos.club/",
             "desc": "약 1000개의 로고 디자인",
             "pick": false
+        },
+        {
+            "id": "20260621-062722",
+            "name": "Dark Design",
+            "url": "https://www.dark.design/",
+            "desc": "다크모드 웹사이트 디자인 모음",
+            "pick": false
         }
     ],
     "통계·동향": [
