@@ -43,13 +43,6 @@
             "pick": false
         },
         {
-            "id": "20260403-000404",
-            "name": "Scholarcy",
-            "url": "https://www.scholarcy.com/",
-            "desc": "AI-powered article summarizer (파일, tex 등 가능)",
-            "pick": true
-        },
-        {
             "id": "20260403-000405",
             "name": "turnitin",
             "url": "https://kr.turnitin.com/",
