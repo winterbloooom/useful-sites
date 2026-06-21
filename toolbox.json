@@ -1295,6 +1295,13 @@
             "url": "https://cord.com/",
             "desc": "영국, 유럽, 미국 테크 기업 중심으로, 검증된 회사 위주로 골라볼 수 있음. 양방향 매칭.",
             "pick": false
+        },
+        {
+            "id": "20260621-045620",
+            "name": "VisaSponsorship Jobs",
+            "url": "https://visasponsor.jobs/api/jobs",
+            "desc": "전세계 비자를 지원해주는 회사만 모은 잡보드",
+            "pick": false
         }
     ],
     "브랜딩": [
