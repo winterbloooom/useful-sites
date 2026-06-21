@@ -57,11 +57,14 @@ jobs:
 
             const data = JSON.parse(fs.readFileSync('toolbox.json', 'utf8'));
 
+            // Strip "디자인 - " prefix used in issue template dropdowns
+            const stripParent = (c) => c ? c.replace(/^디자인\s*-\s*/, '') : c;
+
             if (labels.includes('add')) {
               const name = parseField('사이트 이름');
               const url = parseField('URL');
               const desc = parseField('설명');
-              const category = parseField('카테고리');
+              const category = stripParent(parseField('카테고리'));
               const pickRaw = parseField('표시');
               const pick = pickRaw.includes('[X]') || pickRaw.includes('[x]');
 
@@ -90,7 +93,7 @@ jobs:
               const newName = parseField('이름');
               const newUrl = parseField('URL');
               const newDesc = parseField('설명');
-              const newCategory = parseField('카테고리');
+              const newCategory = stripParent(parseField('카테고리'));
               const newPick = parseField('자주 사용');
 
               // Find item by id
