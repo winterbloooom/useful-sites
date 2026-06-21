@@ -583,6 +583,13 @@
             "url": "https://photogradient.com/",
             "desc": "사진에서 그라데이션 자동 생성",
             "pick": true
+        },
+        {
+            "id": "20260621-114346",
+            "name": "Atmos",
+            "url": "https://atmos.style/",
+            "desc": "UI 위한 색상 팔레트 제작. Figma 플러그인 좋음",
+            "pick": false
         }
     ],
     "글꼴": [
