@@ -1281,6 +1281,13 @@
             "url": "https://www.fss.or.kr/edu/fec/contMng/view.do?contentsSlno=626&menuNo=300017",
             "desc": "_No response_",
             "pick": true
+        },
+        {
+            "id": "20260621-045349",
+            "name": "Welcome to Jungle",
+            "url": "https://www.welcometothejungle.com/en",
+            "desc": "연봉 범위, 회사 단계, 문화 등 회사 정보 정리됨. 회사 전문가가 객관적으로 쓴 정보.",
+            "pick": false
         }
     ],
     "브랜딩": [
