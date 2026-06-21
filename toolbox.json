@@ -1069,13 +1069,6 @@
     ],
     "편집": [
         {
-            "id": "20260403-000622",
-            "name": "beautiful.ai",
-            "url": "https://www.beautiful.ai/",
-            "desc": "PPT 생성 AI. 유/무료버전",
-            "pick": false
-        },
-        {
             "id": "20260403-000623",
             "name": "TOME.app",
             "url": "https://tome.app/lp/ai-presentations",
