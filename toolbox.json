@@ -1265,6 +1265,13 @@
             "url": "https://www.dark.design/",
             "desc": "다크모드 웹사이트 디자인 모음",
             "pick": false
+        },
+        {
+            "id": "20260621-105255",
+            "name": "getdesign.md",
+            "url": "https://getdesign.md/",
+            "desc": "글로벌 브랜드의 design.md 파일 모음",
+            "pick": false
         }
     ],
     "통계·동향": [
