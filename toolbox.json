@@ -1230,6 +1230,13 @@
             "url": "https://oh-my-design.kr/",
             "desc": "한국 기업 포함 대기업 디자인 시스템",
             "pick": false
+        },
+        {
+            "id": "20260621-060236",
+            "name": "Taste Skill",
+            "url": "https://www.tasteskill.dev/",
+            "desc": "AI가 만드는 평범한 UI 방지 스킬",
+            "pick": false
         }
     ],
     "통계·동향": [
