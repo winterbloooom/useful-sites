@@ -448,6 +448,13 @@
             "url": "https://www.napkin.ai/",
             "desc": "AI 기반 텍스트 도식화/구조화 (인포그래픽)",
             "pick": false
+        },
+        {
+            "id": "20260621-040728",
+            "name": "Hugeicons",
+            "url": "https://hugeicons.com/",
+            "desc": "선형 아이콘",
+            "pick": false
         }
     ],
     "색": [
