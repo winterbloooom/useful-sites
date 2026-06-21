@@ -1251,6 +1251,13 @@
             "url": "https://github.com/uxjoseph/supanova-design-skill",
             "desc": "taste-skill을 한국 랜딩페이지 용으로 재구성함",
             "pick": false
+        },
+        {
+            "id": "20260621-062326",
+            "name": "Logggos",
+            "url": "https://www.logggos.club/",
+            "desc": "약 1000개의 로고 디자인",
+            "pick": false
         }
     ],
     "통계·동향": [
