@@ -1223,6 +1223,13 @@
             "url": "https://github.com/voltagent/awesome-design-md",
             "desc": "브랜드 디자인 시스템",
             "pick": false
+        },
+        {
+            "id": "20260621-060123",
+            "name": "Oh My Design",
+            "url": "https://oh-my-design.kr/",
+            "desc": "한국 기업 포함 대기업 디자인 시스템",
+            "pick": false
         }
     ],
     "통계·동향": [
