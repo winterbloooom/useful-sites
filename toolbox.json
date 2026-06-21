@@ -1302,6 +1302,13 @@
             "url": "https://visasponsor.jobs/api/jobs",
             "desc": "전세계 비자를 지원해주는 회사만 모은 잡보드",
             "pick": false
+        },
+        {
+            "id": "20260621-045710",
+            "name": "UK Visa Jobs",
+            "url": "https://www.ukvisajobs.com/",
+            "desc": "영국 내 비자 스폰서십 제공 포지션 잡보드",
+            "pick": false
         }
     ],
     "브랜딩": [
