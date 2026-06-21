@@ -57,13 +57,6 @@
             "pick": false
         },
         {
-            "id": "20260403-000407",
-            "name": "copy.ai",
-            "url": "https://www.copy.ai/",
-            "desc": "카피 제작",
-            "pick": false
-        },
-        {
             "id": "20260403-000408",
             "name": "jasper",
             "url": "https://www.jasper.ai/",
