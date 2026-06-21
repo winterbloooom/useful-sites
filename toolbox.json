@@ -1237,6 +1237,13 @@
             "url": "https://www.tasteskill.dev/",
             "desc": "AI가 만드는 평범한 UI 방지 스킬",
             "pick": false
+        },
+        {
+            "id": "20260621-060330",
+            "name": "Supanova Design Skill",
+            "url": "https://github.com/uxjoseph/supanova-design-skill",
+            "desc": "taste-skill을 한국 랜딩페이지 용으로 재구성함",
+            "pick": false
         }
     ],
     "통계·동향": [
