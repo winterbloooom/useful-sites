@@ -16,15 +16,22 @@ async function loadJSON(url) {
     return res.json();
 }
 
+async function loadJSONL(url) {
+    const res = await fetch(url);
+    const txt = await res.text();
+    return txt.split('\n').map(l => l.trim()).filter(Boolean)
+        .map(l => { try { return JSON.parse(l); } catch { return null; } })
+        .filter(Boolean);
+}
+
 async function init() {
-    // Nav/cheatsheet tabs work regardless of data loading
+    // Nav tabs work regardless of data loading
     setupNavTabs();
-    setupCheatsheetTabs();
 
     try {
         const [toolbox, colors, fonts] = await Promise.all([
             loadJSON('./toolbox.json'),
-            loadJSON('./design-colors.json'),
+            loadJSONL('./colors.jsonl'),
             loadJSON('./design-fonts.json'),
         ]);
         toolboxData = toolbox;
@@ -42,12 +49,15 @@ async function init() {
 
     setupCategoryTabs();
     setupToolbar();
-    renderPalettes();
+    setupColors();
+    renderColors();
     renderFonts();
     renderItems();
 }
 
-// ===== Navigation (만물상자 / 디자인 치트시트) =====
+// ===== Navigation (만물상자 / Colors / Fonts) =====
+const SECTIONS = ['toolbox', 'colors', 'fonts'];
+
 function setupNavTabs() {
     document.querySelectorAll('.nav-tab').forEach(tab => {
         tab.addEventListener('click', () => {
@@ -55,10 +65,11 @@ function setupNavTabs() {
             tab.classList.add('is-active');
 
             currentSection = tab.dataset.section;
-            document.getElementById('section-toolbox').style.display =
-                currentSection === 'toolbox' ? '' : 'none';
-            document.getElementById('section-cheatsheet').style.display =
-                currentSection === 'cheatsheet' ? '' : 'none';
+            SECTIONS.forEach(s => {
+                document.getElementById('section-' + s).style.display =
+                    currentSection === s ? '' : 'none';
+            });
+            window.scrollTo(0, 0);
         });
     });
 }
@@ -254,56 +265,193 @@ function renderItems() {
     });
 }
 
-// ===== Cheatsheet =====
-function setupCheatsheetTabs() {
-    document.querySelectorAll('.cs-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            document.querySelectorAll('.cs-tab').forEach(t => t.classList.remove('is-active'));
-            tab.classList.add('is-active');
+// ===== Colors viewer =====
+const COPY_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
 
-            const target = tab.dataset.cs;
-            document.getElementById('cs-colors').style.display = target === 'colors' ? '' : 'none';
-            document.getElementById('cs-fonts').style.display = target === 'fonts' ? '' : 'none';
-        });
+let toastTimer;
+function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('on'), 1100);
+}
+
+async function copyText(text, label) {
+    try {
+        await navigator.clipboard.writeText(text);
+    } catch {
+        const t = document.createElement('textarea');
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        t.remove();
+    }
+    toast((label ? label + ' ' : '') + '복사됨: ' + text);
+}
+
+// Pick readable text color over a hex background
+function textOn(hex) {
+    const m = hex.replace('#', '');
+    if (m.length < 6) return '#1a1a1a';
+    const r = parseInt(m.slice(0, 2), 16);
+    const g = parseInt(m.slice(2, 4), 16);
+    const b = parseInt(m.slice(4, 6), 16);
+    return (0.299 * r + 0.587 * g + 0.114 * b) > 150 ? '#1a1a1a' : '#fff';
+}
+
+// Daily-seeded shuffle so "기본" order is random but stable within a day
+let colorsShuffled = null;
+
+function dailySeed() {
+    const d = new Date();
+    return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+}
+
+function mulberry32(a) {
+    return function () {
+        a |= 0; a = (a + 0x6D2B79F5) | 0;
+        let t = Math.imul(a ^ (a >>> 15), 1 | a);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
+function seededShuffle(arr, seed) {
+    const a = arr.slice();
+    const rnd = mulberry32(seed);
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(rnd() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+function setupColors() {
+    colorsShuffled = seededShuffle(colorsData, dailySeed());
+
+    const sizes = [...new Set(colorsData.map(c => c.size))].sort((a, b) => a - b);
+    const sizeSel = document.getElementById('colors-size');
+    sizes.forEach(s => sizeSel.add(new Option(s + '색', s)));
+
+    const tags = [...new Set(colorsData.flatMap(c => c.tags || []))].sort((a, b) => a.localeCompare(b, 'ko'));
+    const tagSel = document.getElementById('colors-tag');
+    tags.forEach(t => tagSel.add(new Option(t, t)));
+
+    ['colors-search', 'colors-size', 'colors-tag', 'colors-sort'].forEach(id => {
+        const ev = id === 'colors-search' ? 'input' : 'change';
+        document.getElementById(id).addEventListener(ev, renderColors);
     });
 }
 
-function renderPalettes() {
-    const container = document.getElementById('palette-container');
-    container.innerHTML = '';
+function colorPasses(c) {
+    const q = document.getElementById('colors-search').value.trim().toLowerCase();
+    if (q && !(c.id.toLowerCase().includes(q)
+            || c.colors.some(x => x.hex.toLowerCase().includes(q))
+            || c.colors.some(x => (x.desc || '').toLowerCase().includes(q))
+            || (c.tags || []).some(t => t.toLowerCase().includes(q)))) return false;
 
-    colorsData.palettes.forEach(pal => {
-        const card = document.createElement('div');
-        card.className = 'palette-card';
+    const sz = document.getElementById('colors-size').value;
+    if (sz && c.size != +sz) return false;
 
-        const row = document.createElement('div');
-        row.className = 'palette-row';
+    const tg = document.getElementById('colors-tag').value;
+    if (tg && !(c.tags || []).includes(tg)) return false;
 
-        pal.forEach(hex => {
-            const color = document.createElement('div');
-            color.className = 'palette-color';
-            color.style.backgroundColor = '#' + hex;
-            color.textContent = hex;
+    return true;
+}
 
-            // Determine text color based on luminance
-            const r = parseInt(hex.substring(0, 2), 16);
-            const g = parseInt(hex.substring(2, 4), 16);
-            const b = parseInt(hex.substring(4, 6), 16);
-            const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-            color.style.color = lum > 0.55 ? '#000' : '#fff';
+function colorCard(c) {
+    const el = document.createElement('div');
+    el.className = 'color-card';
 
-            color.addEventListener('click', () => {
-                navigator.clipboard.writeText('#' + hex).then(() => {
-                    color.textContent = 'copied!';
-                    setTimeout(() => { color.textContent = hex; }, 800);
-                });
-            });
-            row.appendChild(color);
-        });
+    // Header: id copy button + badges
+    const head = document.createElement('div');
+    head.className = 'cc-head';
 
-        card.appendChild(row);
-        container.appendChild(card);
+    const idb = document.createElement('button');
+    idb.className = 'cc-id';
+    idb.innerHTML = COPY_SVG + '<span>' + c.id + '</span>';
+    idb.title = 'id 복사';
+    idb.onclick = () => copyText(c.id, 'id');
+    head.appendChild(idb);
+
+    const sb = document.createElement('span');
+    sb.className = 'cc-badge size';
+    sb.textContent = c.size + '색';
+    head.appendChild(sb);
+
+    (c.tags || []).forEach(t => {
+        const b = document.createElement('span');
+        b.className = 'cc-badge tag';
+        b.textContent = t;
+        head.appendChild(b);
     });
+    el.appendChild(head);
+
+    // Edge-to-edge palette segments (hover to expand)
+    const pal = document.createElement('div');
+    pal.className = 'cc-palette';
+    c.colors.forEach(col => {
+        const seg = document.createElement('div');
+        seg.className = 'cc-seg';
+        seg.style.background = col.hex;
+        seg.title = col.hex + (col.desc ? ' · ' + col.desc : '') + ' (클릭 복사)';
+        const t = document.createElement('span');
+        t.className = 'cc-inhex';
+        t.textContent = col.hex;
+        t.style.color = textOn(col.hex);
+        seg.appendChild(t);
+        seg.onclick = () => copyText(col.hex, 'hex');
+        pal.appendChild(seg);
+    });
+    el.appendChild(pal);
+
+    // hex/desc labels under each segment
+    const labs = document.createElement('div');
+    labs.className = 'cc-labels';
+    c.colors.forEach(col => {
+        const l = document.createElement('div');
+        l.className = 'cc-lab';
+        l.title = col.hex + ' 복사';
+        l.onclick = () => copyText(col.hex, 'hex');
+        const h = document.createElement('span');
+        h.className = 'cc-h';
+        h.textContent = col.hex;
+        const d = document.createElement('span');
+        d.className = 'cc-d';
+        d.textContent = col.desc || '';
+        l.appendChild(h);
+        l.appendChild(d);
+        labs.appendChild(l);
+    });
+    el.appendChild(labs);
+
+    return el;
+}
+
+function renderColors() {
+    const grid = document.getElementById('colors-grid');
+    const sort = document.getElementById('colors-sort').value;
+
+    // Default (no sort) = daily-random order; size options sort explicitly
+    const base = sort ? colorsData : colorsShuffled;
+    let list = base.filter(colorPasses);
+    if (sort === 'size') list = list.slice().sort((a, b) => a.size - b.size);
+    else if (sort === 'sizeD') list = list.slice().sort((a, b) => b.size - a.size);
+
+    document.getElementById('colors-count').textContent =
+        list.length + ' / ' + colorsData.length + '개 조합';
+
+    grid.innerHTML = '';
+    if (!list.length) {
+        grid.innerHTML = '<div class="empty-state">조건에 맞는 조합이 없습니다.</div>';
+        return;
+    }
+
+    const frag = document.createDocumentFragment();
+    list.forEach(c => frag.appendChild(colorCard(c)));
+    grid.appendChild(frag);
 }
 
 function renderFonts() {

@@ -20,7 +20,8 @@
         </div>
         <nav id="header-nav">
             <button class="nav-tab is-active" data-section="toolbox">만물상자</button>
-            <button class="nav-tab" data-section="cheatsheet">디자인 치트시트</button>
+            <button class="nav-tab" data-section="colors">Colors</button>
+            <button class="nav-tab" data-section="fonts">Fonts</button>
         </nav>
     </div>
 </header>
@@ -62,26 +63,47 @@
     </div>
 </main>
 
-<!-- Cheatsheet Section -->
-<section id="section-cheatsheet" class="section" style="display:none">
+<!-- Colors Section -->
+<section id="section-colors" class="section" style="display:none">
     <div class="hero container">
-        <div class="hero-title">디자인 <span>치트시트</span></div>
-        <div class="hero-count">색상 팔레트와 폰트를 빠르게 참고하세요</div>
+        <div class="hero-title">컬러 <span>조합</span></div>
+        <div class="hero-count" id="colors-count">불러오는 중…</div>
     </div>
 
-    <div id="cheatsheet-tabs" class="container">
-        <button class="cs-tab is-active" data-cs="colors">Colors</button>
-        <button class="cs-tab" data-cs="fonts">Fonts</button>
+    <div id="colors-toolbar" class="container">
+        <div id="colors-search-wrap">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="colors-search" placeholder="hex · id · 설명 · 태그 검색 (예: ff88, 흰색대용)" aria-label="컬러 검색">
+        </div>
+        <div id="colors-filters">
+            <select id="colors-size" aria-label="색 개수 필터"><option value="">색 개수: 전체</option></select>
+            <select id="colors-tag" aria-label="태그 필터"><option value="">태그: 전체</option></select>
+            <select id="colors-sort" aria-label="정렬">
+                <option value="">오늘의 랜덤</option>
+                <option value="size">색수↑</option>
+                <option value="sizeD">색수↓</option>
+            </select>
+        </div>
     </div>
 
-    <div id="cs-colors" class="cs-content container">
-        <div id="palette-container"></div>
+    <div class="container">
+        <div id="colors-grid"></div>
+    </div>
+</section>
+
+<!-- Fonts Section -->
+<section id="section-fonts" class="section" style="display:none">
+    <div class="hero container">
+        <div class="hero-title">폰트 <span>리스트</span></div>
+        <div class="hero-count">용도별 폰트를 빠르게 참고하세요</div>
     </div>
 
-    <div id="cs-fonts" class="cs-content container" style="display:none">
+    <div class="container">
         <div id="font-container"></div>
     </div>
 </section>
+
+<div id="toast"></div>
 
 <script src="./script.js"></script>
 </body>
