@@ -416,7 +416,7 @@ button, input, select { font: inherit; border: none; background: none; color: in
 
 .view-list .item {
     display: grid;
-    grid-template-columns: 1.8rem minmax(8rem, 14rem) 1fr auto;
+    grid-template-columns: minmax(8rem, 14rem) 1fr auto;
     gap: 0 0.75rem;
     padding: 1rem 1.15rem;
     margin-bottom: 0.5rem;
@@ -425,7 +425,7 @@ button, input, select { font: inherit; border: none; background: none; color: in
     border: 1px solid transparent;
     box-shadow: var(--shadow-tight);
     transition: box-shadow var(--transition), transform var(--transition);
-    align-items: baseline;
+    align-items: last baseline;
 }
 
 .view-list .item:hover {
@@ -433,21 +433,14 @@ button, input, select { font: inherit; border: none; background: none; color: in
     transform: translateY(-2px);
 }
 
-.view-list .item-pick {
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--faint);
-    line-height: 1.6;
-}
-
-.view-list .item-pick:not(:empty) {
-    color: var(--primary);
-}
-
 .view-list .item-name {
     font-weight: 600;
     font-size: 0.98rem;
     color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
 }
 
 .view-list .item-name a {
@@ -459,9 +452,31 @@ button, input, select { font: inherit; border: none; background: none; color: in
 }
 
 .view-list .item-desc {
-    grid-column: 3;
+    grid-column: 2;
     font-size: 0.78rem;
     color: var(--muted);
+    align-self: center;
+}
+
+/* Meta row above the title: pick star + category */
+.item-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    line-height: 1.3;
+}
+
+.item-pick {
+    font-size: 0.66rem;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.item-cat {
+    font-weight: 500;
+    font-size: 0.66rem;
+    color: var(--muted);
+    white-space: nowrap;
 }
 
 /* ===== Items: Card View ===== */
@@ -488,11 +503,6 @@ button, input, select { font: inherit; border: none; background: none; color: in
 .view-card .item:hover {
     box-shadow: var(--shadow-ambient);
     transform: translateY(-3px);
-}
-
-.view-card .item-pick {
-    font-size: 0.75rem;
-    color: var(--primary);
 }
 
 .view-card .item-name {
@@ -541,7 +551,7 @@ button, input, select { font: inherit; border: none; background: none; color: in
 }
 
 .view-list .item-actions {
-    grid-column: 4;
+    grid-column: 3;
     align-self: center;
 }
 
@@ -1037,16 +1047,16 @@ button, input, select { font: inherit; border: none; background: none; color: in
     }
 
     .view-list .item {
-        grid-template-columns: 1.8rem 1fr auto;
+        grid-template-columns: 1fr auto;
     }
 
     .view-list .item-desc {
-        grid-column: 2;
+        grid-column: 1;
         margin-top: 0.15rem;
     }
 
     .view-list .item-actions {
-        grid-column: 3;
+        grid-column: 2;
         grid-row: 1 / 3;
     }
 

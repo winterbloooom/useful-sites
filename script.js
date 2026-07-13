@@ -220,8 +220,13 @@ function renderItems() {
         const deleteUrl = `${REPO_URL}/issues/new?template=delete_site.yml&${p('title', deleteTitle)}`;
 
         div.innerHTML =
-            `<div class="item-pick">${pickText}</div>` +
-            `<div class="item-name"><a href="${item.url || '#'}" target="_blank">${item.name}</a></div>` +
+            `<div class="item-name">` +
+                `<div class="item-meta">` +
+                    (pickText ? `<span class="item-pick">${pickText}</span>` : '') +
+                    `<span class="item-cat">${item._cat}</span>` +
+                `</div>` +
+                `<a href="${item.url || '#'}" target="_blank">${item.name}</a>` +
+            `</div>` +
             `<div class="item-desc">${item.desc || ''}</div>` +
             `<div class="item-actions">` +
                 `<a href="${editUrl}" target="_blank" title="수정">수정</a>` +
