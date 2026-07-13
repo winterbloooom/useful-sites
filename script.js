@@ -9,6 +9,9 @@ let currentView = 'list';
 let currentSort = 'default';
 let currentSearch = '';
 
+let currentFontTag = '__all__';
+let currentFontSearch = '';
+
 
 // ===== Data Loading =====
 async function loadJSON(url) {
@@ -50,6 +53,7 @@ async function init() {
     setupCategoryTabs();
     setupToolbar();
     setupColors();
+    setupFonts();
     renderColors();
     renderFonts();
     renderItems();
@@ -454,19 +458,87 @@ function renderColors() {
     grid.appendChild(frag);
 }
 
+// ===== Fonts viewer =====
+function setupFonts() {
+    const filters = document.getElementById('fonts-filters');
+    const tags = [...new Set(fontsData.fonts.map(f => f.tag).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, 'ko'));
+
+    const makeTab = (label, tag, count) => {
+        const btn = document.createElement('button');
+        btn.className = 'font-tab' + (tag === currentFontTag ? ' is-active' : '');
+        btn.innerHTML = `${label} <span class="cat-count">${count}</span>`;
+        btn.dataset.tag = tag;
+        btn.addEventListener('click', () => {
+            currentFontTag = tag;
+            document.querySelectorAll('.font-tab').forEach(t =>
+                t.classList.toggle('is-active', t.dataset.tag === tag));
+            renderFonts();
+        });
+        filters.appendChild(btn);
+    };
+
+    makeTab('전체', '__all__', fontsData.fonts.length);
+    tags.forEach(tag => {
+        const count = fontsData.fonts.filter(f => f.tag === tag).length;
+        makeTab(tag, tag, count);
+    });
+
+    document.getElementById('fonts-search').addEventListener('input', (e) => {
+        currentFontSearch = e.target.value.toLowerCase();
+        renderFonts();
+    });
+}
+
 function renderFonts() {
     const container = document.getElementById('font-container');
     container.innerHTML = '';
 
-    fontsData.fonts.forEach(font => {
-        const card = document.createElement('div');
-        card.className = 'font-card';
-        card.innerHTML =
-            `<div class="font-name"><a href="${font.url}" target="_blank">${font.name}</a></div>` +
-            `<span class="font-tag">${font.tag}</span>` +
-            `<div class="font-desc">${font.desc || ''}</div>`;
-        container.appendChild(card);
+    let fonts = fontsData.fonts;
+    if (currentFontTag !== '__all__') {
+        fonts = fonts.filter(f => f.tag === currentFontTag);
+    }
+    if (currentFontSearch) {
+        fonts = fonts.filter(f =>
+            f.name.toLowerCase().includes(currentFontSearch) ||
+            (f.desc && f.desc.toLowerCase().includes(currentFontSearch)) ||
+            (f.tag && f.tag.toLowerCase().includes(currentFontSearch))
+        );
+    }
+
+    document.getElementById('fonts-count').textContent =
+        fonts.length + ' / ' + fontsData.fonts.length + '개 폰트';
+
+    if (!fonts.length) {
+        container.innerHTML = '<div class="empty-state">조건에 맞는 폰트가 없습니다.</div>';
+        return;
+    }
+
+    const p = (k, v) => `${k}=${encodeURIComponent(v)}`;
+    const frag = document.createDocumentFragment();
+
+    fonts.forEach(font => {
+        const editTitle = `[글꼴 수정] ${font.name} | ${font.tag} | ${font.id}`;
+        const editUrl = `${REPO_URL}/issues/new?template=edit_font.yml&${p('title', editTitle)}&${p('name', font.name)}&${p('url', font.url || '')}&${p('desc', font.desc || '')}`;
+        const deleteTitle = `[글꼴 삭제] ${font.name} | ${font.tag} | ${font.id}`;
+        const deleteUrl = `${REPO_URL}/issues/new?template=delete_font.yml&${p('title', deleteTitle)}`;
+
+        const item = document.createElement('div');
+        item.className = 'font-item';
+        item.innerHTML =
+            `<div class="font-item-head">` +
+                `<span class="font-name"><a href="${font.url || '#'}" target="_blank">${font.name}</a></span>` +
+                `<span class="font-tag">${font.tag || ''}</span>` +
+            `</div>` +
+            `<div class="font-desc">${font.desc || ''}</div>` +
+            `<div class="item-actions">` +
+                `<a href="${editUrl}" target="_blank" title="수정">수정</a>` +
+                `<a href="${deleteUrl}" target="_blank" title="삭제">삭제</a>` +
+            `</div>`;
+        frag.appendChild(item);
     });
+
+    container.appendChild(frag);
 }
 
 // ===== Init =====

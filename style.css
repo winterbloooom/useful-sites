@@ -757,58 +757,167 @@ button, input, select { font: inherit; border: none; background: none; color: in
 }
 
 /* ===== Fonts ===== */
-#font-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+#fonts-toolbar {
+    display: flex;
+    align-items: center;
     gap: 0.6rem;
-    padding-bottom: 3rem;
+    padding-top: 1.2rem;
+    flex-wrap: wrap;
 }
 
-.font-card {
+#fonts-search-wrap {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.2rem;
+    border-radius: var(--radius);
+    padding: 0.55rem 0.9rem;
     box-shadow: var(--shadow);
     transition: all var(--transition);
 }
 
-.font-card:hover {
+#fonts-search-wrap:focus-within {
+    border-color: var(--terracotta-light);
+    box-shadow: 0 0 0 3px var(--terracotta-pale);
+}
+
+#fonts-search-wrap svg {
+    color: var(--brown-light);
+    flex-shrink: 0;
+}
+
+#fonts-search {
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+#fonts-search::placeholder {
+    color: var(--brown-light);
+}
+
+#fonts-filters {
+    display: flex;
+    gap: 0.35rem;
+    overflow-x: auto;
+    padding-top: 0.9rem;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+}
+
+#fonts-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.font-tab {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--brown-light);
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: all var(--transition);
+}
+
+.font-tab:hover {
+    border-color: var(--border-hover);
+    color: var(--brown-mid);
+}
+
+.font-tab.is-active {
+    background: var(--terracotta-pale);
+    border-color: var(--terracotta-light);
+    color: var(--terracotta);
+    font-weight: 700;
+}
+
+.font-tab.is-active .cat-count {
+    background: #fff;
+    color: var(--terracotta);
+}
+
+#font-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 3rem;
+}
+
+#font-container .empty-state {
+    grid-column: 1 / -1;
+}
+
+.font-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem 0.9rem;
+    box-shadow: var(--shadow);
+    transition: all var(--transition);
+}
+
+.font-item:hover {
     border-color: var(--terracotta-light);
     box-shadow: var(--shadow-hover);
     transform: translateY(-1px);
 }
 
-.font-card .font-name {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--brown);
-    margin-bottom: 0.3rem;
+.font-item-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
 }
 
-.font-card .font-name a {
+.font-item .font-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--brown);
+}
+
+.font-item .font-name a {
     transition: color 0.15s;
 }
 
-.font-card .font-name a:hover {
+.font-item .font-name a:hover {
     color: var(--terracotta);
 }
 
-.font-card .font-tag {
-    display: inline-block;
-    font-size: 0.68rem;
+.font-item .font-tag {
+    flex-shrink: 0;
+    font-size: 0.64rem;
     font-weight: 500;
-    padding: 0.15rem 0.5rem;
+    padding: 0.1rem 0.45rem;
     border-radius: 2rem;
     background: var(--olive-pale);
     color: var(--olive);
 }
 
-.font-card .font-desc {
-    font-size: 0.8rem;
-    color: var(--brown-mid);
-    margin-top: 0.5rem;
+.font-item .font-desc {
+    font-size: 0.76rem;
+    color: var(--brown-light);
+    line-height: 1.45;
+}
+
+.font-item .item-actions {
+    margin-top: auto;
+    padding-top: 0.35rem;
+}
+
+.font-item .item-actions a {
+    opacity: 0.55;
+}
+
+.font-item:hover .item-actions a {
+    opacity: 1;
 }
 
 /* ===== Responsive: Tablet ===== */
@@ -923,6 +1032,24 @@ button, input, select { font: inherit; border: none; background: none; color: in
 
     #colors-grid {
         grid-template-columns: 1fr;
+    }
+
+    #fonts-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    #fonts-search-wrap {
+        min-width: unset;
+        min-height: 2.75rem;
+    }
+
+    .font-tab {
+        padding: 0.5rem 1rem;
+        min-height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
     }
 
     #font-container {

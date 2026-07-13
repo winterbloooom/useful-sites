@@ -95,9 +95,22 @@
 <section id="section-fonts" class="section" style="display:none">
     <div class="hero container">
         <div class="hero-title">폰트 <span>리스트</span></div>
-        <div class="hero-count">용도별 폰트를 빠르게 참고하세요</div>
+        <div class="hero-count" id="fonts-count">용도별 폰트를 빠르게 참고하세요</div>
     </div>
 
+    <!-- Toolbar -->
+    <div id="fonts-toolbar" class="container">
+        <div id="fonts-search-wrap">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="fonts-search" placeholder="이름이나 설명으로 검색..." aria-label="폰트 검색">
+        </div>
+        <a class="toolbar-link" href="https://github.com/winterbloooom/useful-sites/issues/new?template=add_font.yml" target="_blank" title="폰트 추가">+ 추가</a>
+    </div>
+
+    <!-- Tag Filter -->
+    <div id="fonts-filters" class="container"></div>
+
+    <!-- Fonts -->
     <div class="container">
         <div id="font-container"></div>
     </div>

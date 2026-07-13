@@ -1,0 +1,40 @@
+name: "폰트 수정"
+description: "기존 폰트 정보를 수정합니다. 바꿀 항목만 수정하고 제출하세요."
+title: "[글꼴 수정] "
+labels: ["edit-font"]
+body:
+  - type: markdown
+    attributes:
+      value: "모든 칸이 현재 값으로 채워져 있습니다. 바꿀 부분만 수정하세요. 제목은 수정하지 마세요."
+  - type: input
+    id: name
+    attributes:
+      label: "이름"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: "URL"
+    validations:
+      required: false
+  - type: input
+    id: desc
+    attributes:
+      label: "설명"
+    validations:
+      required: false
+  - type: dropdown
+    id: tag
+    attributes:
+      label: "분류"
+      options:
+        - "(변경 안 함)"
+        - 고딕
+        - 명조
+        - 코딩
+        - 손글씨
+        - 장식
+        - 기타
+    validations:
+      required: true
