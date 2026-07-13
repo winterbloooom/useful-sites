@@ -9,6 +9,9 @@ let currentView = 'list';
 let currentSort = 'default';
 let currentSearch = '';
 
+let currentFontTag = '__all__';
+let currentFontSearch = '';
+
 
 // ===== Data Loading =====
 async function loadJSON(url) {
@@ -50,6 +53,7 @@ async function init() {
     setupCategoryTabs();
     setupToolbar();
     setupColors();
+    setupFonts();
     renderColors();
     renderFonts();
     renderItems();
@@ -87,83 +91,51 @@ function isDesignSub(cat) {
 }
 
 function setupCategoryTabs() {
-    const container = document.getElementById('category-tabs');
-    const subContainer = document.getElementById('subcategory-tabs');
+    const rail = document.getElementById('category-rail');
     const categories = getCategoryNames();
-
     const total = categories.reduce((sum, c) => sum + toolboxData[c].length, 0);
 
-    const allBtn = document.createElement('button');
-    allBtn.className = 'cat-tab is-active';
-    allBtn.innerHTML = `전체 <span class="cat-count">${total}</span>`;
-    allBtn.dataset.cat = '__all__';
-    allBtn.addEventListener('click', () => selectCategory('__all__'));
-    container.appendChild(allBtn);
+    const makeItem = (value, label, count, kind) => {
+        const b = document.createElement('button');
+        b.className = 'rail-item' + (kind ? ' is-' + kind : '');
+        b.dataset.cat = value;
+        b.innerHTML = `<span class="rail-label">${label}</span><span class="rail-count">${count}</span>`;
+        b.addEventListener('click', () => selectCategory(value));
+        return b;
+    };
 
-    currentCategory = '__all__';
+    rail.appendChild(makeItem('__all__', '전체', total));
 
     let designInserted = false;
     categories.forEach(cat => {
         if (isDesignSub(cat)) {
             if (!designInserted) {
                 const designTotal = DESIGN_SUBCATS.reduce((s, c) => s + (toolboxData[c]?.length || 0), 0);
-                const dBtn = document.createElement('button');
-                dBtn.className = 'cat-tab';
-                dBtn.innerHTML = `${DESIGN_PARENT} <span class="cat-count">${designTotal}</span>`;
-                dBtn.dataset.cat = '__design__';
-                dBtn.addEventListener('click', () => selectCategory('__design__'));
-                container.appendChild(dBtn);
+                rail.appendChild(makeItem('__design__', DESIGN_PARENT, designTotal, 'parent'));
+                DESIGN_SUBCATS.forEach(sub => {
+                    if (!toolboxData[sub]) return;
+                    rail.appendChild(makeItem(sub, sub, toolboxData[sub].length, 'sub'));
+                });
                 designInserted = true;
             }
             return;
         }
-        const btn = document.createElement('button');
-        btn.className = 'cat-tab';
-        btn.innerHTML = `${cat} <span class="cat-count">${toolboxData[cat].length}</span>`;
-        btn.dataset.cat = cat;
-        btn.addEventListener('click', () => selectCategory(cat));
-        container.appendChild(btn);
+        rail.appendChild(makeItem(cat, cat, toolboxData[cat].length));
     });
 
-    // Build design sub-tabs (rendered once, shown when design active)
-    const subAll = document.createElement('button');
-    const subTotal = DESIGN_SUBCATS.reduce((s, c) => s + (toolboxData[c]?.length || 0), 0);
-    subAll.className = 'subcat-tab is-active';
-    subAll.innerHTML = `전체 <span class="cat-count">${subTotal}</span>`;
-    subAll.dataset.cat = '__design__';
-    subAll.addEventListener('click', () => selectCategory('__design__'));
-    subContainer.appendChild(subAll);
+    currentCategory = '__all__';
+    updateRailActive('__all__');
+}
 
-    DESIGN_SUBCATS.forEach(cat => {
-        if (!toolboxData[cat]) return;
-        const btn = document.createElement('button');
-        btn.className = 'subcat-tab';
-        btn.innerHTML = `${cat} <span class="cat-count">${toolboxData[cat].length}</span>`;
-        btn.dataset.cat = cat;
-        btn.addEventListener('click', () => selectCategory(cat));
-        subContainer.appendChild(btn);
+function updateRailActive(cat) {
+    document.querySelectorAll('.rail-item').forEach(el => {
+        el.classList.toggle('is-active', el.dataset.cat === cat);
     });
 }
 
 function selectCategory(cat) {
     currentCategory = cat;
-
-    // Top tabs: highlight design parent if a design sub is active
-    const topActive = isDesignSub(cat) ? '__design__' : cat;
-    document.querySelectorAll('.cat-tab').forEach(t => {
-        t.classList.toggle('is-active', t.dataset.cat === topActive);
-    });
-
-    // Sub tabs: visible only when design parent or design sub active
-    const sub = document.getElementById('subcategory-tabs');
-    const showSub = cat === '__design__' || isDesignSub(cat);
-    sub.style.display = showSub ? '' : 'none';
-    if (showSub) {
-        document.querySelectorAll('.subcat-tab').forEach(t => {
-            t.classList.toggle('is-active', t.dataset.cat === cat);
-        });
-    }
-
+    updateRailActive(cat);
     renderItems();
 }
 
@@ -177,14 +149,6 @@ function setupToolbar() {
     document.getElementById('sort-select').addEventListener('change', (e) => {
         currentSort = e.target.value;
         renderItems();
-    });
-
-    document.getElementById('view-toggle').addEventListener('click', () => {
-        currentView = currentView === 'list' ? 'card' : 'list';
-        const container = document.getElementById('items-container');
-        container.className = currentView === 'list' ? 'view-list' : 'view-card';
-        document.getElementById('icon-grid').style.display = currentView === 'list' ? '' : 'none';
-        document.getElementById('icon-list').style.display = currentView === 'card' ? '' : 'none';
     });
 }
 
@@ -235,6 +199,9 @@ function renderItems() {
     container.innerHTML = '';
 
     const items = getFilteredItems();
+
+    const summary = document.getElementById('browse-summary');
+    if (summary) summary.textContent = `${items.length}개 도구`;
 
     if (items.length === 0) {
         container.innerHTML = '<div class="empty-state">검색 결과가 없습니다.</div>';
@@ -454,19 +421,87 @@ function renderColors() {
     grid.appendChild(frag);
 }
 
+// ===== Fonts viewer =====
+function setupFonts() {
+    const filters = document.getElementById('fonts-filters');
+    const tags = [...new Set(fontsData.fonts.map(f => f.tag).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, 'ko'));
+
+    const makeTab = (label, tag, count) => {
+        const btn = document.createElement('button');
+        btn.className = 'font-tab' + (tag === currentFontTag ? ' is-active' : '');
+        btn.innerHTML = `${label} <span class="cat-count">${count}</span>`;
+        btn.dataset.tag = tag;
+        btn.addEventListener('click', () => {
+            currentFontTag = tag;
+            document.querySelectorAll('.font-tab').forEach(t =>
+                t.classList.toggle('is-active', t.dataset.tag === tag));
+            renderFonts();
+        });
+        filters.appendChild(btn);
+    };
+
+    makeTab('전체', '__all__', fontsData.fonts.length);
+    tags.forEach(tag => {
+        const count = fontsData.fonts.filter(f => f.tag === tag).length;
+        makeTab(tag, tag, count);
+    });
+
+    document.getElementById('fonts-search').addEventListener('input', (e) => {
+        currentFontSearch = e.target.value.toLowerCase();
+        renderFonts();
+    });
+}
+
 function renderFonts() {
     const container = document.getElementById('font-container');
     container.innerHTML = '';
 
-    fontsData.fonts.forEach(font => {
-        const card = document.createElement('div');
-        card.className = 'font-card';
-        card.innerHTML =
-            `<div class="font-name"><a href="${font.url}" target="_blank">${font.name}</a></div>` +
-            `<span class="font-tag">${font.tag}</span>` +
-            `<div class="font-desc">${font.desc || ''}</div>`;
-        container.appendChild(card);
+    let fonts = fontsData.fonts;
+    if (currentFontTag !== '__all__') {
+        fonts = fonts.filter(f => f.tag === currentFontTag);
+    }
+    if (currentFontSearch) {
+        fonts = fonts.filter(f =>
+            f.name.toLowerCase().includes(currentFontSearch) ||
+            (f.desc && f.desc.toLowerCase().includes(currentFontSearch)) ||
+            (f.tag && f.tag.toLowerCase().includes(currentFontSearch))
+        );
+    }
+
+    document.getElementById('fonts-count').textContent =
+        fonts.length + ' / ' + fontsData.fonts.length + '개 폰트';
+
+    if (!fonts.length) {
+        container.innerHTML = '<div class="empty-state">조건에 맞는 폰트가 없습니다.</div>';
+        return;
+    }
+
+    const p = (k, v) => `${k}=${encodeURIComponent(v)}`;
+    const frag = document.createDocumentFragment();
+
+    fonts.forEach(font => {
+        const editTitle = `[글꼴 수정] ${font.name} | ${font.tag} | ${font.id}`;
+        const editUrl = `${REPO_URL}/issues/new?template=edit_font.yml&${p('title', editTitle)}&${p('name', font.name)}&${p('url', font.url || '')}&${p('desc', font.desc || '')}`;
+        const deleteTitle = `[글꼴 삭제] ${font.name} | ${font.tag} | ${font.id}`;
+        const deleteUrl = `${REPO_URL}/issues/new?template=delete_font.yml&${p('title', deleteTitle)}`;
+
+        const item = document.createElement('div');
+        item.className = 'font-item';
+        item.innerHTML =
+            `<div class="font-item-head">` +
+                `<span class="font-name"><a href="${font.url || '#'}" target="_blank">${font.name}</a></span>` +
+                `<span class="font-tag">${font.tag || ''}</span>` +
+            `</div>` +
+            `<div class="font-desc">${font.desc || ''}</div>` +
+            `<div class="item-actions">` +
+                `<a href="${editUrl}" target="_blank" title="수정">수정</a>` +
+                `<a href="${deleteUrl}" target="_blank" title="삭제">삭제</a>` +
+            `</div>`;
+        frag.appendChild(item);
     });
+
+    container.appendChild(frag);
 }
 
 // ===== Init =====

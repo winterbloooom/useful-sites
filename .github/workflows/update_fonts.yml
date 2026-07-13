@@ -1,0 +1,169 @@
+name: Update design-fonts.json from Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'add-font') || contains(github.event.issue.labels.*.name, 'edit-font') || contains(github.event.issue.labels.*.name, 'delete-font')
+    steps:
+      - name: Check maintainer permission (add/delete only)
+        if: contains(github.event.issue.labels.*.name, 'add-font') || contains(github.event.issue.labels.*.name, 'delete-font')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const assoc = context.payload.issue.author_association;
+            const allowed = ['OWNER', 'MEMBER', 'COLLABORATOR'];
+            if (!allowed.includes(assoc)) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: '⛔ 폰트 추가/삭제는 maintainer만 가능합니다. 권한이 없어 처리되지 않았습니다.',
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: 'closed',
+                state_reason: 'not_planned',
+              });
+              core.setFailed(`Permission denied: author_association="${assoc}"`);
+            }
+
+      - uses: actions/checkout@v4
+
+      - name: Parse issue and update JSON
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = context.payload.issue.body;
+            const labels = context.payload.issue.labels.map(l => l.name);
+
+            function parseField(name) {
+              const regex = new RegExp(`### ${name}\\s*\\n\\n([\\s\\S]*?)(?=\\n###|$)`);
+              const match = body.match(regex);
+              if (!match) return '';
+              const val = match[1].trim();
+              return val === '_No response_' ? '' : val;
+            }
+
+            const data = JSON.parse(fs.readFileSync('design-fonts.json', 'utf8'));
+            const fonts = data.fonts;
+
+            function findById(id) {
+              return fonts.findIndex(f => f.id === id);
+            }
+
+            if (labels.includes('add-font')) {
+              const name = parseField('글꼴 이름');
+              const url = parseField('URL');
+              const desc = parseField('설명');
+              const tag = parseField('분류');
+
+              if (!name || !tag) {
+                core.setFailed(`Invalid name or tag: name="${name}", tag="${tag}"`);
+                return;
+              }
+
+              const now = new Date();
+              const pad = (n) => String(n).padStart(2, '0');
+              const id = `font-${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+
+              fonts.push({ id, name, url: url || '', tag, desc: desc || '' });
+              console.log(`Added font "${name}" (${tag})`);
+
+            } else if (labels.includes('edit-font')) {
+              // Title format: "[글꼴 수정] 이름 | 분류 | id"
+              const title = context.payload.issue.title;
+              const titleMatch = title.match(/\|\s*(font-[\w-]+)\s*$/);
+              if (!titleMatch) {
+                core.setFailed(`Font ID not found in title: "${title}"`);
+                return;
+              }
+              const id = titleMatch[1];
+              const idx = findById(id);
+              if (idx === -1) {
+                core.setFailed(`Font not found: id="${id}"`);
+                return;
+              }
+
+              const font = fonts[idx];
+              const newName = parseField('이름');
+              const newUrl = parseField('URL');
+              const newDesc = parseField('설명');
+              const newTag = parseField('분류');
+
+              if (newName) font.name = newName;
+              if (newUrl) font.url = newUrl;
+              font.desc = newDesc;
+              if (newTag && newTag !== '(변경 안 함)') font.tag = newTag;
+
+              console.log(`Edited font id="${id}" ("${font.name}")`);
+
+            } else if (labels.includes('delete-font')) {
+              // Title format: "[글꼴 삭제] 이름 | 분류 | id"
+              const title = context.payload.issue.title;
+              const titleMatch = title.match(/\|\s*(font-[\w-]+)\s*$/);
+              if (!titleMatch) {
+                core.setFailed(`Font ID not found in title: "${title}"`);
+                return;
+              }
+              const id = titleMatch[1];
+              const idx = findById(id);
+              if (idx === -1) {
+                core.setFailed(`Font not found: id="${id}"`);
+                return;
+              }
+
+              const deleted = fonts.splice(idx, 1)[0];
+              console.log(`Deleted font id="${id}" ("${deleted.name}")`);
+            }
+
+            fs.writeFileSync('design-fonts.json', JSON.stringify(data, null, 4) + '\n');
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add design-fonts.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update design-fonts.json via issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: Close issue on success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ design-fonts.json이 업데이트되었습니다. 이 이슈는 자동으로 닫힙니다.',
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+            });
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '❌ 처리 중 오류가 발생했습니다. 입력 내용을 확인해 주세요.\n\n자세한 내용은 [Actions 로그](' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId + ')를 참고하세요.',
+            });

@@ -6,7 +6,9 @@
     <title>만물상자</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,13 +25,15 @@
             <button class="nav-tab" data-section="colors">Colors</button>
             <button class="nav-tab" data-section="fonts">Fonts</button>
         </nav>
+        <a id="header-cta" href="https://github.com/winterbloooom/useful-sites" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
 </header>
 
 <!-- Toolbox Section -->
 <main id="section-toolbox" class="section">
     <div class="hero container">
-        <div class="hero-title">필요한 건 다 <span>여기에.</span></div>
+        <div class="hero-eyebrow">ALL-IN-ONE TOOLBOX</div>
+        <h1 class="hero-title">필요한 건 다 <span>여기에.</span></h1>
         <div class="hero-count" id="hero-count"></div>
     </div>
 
@@ -39,34 +43,35 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <input type="text" id="search-input" placeholder="이름이나 설명으로 검색..." aria-label="검색">
         </div>
-        <div id="toolbar-actions">
-            <select id="sort-select" aria-label="정렬">
-                <option value="default">기본 정렬</option>
-                <option value="name">이름순</option>
-                <option value="frequent">자주 사용순</option>
-            </select>
-            <button id="view-toggle" title="뷰 전환">
-                <svg id="icon-grid" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                <svg id="icon-list" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            </button>
-            <a class="toolbar-link" href="https://github.com/winterbloooom/useful-sites/issues/new?template=add_site.yml" target="_blank" title="사이트 추가">+ 추가</a>
-        </div>
     </div>
 
-    <!-- Category Tabs -->
-    <div id="category-tabs" class="container"></div>
-    <div id="subcategory-tabs" class="container" style="display:none"></div>
-
-    <!-- Items -->
+    <!-- Browse: category rail + items -->
     <div class="container">
-        <div id="items-container" class="view-list"></div>
+        <div id="browse-controls">
+            <div id="browse-summary"></div>
+            <div id="browse-actions">
+                <select id="sort-select" aria-label="정렬">
+                    <option value="default">기본 정렬</option>
+                    <option value="name">이름순</option>
+                    <option value="frequent">자주 사용순</option>
+                </select>
+                <a class="toolbar-link" href="https://github.com/winterbloooom/useful-sites/issues/new?template=add_site.yml" target="_blank" title="사이트 추가">+ 추가</a>
+            </div>
+        </div>
+        <div id="toolbox-body">
+            <aside id="category-rail" aria-label="카테고리"></aside>
+            <div id="toolbox-main">
+                <div id="items-container" class="view-list"></div>
+            </div>
+        </div>
     </div>
 </main>
 
 <!-- Colors Section -->
 <section id="section-colors" class="section" style="display:none">
     <div class="hero container">
-        <div class="hero-title">컬러 <span>조합</span></div>
+        <div class="hero-eyebrow">COLOR PALETTES</div>
+        <h1 class="hero-title">컬러 <span>조합</span></h1>
         <div class="hero-count" id="colors-count">불러오는 중…</div>
     </div>
 
@@ -94,10 +99,26 @@
 <!-- Fonts Section -->
 <section id="section-fonts" class="section" style="display:none">
     <div class="hero container">
-        <div class="hero-title">폰트 <span>리스트</span></div>
-        <div class="hero-count">용도별 폰트를 빠르게 참고하세요</div>
+        <div class="hero-eyebrow">TYPEFACES</div>
+        <h1 class="hero-title">폰트 <span>리스트</span></h1>
+        <div class="hero-count" id="fonts-count">용도별 폰트를 빠르게 참고하세요</div>
     </div>
 
+    <!-- Toolbar -->
+    <div id="fonts-toolbar" class="container">
+        <div id="fonts-search-wrap">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="fonts-search" placeholder="이름이나 설명으로 검색..." aria-label="폰트 검색">
+        </div>
+    </div>
+
+    <!-- Tag filter (left) + add (right) -->
+    <div id="fonts-controls" class="container">
+        <div id="fonts-filters"></div>
+        <a class="toolbar-link" href="https://github.com/winterbloooom/useful-sites/issues/new?template=add_font.yml" target="_blank" title="폰트 추가">+ 추가</a>
+    </div>
+
+    <!-- Fonts -->
     <div class="container">
         <div id="font-container"></div>
     </div>

@@ -1,0 +1,38 @@
+name: "폰트 추가"
+description: "폰트 리스트에 새로운 글꼴을 추가합니다."
+labels: ["add-font"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: "글꼴 이름"
+      placeholder: "예: Pretendard"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: "URL"
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: input
+    id: desc
+    attributes:
+      label: "설명"
+      placeholder: "간단한 설명"
+    validations:
+      required: false
+  - type: dropdown
+    id: tag
+    attributes:
+      label: "분류"
+      options:
+        - 고딕
+        - 명조
+        - 코딩
+        - 손글씨
+        - 장식
+        - 기타
+    validations:
+      required: true
