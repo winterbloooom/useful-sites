@@ -204,6 +204,13 @@
             "url": "https://www.paperdebugger.com/",
             "desc": "_No response_",
             "pick": false
+        },
+        {
+            "id": "20260718-133829",
+            "name": "Stanford Agentic Reviewer",
+            "url": "https://paperreview.ai/",
+            "desc": "논문 넣으면 리뷰해줌",
+            "pick": false
         }
     ],
     "변환": [
