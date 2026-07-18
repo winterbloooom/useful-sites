@@ -197,6 +197,13 @@
             "url": "https://www.openread.academy/",
             "desc": "",
             "pick": false
+        },
+        {
+            "id": "20260718-133748",
+            "name": "PaperDebugger",
+            "url": "https://www.paperdebugger.com/",
+            "desc": "_No response_",
+            "pick": false
         }
     ],
     "변환": [
