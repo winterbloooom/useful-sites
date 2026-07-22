@@ -1300,6 +1300,13 @@
             "url": "https://getdesign.md/",
             "desc": "글로벌 브랜드의 design.md 파일 모음",
             "pick": false
+        },
+        {
+            "id": "20260722-012153",
+            "name": "Google Material Design",
+            "url": "https://m3.material.io/",
+            "desc": "구글에서 만든 컴포넌트 표준 문서(정확한 컴포넌트 용어, Dos&Donts 가이드)",
+            "pick": false
         }
     ],
     "통계·동향": [
