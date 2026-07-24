@@ -404,6 +404,13 @@
             "url": "https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols",
             "desc": "",
             "pick": false
+        },
+        {
+            "id": "20260724-081206",
+            "name": "antrophic skills",
+            "url": "https://github.com/anthropics/skills",
+            "desc": "Anthropic의 공식 claude code skills",
+            "pick": true
         }
     ],
     "시각화": [
