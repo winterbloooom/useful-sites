@@ -311,6 +311,13 @@
             "url": "https://fish.audio/ko/",
             "desc": "상업용이 아니라면 무료 이용 가능",
             "pick": false
+        },
+        {
+            "id": "20260724-072944",
+            "name": "https://github.com/kepano/defuddle",
+            "url": "https://github.com/kepano/defuddle",
+            "desc": "웹페이지의 불필요한 댓글, 사이드바, 헤더, 푸터를 제거하고 핵심 본문만 정제해 HTML/마크다운으로 추출하는 콘텐츠 파서",
+            "pick": false
         }
     ],
     "개발": [
