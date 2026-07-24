@@ -1014,6 +1014,13 @@
             "url": "https://lordicon.com/",
             "desc": "애니메이션 아이콘",
             "pick": false
+        },
+        {
+            "id": "20260724-074008",
+            "name": "OpenData - opendesign",
+            "url": "https://github.com/tryopendata/skills",
+            "desc": "SVG, logo, graphics를 위한 claude code plugin",
+            "pick": false
         }
     ],
     "사진·영상": [
