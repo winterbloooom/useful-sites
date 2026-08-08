@@ -1405,6 +1405,13 @@
             "url": "https://www.behance.net/",
             "desc": "_No response_",
             "pick": false
+        },
+        {
+            "id": "20260808-142742",
+            "name": "GDWEB",
+            "url": "https://www.gdweb.co.kr/main/",
+            "desc": "한국에서 가장 오래된 웹디자인 레퍼런스",
+            "pick": false
         }
     ],
     "통계·동향": [
