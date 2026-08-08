@@ -1349,6 +1349,13 @@
             "url": "https://adocs.co/",
             "desc": "국내 전시 도록을 아카이빙해둠",
             "pick": false
+        },
+        {
+            "id": "20260808-141611",
+            "name": "CSS Design Awards",
+            "url": "https://www.cssdesignawards.com/",
+            "desc": "웹디자인 대회 수상작",
+            "pick": false
         }
     ],
     "통계·동향": [
