@@ -1356,6 +1356,13 @@
             "url": "https://www.cssdesignawards.com/",
             "desc": "웹디자인 대회 수상작",
             "pick": false
+        },
+        {
+            "id": "20260808-141656",
+            "name": "Logobook",
+            "url": "https://logobook.com/",
+            "desc": "로고 아카이빙",
+            "pick": false
         }
     ],
     "통계·동향": [
