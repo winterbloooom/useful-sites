@@ -639,6 +639,13 @@
             "url": "https://colorable.jxnblk.com/",
             "desc": "메인 컬러와 서브 컬러 테스트하기 좋음. 랜덤으로 색 조합 찾을 수도.",
             "pick": false
+        },
+        {
+            "id": "20260808-142600",
+            "name": "UI Colors",
+            "url": "https://uicolors.app/generate",
+            "desc": "웹 디자인 색상 조합. 어떤 느낌인지 볼 수 있음",
+            "pick": true
         }
     ],
     "글꼴": [
