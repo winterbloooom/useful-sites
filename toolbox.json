@@ -125,6 +125,13 @@
             "url": "https://notebooklm.google.com/",
             "desc": "원본 소스에서만 핵심 정리 & 문답",
             "pick": false
+        },
+        {
+            "id": "20260808-142433",
+            "name": "Grainient Supply",
+            "url": "https://grainient.supply/",
+            "desc": "고퀄리티 그라디언트",
+            "pick": false
         }
     ],
     "연구": [
