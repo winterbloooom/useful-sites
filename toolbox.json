@@ -1028,6 +1028,13 @@
             "url": "https://github.com/tryopendata/skills",
             "desc": "SVG, logo, graphics를 위한 claude code plugin",
             "pick": false
+        },
+        {
+            "id": "20260808-141953",
+            "name": "ShaderGradient",
+            "url": "https://shadergradient.co/",
+            "desc": "움직이는 그라디언트 바로 만들 수 있음",
+            "pick": false
         }
     ],
     "사진·영상": [
