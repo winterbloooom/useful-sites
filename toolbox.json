@@ -1398,6 +1398,13 @@
             "url": "https://logobook.com/",
             "desc": "로고 아카이빙",
             "pick": false
+        },
+        {
+            "id": "20260808-142649",
+            "name": "Behance",
+            "url": "https://www.behance.net/",
+            "desc": "_No response_",
+            "pick": false
         }
     ],
     "통계·동향": [
