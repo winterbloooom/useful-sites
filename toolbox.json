@@ -618,6 +618,13 @@
             "url": "https://atmos.style/",
             "desc": "UI 위한 색상 팔레트 제작. Figma 플러그인 좋음",
             "pick": false
+        },
+        {
+            "id": "20260808-142315",
+            "name": "Khroma",
+            "url": "https://www.khroma.co/",
+            "desc": "좋아하는 색 50개를 고르면 AI가 취향에 맞는 팔레트를 만듦",
+            "pick": false
         }
     ],
     "글꼴": [
