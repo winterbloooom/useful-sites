@@ -1135,6 +1135,13 @@
             "url": "https://digital.khs.go.kr/",
             "desc": "3D 에셋, 전통 문양, 원천데이터 등",
             "pick": false
+        },
+        {
+            "id": "20260808-141424",
+            "name": "Same Energy",
+            "url": "https://same.energy/",
+            "desc": "마음에 드는 사진을 선택하면 유사한 이미지를 찾아줌",
+            "pick": false
         }
     ],
     "편집": [
