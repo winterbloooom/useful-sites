@@ -1426,6 +1426,13 @@
             "url": "https://transitions.dev/",
             "desc": "UI 디자인을 미리보고, 코딩 에이전트에게 줄 내용을 복붙",
             "pick": true
+        },
+        {
+            "id": "20260908-015504",
+            "name": "Refero Styles",
+            "url": "https://styles.refero.design/",
+            "desc": "DESIGN.md 뽑아줌",
+            "pick": false
         }
     ],
     "통계·동향": [
