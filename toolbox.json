@@ -1433,6 +1433,13 @@
             "url": "https://styles.refero.design/",
             "desc": "DESIGN.md 뽑아줌",
             "pick": false
+        },
+        {
+            "id": "20260908-015603",
+            "name": "Montage: 원티드 디자인시스템",
+            "url": "https://montage.wanted.co.kr/",
+            "desc": "MIT license",
+            "pick": false
         }
     ],
     "통계·동향": [
