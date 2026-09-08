@@ -1454,6 +1454,13 @@
             "url": "https://logosystem.co/",
             "desc": "_No response_",
             "pick": false
+        },
+        {
+            "id": "20260908-015924",
+            "name": "UXSnaps",
+            "url": "https://www.uxsnaps.com/",
+            "desc": "실제 앱의 UX 분석",
+            "pick": false
         }
     ],
     "통계·동향": [
