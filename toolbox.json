@@ -1440,6 +1440,13 @@
             "url": "https://montage.wanted.co.kr/",
             "desc": "MIT license",
             "pick": false
+        },
+        {
+            "id": "20260908-015809",
+            "name": "Font of Web",
+            "url": "https://design.withfudge.com/",
+            "desc": "실제 웹에서 폰트와 디자인 레퍼런스를 찾아주는 AI 기반 영감 피드",
+            "pick": false
         }
     ],
     "통계·동향": [
