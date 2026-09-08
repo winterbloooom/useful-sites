@@ -1447,6 +1447,13 @@
             "url": "https://design.withfudge.com/",
             "desc": "실제 웹에서 폰트와 디자인 레퍼런스를 찾아주는 AI 기반 영감 피드",
             "pick": false
+        },
+        {
+            "id": "20260908-015850",
+            "name": "Logo system",
+            "url": "https://logosystem.co/",
+            "desc": "_No response_",
+            "pick": false
         }
     ],
     "통계·동향": [
