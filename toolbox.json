@@ -1461,6 +1461,13 @@
             "url": "https://www.uxsnaps.com/",
             "desc": "실제 앱의 UX 분석",
             "pick": false
+        },
+        {
+            "id": "20260909-010132",
+            "name": "Astryx",
+            "url": "https://astryx.atmeta.com/",
+            "desc": "Meta에서 공개한 디자인 시스템 (React와 StyleX 기반)",
+            "pick": false
         }
     ],
     "통계·동향": [
